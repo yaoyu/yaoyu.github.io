@@ -1,0 +1,90 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Boost1.6x+win7+VC2015编译</title>
+    <link rel="stylesheet" href="/stylesheets/styles.css"
+</head>
+<body>
+    <div id="cnblogs_post_body">
+        <h2>下载</h2>
+        <hr>
+        <p><span style="font-size: 12px;">通过<a href="http://www.boost.org/" target="_blank">boost官方网站</a>,&nbsp;或直接在<a href="https://sourceforge.net/projects/boost/files/boost/1.61.0/" target="_blank">source forge</a>下载boost_1_6x_0.&nbsp;</span></p>
+        <h3>可选包</h3>
+        <hr>
+        <p><span style="font-size: 12px;"><a href="http://www.zlib.net/" target="_blank">Zlib library</a>, 环境变量: ZLIB_SOURCE</span></p>
+        <p><span style="font-size: 12px;"><a href="http://www.bzip.org/downloads.html" target="_blank">bzip2</a>, 环境变量: BZIP2_SOURCE</span></p>
+        <p><span style="font-size: 12px;"><a href="http://www.icu-project.%20org/download" target="_blank">ICU i18n</a>, 环境变量HAVE_ICU=1, ICU_PATH</span></p>
+        <p><span style="font-size: 12px;"><a href="https://sourceforge.net/projects/expat" target="_blank">expat</a>, 环境变量: EXPAT_INCLUDE (头文件包含目录) 和 EXPAT_LIBPATH (库目录)</span></p>
+        <h2>在Windows上编译Boost</h2>
+        <hr>
+        <p><span style="font-size: 12px;">下载完Boost源文件压缩包后, 创建boost-src目录, 并把源文件解压到此目录. 假设你想把Boost安装到boost-dir目录, boost-build目录是中间临时文件. 在命令行执行下面的步骤:</span></p>
+        <h3>编译器的选择（x86_amd64, amd64等的区别）<span style="font-size: 8pt;">(注:2)</span></h3>
+        <ul>
+            <li><span style="font-size: 12px;">32/64 位系统编译在32位系统上运行 =&gt; x86</span></li>
+            <li><span style="font-size: 12px;">32 系统上编译64位系统上运行 =&gt; x86_amd64</span></li>
+            <li><span style="font-size: 12px;">64 系统上编译在64位系统上运行 =&gt; amd64</span></li>
+        </ul>
+        <h4>1.初始化VC编译环境:</h4>
+        <ul>
+            <li><strong><span style="font-size: 12px;">32位系统上, 初始化32位VC编译环境:</span></strong></li>
+        </ul>
+        <p><span style="font-size: 12px;">　　　　"C:\Program Files\Microsoft Visual Studio 14.0\VC\vcvarsall.bat" x86</span></p>
+        <ul>
+            <li><strong><span style="font-size: 12px;">32位系统上, 要生成64位的boost库, 初始化64位VC++编译环境:</span></strong></li>
+        </ul>
+        <p>&nbsp;<span style="font-size: 12px;">　　　　"C:\Program Files\Microsoft Visual Studio 14.0\VC\vcvarsall.bat" x86_amd64</span></p>
+        <ul>
+            <li><strong><span style="font-size: 12px;">64位操作系统上, 安装的32位Visual Studio, Visual Studio 一般安装在 C:\Program Files (x86):</span></strong></li>
+        </ul>
+        <p><span style="font-size: 12px;">　　　　"C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\vcvarsall.bat" x86</span></p>
+        <ul>
+            <li><strong><span style="font-size: 12px;">64位操作系统上, 安装的32位Visual Studio, 生成64位库:</span></strong></li>
+        </ul>
+        <p><span style="font-size: 12px;">　　　　"C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\vcvarsall.bat"<span style="color: #000000; background-color: #ff6600;"> amd64</span></span></p>
+        <h4>2. 生成Boost编译系统:</h4>
+        <p><span style="font-size: 12px;">　　cd /d drive:\path\to\boost-src</span><br><span style="font-size: 12px;">　　bootstrap.bat</span></p>
+        <h4>3. 解压bzip2和zlib源压缩包, 备注解压的目录.</h4>
+        <h4>4. 编译和安装:</h4>
+        <ul>
+            <li><strong>32位库</strong></li>
+
+
+
+
+
+
+        </ul>
+        <p><span style="font-size: 12px;">　　b2 install --libdir=boost-dir\libs --includedir= boost-dir\include --build-dir=boost-build --layout=tagged variant=debug,release threading=multi link=shared runtime-link=shared -sZLIB_SOURCE=&lt;zlib-src-dir&gt; -sBZIP2_SOURCE=&lt;bzip2-src-dir&gt;</span></p>
+        <ul>
+            <li><strong>&nbsp;64位库</strong></li>
+
+
+
+
+
+
+        </ul>
+        <p><span style="font-size: 12px;">　　b2 install --libdir=boost-dir\libs64 --includedir= boostdir\include --build-dir=boost-build64 --layout=tagged variant=debug,release threading=multi link=shared runtime-link=shared address-model=64 –sZLIB_SOURCE=&lt;zlib-src-dir&gt; -sBZIP2_SOURCE=&lt;bzip2-src-dir&gt;</span></p>
+        <h2>我的实例:</h2>
+        <hr>
+        <p><span style="font-size: 12px;">"C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\vcvarsall.bat" x64</span><br><span style="font-size: 12px;">cd /d F:\Develop\Libs\boost_1_6x_0</span><br><span style="font-size: 12px;">bootstrap.bat</span></p>
+        <p><strong><span style="font-size: 12px;">1. 编译和安装32位库:</span></strong><br><span style="font-size: 12px;">b2 install --libdir=G:\yy\build\libs --includedir=G:\yy\build\include --build-dir=boost-build --layout=tagged variant=debug,release threading=multi link=shared runtime-link=shared</span></p>
+        <p><span style="font-size: 12px;">2. 编译和安装64位库:</span><br><span style="font-size: 12px;">b2 install --libdir=G:\yy\build\libs64 --includedir=G:\yy\build\include --build-dir=boost-build64--layout=tagged variant=debug,release threading=multi link=shared runtime-link=shared address-model=64<span style="background-color: #ccffff; color: #ff0000;"><strong><em> architecture=x86 <br></em></strong></span></span></p>
+        <p><strong><span style="font-size: 12px;">3. 编译和安装64位库(方式2):</span></strong></p>
+        <p><span style="font-size: 12px;">b2 install --prefix=F:\Develop\bin\x64\boost-1_62 --build-dir=boost-build64 --layout=tagged variant=debug,release threading=multi link=shared runtime-link=shared address-model=64 architecture=x86 --with-thread --with-graph --with-date_time</span></p>
+        <p><strong><span style="font-size: 12px;">4. 编译和安装64位库(<span style="font-size: 10px;">2017-3-2 1.63</span>):</span></strong></p>
+        <p>&nbsp;<span style="font-size: 12px;">&nbsp;b2 install --prefix=F:\Develop\bin\x64\boost-1_63 --build-dir=F:\Develop\build\VC14\boost-1_63-build64 address-model=64 architecture=x86 --with-thread <br>&nbsp;默认值：<br>　　--build-type=minimal 　　在Windows上, 生成基于共享运行库的debug和release静态多线程库<br>　　<span style="font-size: 12px;">--layout=</span>versioned　　　 在Windows上默认，Boost二进制文件名称包括Boost版本号、编译器名称和版本和编码生成属性。<br>　　　　　　　　　　　　　　　　　　Boost头文件安装在&lt;HDRDIR&gt;子目录 &lt;HDRDIR&gt;的名字包含Boost版本号。 <br></span></p>
+        <p><span style="font-size: 12px;">5<strong><span style="font-size: 12px;">. 编译和安装64位库(boost.python)(<span style="font-size: 10px;">2017-3-18 1.63):</span></span></strong></span></p>
+        <p><span style="font-size: 12px;">&nbsp;b2 install --prefix=D:\Develop\bin\vc14\x64\boost-1_63 --build-dir=D:\Develop\build\vc14\boost-1_63-build64 address-model=64 architecture=x86 toolset=msvc-14.0 --with-python link=shared</span></p>
+        <p>&nbsp;</p>
+        <h2>Boost的自动链接功能:</h2>
+        <p>&nbsp;</p>
+        <hr>
+        <p><span style="font-size: 12px;"><span style="font-size: 12px;">Boost默认启用自动链接功能, 建议采用关闭自动链接功能。<br>　　在附加预定义宏 加 BOOST_ALL_NO_LIB ，这样就关闭了BOOST的自动链接LIB的功能。然后把需要的lib库在附加库里手动加入。</span></span></p>
+        <h3>修订:</h3>
+        <p><span style="font-size: 12px;">1. 2016-11-09: 64位编译需要加入CPU架构参数: architecture=x86</span><br><span style="font-size: 12px;">2. 2016-11-23: 编译器的选择（x86_amd64, amd64等的区别）, 内容进行了整理, boost更新到1.62.0<br>3. <span style="font-size: 12px;">2017-03-02: </span>使用默认参数编译, boost更新到1.63.0<br>4. 2017-04-15: 建议关闭boost自动链接功能<br></span></p>
+    </div>
+</body>
+</html>
