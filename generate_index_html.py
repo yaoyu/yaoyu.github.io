@@ -10,7 +10,7 @@
 '''
 
 import os
-from helper.file_helper import *
+from yy.helper.file_helper import *
 
 def html_file_get_title(filename):
     assert (os.path.isfile(filename)), filename
