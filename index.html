@@ -2,36 +2,35 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <style>
-    hr{
-    	height:1px;
-    	border:none;
-    	border-top: 1px solid #555555;
-    }
-    </style>
-    <title>老树</title>
+    <title>老树的窝</title>
     <meta name="viewport" content="width=device-width">
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+      body{
+        width:90%;
+        margin: 0 auto;
+      }
+      p, li{
+        line-height: 150%;
+        text-indent:2em;
+      }
+    </style>
   </head>
   <body>
-    <h4>老树的窝</h4>
+    <h2>老树的窝</h2>
     <hr>
-    <h3>PDF规范中的当前转换矩阵</h3>
-    <p>
-    为了解PDF里坐标转换的运算，重要的是要记住两点：
-    <ul>
-    <li>转换改变坐标系统，而不是图形对象。
-    <p>
-    在转换应用之前, 绘制的所有对象都不受转换影响。<br>
-    在转换应用之后, 绘制的对象在转换坐标系中被解释。
-    </p>
-    </li>
-	<li>变换矩阵指定了从新的（转换的）坐标系统到原始的（未转换的）坐标系统的转换。
-	<p>在转换之后使用的所有坐标都表示在了转换的坐标系中。PDF应用转换矩阵到未转换的坐标系统中去寻找等价坐标。</p>
-	</li>
-	</ul>
-注：很多计算机图形教科书更多的考虑图形对象的转换而不是坐标系的转换。尽管两种方法都是正确一致的，但一些计算的细节不同，这取决于从不同的出发点来看问题(some details of the calculations differ depending on which point of view is taken)
-    </p>
-
-    
+    <ol>
+<li><a href="blender/blender3d_basic/ch01.html">Blender3d基础, 第1章 Blender和动画介绍</a></li>
+<li><a href="blender/blender3d_basic/ch02.html">Blender3d基础, 第2章 使用3d视图, 越来越舒服</a></li>
+<li><a href="blender/blender3d_basic/ch03.html">Blender3d基础, 第3章 灯,相机和动画对象</a></li>
+<li><a href="blender_api.html">Blender API</a></li>
+<li><a href="boost1_6_win7_vs2015.html">Boost1.6x+win7+VC2015编译</a></li>
+<li><a href="bootstrap_s01.html">某管理系统</a></li>
+<li><a href="management.html">管理学指南</a></li>
+<li><a href="pdf.html">PDF规范中的当前转换矩阵</a></li>
+<li><a href="test.html">测试页</a></li>
+<li><a href="tornado.html">tornado帮助</a></li>
+</ol>
   </body>
 </html>
