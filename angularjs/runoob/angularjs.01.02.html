@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>runoob 01.02 你好,AngularJS2</title>
+    <script src="https://cdn.bootcss.com/angular.js/1.6.6/angular.js"></script>
+</head>
+<body>
+
+<div ng-app="myApp" ng-controller="myCtrl">
+
+    姓: <input type="text" ng-model="lastName"><br>
+    名: <input type="text" ng-model="firstName"><br>
+    <br>
+    姓名: {{lastName + " " + firstName}}
+    <p>循环对象：</p>
+    <ul>
+        <li ng-repeat="x in names">
+            {{ x.name + ', ' + x.country }}
+        </li>
+    </ul>
+
+</div>
+
+<script>
+    var app = angular.module('myApp', []);
+    app.controller('myCtrl', function($scope) {
+        $scope.firstName= "John";
+        $scope.lastName= "Doe";
+        $scope.names=[
+            {name:'Jani',country:'Norway'},
+            {name:'Hege',country:'Sweden'},
+            {name:'Kai',country:'Denmark'}];
+    });
+</script>
+
+</body>
+</html>
