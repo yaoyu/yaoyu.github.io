@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CMake简明教程</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.bootcss.com/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+    <style>
+        body{
+            width:90%;
+            margin: 0 auto;
+        }
+        p, li{
+            line-height: 150%;
+            text-indent:2em;
+        }
+    </style>
+</head>
+<body>
+<a href="http://www.jianshu.com/p/bbf68f9ddffa">CMake简要教程</a>
+<h2>A Basic Starting Point (Step1)</h2>
+<p>The most basic project is an executable built from source code files</p>
+<p>最基本的工程是通过源文件列表生成执行程序. 对于一个简单的工程来说，两行的CMakeLists.txt文件就足够了。这将是我们教程的开始。CMakeLists.txt文件内容如下：</p>
+<pre>cmake_minimum_required (VERSION 2.6)
+project (Tutorial)
+add_executable(Tutorial tutorial.cxx)
+</pre>
+<p>注意，在这个例子中，CMakeLists.txt都是使用的小写字母。事实上，CMake命令可以是大写,小写，也可以混写。tutorial.cxx源码会计算出一个数的平方根。它的第一个版本看起来非常简单，如下：</p>
+<pre>// A simple program that computes the square root of a number
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;math.h&gt;
+int main (int argc, char *argv[])
+{
+  if (argc &lt; 2)
+    {
+    fprintf(stdout,"Usage: %s number\n",argv[0]);
+    return 1;
+    }
+  double inputValue = atof(argv[1]);
+  double outputValue = sqrt(inputValue);
+  fprintf(stdout,"The square root of %g is %g\n",
+          inputValue, outputValue);
+  return 0;
+}
+</pre>
+</body>
+</html>
