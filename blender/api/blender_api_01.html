@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Blender.API.01 基础图元创建</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <link href="https://cdn.bootcss.com/highlight.js/9.12.0/styles/vs2015.min.css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.bootcss.com/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+    <style>
+        body{
+            width:90%;
+            margin: 0 auto;
+        }
+        p, li{
+            line-height: 150%;
+            text-indent:2em;
+        }
+    </style>
+    <script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+<h1>Blender API 01 基础图元创建</h1>
+<h3>第一章 简单介绍</h3>
+<h4>创建Cube</h4>
+<pre><code class="python"># Make a bigger cube sitting in the first quadrant
+bpy.ops.mesh.primitive_cube_add(radius=3, location=(5, 5, 5))
+</code></pre>
+<p>测试实例</p>
+<pre><code class="python"># Listing 1-6. Creating a Cube of Cubes
+import bpy
+for k in range(5):
+    for j in range(5):
+        for i in range(5):
+            bpy.ops.mesh.primitive_cube_add(radius=0.25, location=(i, j, k))
+</code></pre>
+
+<h3>第二章 bpy模块</h3>
+<h4>模块概要</h4>
+<h5>bpy.ops</h5>
+<p>操作(operators), 它是操作物体的主要函数集</p>
+
+<h5>bpy.context</h5>
+<p>访问物体和areas of Blender by various status criteria.</p>
+
+<h5>bpy.data</h5>
+<p>访问Blender内部数据</p>
+
+<h5>bpy.app</h5>
+<p>...</p>
+
+<h5>bpy.types, bpy.utils, and bpy.props</h5>
+<p>...</p>
+
+<h5>bpy.path</h5>
+<p>与os.path类似</p>
+
+<h4>选择,激活和命名对象 Selection, Activation, and Specification</h4>
+<ul>
+    <li>选择(Selection):0+</li>
+    <li>激活(Activation):1,一次只有一个对象激活</li>
+    <li>Specification</li>
+</ul>
+
+<h5>选择(Selection)</h5>
+<pre><code class="python"># Listing 2-1. Getting a List of Selected Objects
+# Outputs bpy.data.objects datablocks
+bpy.context.selected_objects
+
+# Example output of Listing 2.1, list of bpy.data.objects datablocks
+[bpy.data.objects['Sphere'], bpy.data.objects['Circle'], bpy.data.objects['Cube']]
+</code></pre>
+
+<pre><code class="python"># Listing 2-2. Getting a List of Selected Objects
+# Return the names of selected objects
+[k.name for k in bpy.context.selected_objects]
+
+# Return the locations of selected objects
+# (location of origin assuming no pending transformations)
+[k.location for k in bpy.context.selected_objects]
+</code></pre>
+
+<pre><code class="python">#Listing 2-3. Programmatically Selecting Objects
+import bpy
+def mySelector(objName, additive=False):
+    # By default, clear other selections
+    if not additive:
+        bpy.ops.object.select_all(action='DESELECT')
+    # Set the 'select' property of the datablock to True
+    bpy.data.objects[objName].select = True
+
+# Select only 'Cube'
+mySelector('Cube')
+# Select 'Sphere', keeping other selections
+mySelector('Sphere', additive=True)
+
+# Translate selected objects 1 unit along the x-axis
+bpy.ops.transform.translate(value=(1, 0, 0))
+</code></pre>
+
+<h5>激活(Activating)</h5>
+<pre><code class="python">import bpy
+def myActivator(objName):
+    # Pass bpy.data.objects datablock to scene class
+    bpy.context.scene.objects.active = bpy.data.objects[objName]
+
+# Activate the object named 'Sphere'
+myActivator('Sphere')
+
+# Verify the 'Sphere' was activated
+print("Active object:", bpy.context.object.name)
+
+# Selected objects were unaffected
+print("Selected objects:", bpy.context.selected_objects)
+</code></pre>
+
+<h5>指定名称对象 Specifying an Object (Accessing by Name)</h5>
+<pre><code class="python">#Listing 2-7. Programmatically Accessing an Object by Specification
+import bpy
+    def mySpecifier(objName):
+    # Return the datablock
+    return bpy.data.objects[objName]
+
+# Store a reference to the datablock
+myCube = mySpecifier('Cube')
+
+# Output the location of the origin
+print(myCube.location)
+
+# Works exactly the same as above
+myCube = bpy.data.objects['Cube']
+print(myCube.location)
+</code></pre>
+
+<h5>bpy几何变换</h5>
+<pre><code class="python"># Listing 2-9. Minimal Toolkit for Creation and Transformation (ut.py)
+import bpy
+# Selecting objects by name
+def select(objName):
+    bpy.ops.object.select_all(action='DESELECT')
+    bpy.data.objects[objName].select = True
+
+# Activating objects by name
+def activate(objName):
+    bpy.context.scene.objects.active = bpy.data.objects[objName]
+
+class sel:
+    """Function Class for operating on SELECTED objects"""
+
+    # Differential
+    def translate(v):
+        bpy.ops.transform.translate(
+            value=v, constraint_axis=(True, True, True))
+
+    # Differential
+    def scale(v):
+        bpy.ops.transform.resize(value=v, constraint_axis=(True, True, True))
+
+    # Differential
+    def rotate_x(v):
+        bpy.ops.transform.rotate(value=v, axis=(1, 0, 0))
+
+    # Differential
+    def rotate_y(v):
+        bpy.ops.transform.rotate(value=v, axis=(0, 1, 0))
+
+    # Differential
+    def rotate_z(v):
+        bpy.ops.transform.rotate(value=v, axis=(0, 0, 1))
+
+class act:
+    """Function Class for operating on ACTIVE objects"""
+    # Declarative
+    def location(v):
+        bpy.context.object.location = v
+
+    # Declarative
+    def scale(v):
+        bpy.context.object.scale = v
+
+    # Declarative
+    def rotation(v):
+        bpy.context.object.rotation_euler = v
+
+    # Rename the active object
+    def rename(objName):
+        bpy.context.object.name = objName
+
+class spec:
+    """Function Class for operating on SPECIFIED objects"""
+    # Declarative
+    def scale(objName, v):
+        bpy.data.objects[objName].scale = v
+
+    # Declarative
+    def location(objName, v):
+        bpy.data.objects[objName].location = v
+
+    # Declarative
+    def rotation(objName, v):
+        bpy.data.objects[objName].rotation_euler = v
+
+class create:
+    """Function Class for CREATING Objects"""
+    def cube(objName):
+        bpy.ops.mesh.primitive_cube_add(radius=0.5, location=(0, 0, 0))
+        act.rename(objName)
+
+    def sphere(objName):
+        bpy.ops.mesh.primitive_uv_sphere_add(size=0.5, location=(0, 0, 0))
+        act.rename(objName)
+
+    def cone(objName):
+        bpy.ops.mesh.primitive_cone_add(radius1=0.5, location=(0, 0, 0))
+        act.rename(objName)
+
+# Delete an object by name
+def delete(objName):
+    select(objName)
+    bpy.ops.object.delete(use_global=False)
+
+# Delete all objects
+def delete_all():
+    if(len(bpy.data.objects) != 0):
+        bpy.ops.object.select_all(action='SELECT')
+        bpy.ops.object.delete(use_global=False)
+
+if __name__ == "__main__":
+    # Create a cube
+    create.cube('PerfectCube')
+
+    # Differential transformations combine
+    sel.translate((0, 1, 2))
+    sel.scale((1, 1, 2))
+    sel.scale((0.5, 1, 1))
+    sel.rotate_x(3.1415 / 8)
+    sel.rotate_x(3.1415 / 7)
+    sel.rotate_z(3.1415 / 3)
+
+    # Create a cone
+    create.cone('PointyCone')
+
+    # Declarative transformations overwrite
+    act.location((-2, -2, 0))
+    spec.scale('PointyCone', (1.5, 2.5, 2))
+
+    # Create a Sphere
+    create.sphere('SmoothSphere')
+
+    # Declarative transformations overwrite
+    spec.location('SmoothSphere', (2, 0, 0))
+    act.rotation((0, 0, 3.1415 / 3))
+    act.scale((1, 3, 1))
+</code></pre>
+
+<h5>使用ut.py进行数据可视化</h5>
+<pre><code class="python">import ut
+import csv
+import urllib.request
+###################
+# Reading in Data #
+###################
+# Read iris.csv from file repository
+url_str = 'http://blender.chrisconlan.com/iris.csv'
+iris_csv = urllib.request.urlopen(url_str)
+iris_ob = csv.reader(iris_csv.read().decode('utf-8').splitlines())
+# Store header as list, and data as list of lists
+iris_header = []
+iris_data = []
+
+for v in iris_ob:
+    if not iris_header:
+        iris_header = v
+    else:
+        v = [float(v[0]),
+            float(v[1]),
+            float(v[2]),
+            float(v[3]),
+            str(v[4])]
+    iris_data.append(v)
+
+# Columns:
+# 'Sepal.Length', 'Sepal.Width',
+# 'Petal.Length', 'Petal.Width', 'Species'
+
+# Visualize 3 dimensions
+# Sepal.Length, Sepal.Width, and 'Petal.Length'
+
+# Clear scene
+ut.delete_all()
+
+# Place data
+for i in range(1, len(iris_data)):
+    ut.create.sphere('row-' + str(i))
+    v = iris_data[i]
+    ut.act.scale((0.25, 0.25, 0.25))
+    ut.act.location((v[0], v[1], v[2]))
+
+# Columns:
+# 'Sepal.Length', 'Sepal.Width',
+# 'Petal.Length', 'Petal.Width', 'Species'
+
+# Visualize 3 dimensions
+# Sepal.Length, Sepal.Width, and 'Petal.Length'
+
+# Clear scene
+ut.delete_all()
+
+# Place data
+for i in range(1, len(iris_data)):
+    v = iris_data[i]
+    ut.create.sphere('row-' + str(i))
+    ut.act.scale((0.25, 0.25, 0.25))
+    ut.act.location((v[0], v[1], v[2]))
+</code></pre>
+</body>
+</html>
