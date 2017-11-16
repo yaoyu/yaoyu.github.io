@@ -4,9 +4,14 @@
 <head>
     <meta charset="utf-8" />
     <title>Boost1.6x+win7+VC2015编译</title>
-    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
-    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <link href="https://cdn.bootcss.com/highlight.js/9.12.0/styles/vs2015.min.css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.bootcss.com/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+
     <style>
         body{
             width:90%;
@@ -17,13 +22,18 @@
             text-indent:2em;
         }
     </style>
+    <script>hljs.initHighlightingOnLoad();</script></head>
 </head>
 <body>
     <h1>Boost1.6x+win7+VC2015编译</h1>
     <hr>
 
     <h2>Boost源代码及可选包下载</h2>
-    <p>通过<a href="http://www.boost.org/">boost官方网站</a>, 或直接在<a href="https://sourceforge.net/projects/boost/files/boost/">sourceforge</a>下载boost_1_6x_0.</p>
+    <ol>
+        <li>通过<a href="http://www.boost.org/">boost官方网站</a></li>
+        <li>或直接在<a href="https://sourceforge.net/projects/boost/files/boost/">sourceforge</a>下载boost_1_6x_0.</li>
+        <li>或者在boost代码下载站下载源代码或可执行代码<a href="https://dl.bintray.com/boostorg/release">https://dl.bintray.com/boostorg/release</a></li>
+    </ol>
 
     <h3>可选包</h3>
     <p><a href="http://www.zlib.net/">Zlib library</a>, 环境变量: ZLIB_SOURCE</p>
@@ -44,19 +54,19 @@
     <ul>
         <li><strong>32位系统上, 初始化32位VC编译环境:</strong></li>
     </ul>
-    <pre>"C:\Program Files\Microsoft Visual Studio 14.0\VC\vcvarsall.bat" x86</pre>
+    <pre><code class="bat">"C:\Program Files\Microsoft Visual Studio 14.0\VC\vcvarsall.bat" x86</code></pre>
     <ul>
         <li><strong>32位系统上, 要生成64位的boost库, 初始化64位VC++编译环境:</strong></li>
     </ul>
-    <pre>"C:\Program Files\Microsoft Visual Studio 14.0\VC\vcvarsall.bat" x86_amd64</pre>
+    <pre><code class="bat">"C:\Program Files\Microsoft Visual Studio 14.0\VC\vcvarsall.bat" x86_amd64</code></pre>
     <ul>
         <li><strong>64位操作系统上, 安装的32位Visual Studio, Visual Studio 一般安装在 C:\Program Files (x86):</strong></li>
     </ul>
-    <pre>"C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\vcvarsall.bat" x86</pre>
+    <pre><code class="bat">"C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\vcvarsall.bat" x86</code></pre>
     <ul>
         <li><strong>64位操作系统上, 安装的32位Visual Studio, 生成64位库:</strong></li>
     </ul>
-    <pre>"C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\vcvarsall.bat"<span style="color: #000000; background-color: #ff6600;"> amd64</span></pre>
+    <pre><code class="bat">"C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\vcvarsall.bat"<span style="color: #000000; background-color: #ff6600;"> amd64</span></code></pre>
     <h4>2. 生成Boost编译系统:</h4>
     <pre>
     cd /d drive:\path\to\boost-src
@@ -67,39 +77,39 @@
     <ul>
         <li><strong>32位库</strong></li>
     </ul>
-    <pre>b2 install --libdir=boost-dir\libs --includedir= boost-dir\include --build-dir=boost-build --layout=tagged variant=debug,release threading=multi link=shared runtime-link=shared -sZLIB_SOURCE=&lt;zlib-src-dir&gt; -sBZIP2_SOURCE=&lt;bzip2-src-dir&gt;</pre>
+    <pre><code class="bat">b2 install --libdir=boost-dir\libs --includedir= boost-dir\include --build-dir=boost-build --layout=tagged variant=debug,release threading=multi link=shared runtime-link=shared -sZLIB_SOURCE=&lt;zlib-src-dir&gt; -sBZIP2_SOURCE=&lt;bzip2-src-dir&gt;</code></pre>
     <ul>
         <li><strong>&nbsp;64位库</strong></li>
     </ul>
-    <pre>b2 install --libdir=boost-dir\libs64 --includedir= boostdir\include --build-dir=boost-build64 --layout=tagged variant=debug,release threading=multi link=shared runtime-link=shared address-model=64 –sZLIB_SOURCE=&lt;zlib-src-dir&gt; -sBZIP2_SOURCE=&lt;bzip2-src-dir&gt;</pre>
+    <pre><code class="bat">b2 install --libdir=boost-dir\libs64 --includedir= boostdir\include --build-dir=boost-build64 --layout=tagged variant=debug,release threading=multi link=shared runtime-link=shared address-model=64 –sZLIB_SOURCE=&lt;zlib-src-dir&gt; -sBZIP2_SOURCE=&lt;bzip2-src-dir&gt;</code></pre>
 
     <hr>
     <h2>我的实例:</h2>
-    <pre>
+    <pre><code class="bat">
     "C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\vcvarsall.bat" x64
     cd /d F:\Develop\Libs\boost_1_6x_0
     bootstrap.bat
-</pre>
+</code></pre>
 
     <h4>1. 编译和安装32位库:</h4>
-    <pre>b2 install --libdir=G:\yy\build\libs --includedir=G:\yy\build\include --build-dir=boost-build --layout=tagged variant=debug,release threading=multi link=shared runtime-link=shared
-</pre>
+    <pre><code class="bat">b2 install --libdir=G:\yy\build\libs --includedir=G:\yy\build\include --build-dir=boost-build --layout=tagged variant=debug,release threading=multi link=shared runtime-link=shared
+</code></pre>
 
     <h4>2. 编译和安装64位库:</h4>
-    <pre>b2 install --libdir=G:\yy\build\libs64 --includedir=G:\yy\build\include --build-dir=boost-build64--layout=tagged variant=debug,release threading=multi link=shared runtime-link=shared address-model=64<span style="background-color: #ccffff; color: #ff0000;"><strong><em> architecture=x86 <br></em></strong>
-</pre>
+    <pre><code class="bat">b2 install --libdir=G:\yy\build\libs64 --includedir=G:\yy\build\include --build-dir=boost-build64--layout=tagged variant=debug,release threading=multi link=shared runtime-link=shared address-model=64<span style="background-color: #ccffff; color: #ff0000;"><strong><em> architecture=x86 <br></em></strong>
+</span></code></pre>
 
     <h4>3. 编译和安装64位库(方式2):</h4>
-    <pre>b2 install --prefix=F:\Develop\bin\x64\boost-1_62 --build-dir=boost-build64 --layout=tagged variant=debug,release threading=multi link=shared runtime-link=shared address-model=64 architecture=x86 --with-thread --with-graph --with-date_time
-</pre>
+    <pre><code class="bat">b2 install --prefix=F:\Develop\bin\x64\boost-1_62 --build-dir=boost-build64 --layout=tagged variant=debug,release threading=multi link=shared runtime-link=shared address-model=64 architecture=x86 --with-thread --with-graph --with-date_time
+</code></pre>
 
     <h4>4. 编译和安装64位库(<span style="font-size: 10px;">2017-3-2 1.63)</span>:</h4>
-    <pre>b2 install --prefix=F:\Develop\bin\x64\boost-1_63 --build-dir=F:\Develop\build\VC14\boost-1_63-build64 address-model=64 architecture=x86 --with-thread <br>&nbsp;默认值：<br>　　--build-type=minimal 　　在Windows上, 生成基于共享运行库的debug和release静态多线程库<br>　　--layout=versioned　　　 在Windows上默认，Boost二进制文件名称包括Boost版本号、编译器名称和版本和编码生成属性。<br>　　　　　　　　　　　　　　　　　　Boost头文件安装在&lt;HDRDIR&gt;子目录 &lt;HDRDIR&gt;的名字包含Boost版本号。 <br>
-</pre>
+    <pre><code class="bat">b2 install --prefix=F:\Develop\bin\x64\boost-1_63 --build-dir=F:\Develop\build\VC14\boost-1_63-build64 address-model=64 architecture=x86 --with-thread <br>&nbsp;默认值：<br>　　--build-type=minimal 　　在Windows上, 生成基于共享运行库的debug和release静态多线程库<br>　　--layout=versioned　　　 在Windows上默认，Boost二进制文件名称包括Boost版本号、编译器名称和版本和编码生成属性。<br>　　　　　　　　　　　　　　　　　　Boost头文件安装在&lt;HDRDIR&gt;子目录 &lt;HDRDIR&gt;的名字包含Boost版本号。 <br>
+</code></pre>
 
     <h4>5. 编译和安装64位库(boost.python)(<span style="font-size: 10px;">2017-3-18 1.63)</span></h4>
-    <pre>b2 install --prefix=D:\Develop\bin\vc14\x64\boost-1_63 --build-dir=D:\Develop\build\vc14\boost-1_63-build64 address-model=64 architecture=x86 toolset=msvc-14.0 --with-python link=shared
-</pre>
+    <pre><code class="bat">b2 install --prefix=D:\Develop\bin\vc14\x64\boost-1_63 --build-dir=D:\Develop\build\vc14\boost-1_63-build64 address-model=64 architecture=x86 toolset=msvc-14.0 --with-python link=shared
+</code></pre>
 
     <hr>
     <h2>Boost的自动链接功能:</h2>

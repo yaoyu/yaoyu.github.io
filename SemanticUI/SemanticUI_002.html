@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Semantic UI 002</title>
+    <link href="https://cdn.bootcss.com/semantic-ui/2.2.13/semantic.min.css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.slim.min.js"></script>
+    <script src="https://cdn.bootcss.com/semantic-ui/2.2.13/semantic.min.js"></script>
+    <script>
+        $('.rapid.example .ui.button')
+            .on('click', function() {
+                var
+                    $progress       = $('.rapid.example .ui.progress'),
+                    $button         = $(this),
+                    updateEvent
+                ;
+                clearInterval(window.fakeProgress)
+                $progress.progress('reset');
+                // updates every 10ms until complete
+                window.fakeProgress = setInterval(function() {
+                    $progress.progress('increment');
+                    $button.text( $progress.progress('get value') );
+                    // stop incrementing when complete
+                    if($progress.progress('is complete')) {
+                        clearInterval(window.fakeProgress)
+                    }
+                }, 10);
+            })
+        ;
+        $('.rapid.example .ui.progress')
+            .progress({
+                duration : 200,
+                total    : 200,
+                text     : {
+                    active: '{value} of {total} done'
+                }
+            })
+        ;
+    </script>
+</head>
+<body>
+
+<div class="ui fixed inverted menu">
+    <a href="#" class="item">Home</a>
+    <a href="#" class="item">About</a>
+    <a href="#" class="item">Other</a>
+</div>
+
+<div class="ui vertical inverted segment">
+    <div class="ui image">
+        <img src="images/banner-landing page.jpg" alt="" />
+    </div>
+</div>
+<div class="ui indicating progress" data-value="1" data-total="200" id="example5">
+    <div class="bar">
+        <div class="progress"></div>
+    </div>
+    <div class="label">Waiting for you to press button</div>
+</div>
+<div class="ui vertical segment">
+
+    <div class="ui grid">
+        <div class="ui ten wide column">
+            <div class="ui image">
+                <img src="images/devices2.png" alt="" />
+            </div>
+        </div>
+        <div class="ui six wide column">
+            <h2 class="ui header">
+                <i class="icon star"></i>
+                this is a title
+            </h2>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            </p>
+        </div>
+    </div>
+</div>
+
+<div class="ui vertical very padded inverted segment">
+    <div class="ui grid">
+        <div class="ui four wide column">
+            <div class="ui vertical inverted text menu">
+                <div class="item">
+                    <h4 class="ui inverted header">Company</h4>
+                </div>
+                <div class="item">
+                    address:cn
+                </div>
+                <div class="item">
+                    tel:00000000
+                </div>
+                <div class="item">
+                    fax:11111111
+                </div>
+            </div>
+        </div>
+
+        <div class="ui four wide column">
+            <div class="ui vertical inverted text menu">
+                <div class="item">
+                    <h4 class="ui inverted header">Company</h4>
+                </div>
+                <div class="item">
+                    address:cn
+                </div>
+                <div class="item">
+                    tel:00000000
+                </div>
+                <div class="item">
+                    fax:11111111
+                </div>
+            </div>
+        </div>
+
+        <div class="ui four wide column">
+            <div class="ui vertical inverted text menu">
+                <div class="item">
+                    <h4 class="ui inverted header">Company</h4>
+                </div>
+                <div class="item">
+                    address:cn
+                </div>
+                <div class="item">
+                    tel:00000000
+                </div>
+                <div class="item">
+                    fax:11111111
+                </div>
+            </div>
+        </div>
+
+        <div class="ui four wide column">
+            <div class="ui vertical inverted text menu">
+                <div class="item">
+                    <h4 class="ui inverted header">Company</h4>
+                </div>
+                <div class="item">
+                    address:cn
+                </div>
+                <div class="item">
+                    tel:00000000
+                </div>
+                <div class="item">
+                    fax:11111111
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

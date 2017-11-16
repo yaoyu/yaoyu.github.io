@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Math.Eigen 001 基础</title>
+    <link href="https://cdn.bootcss.com/semantic-ui/2.2.13/semantic.min.css" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/highlight.js/9.12.0/styles/vs2015.min.css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.slim.min.js">&lt;/script>
+    <script src="https://cdn.bootcss.com/semantic-ui/2.2.13/semantic.min.js"></script>
+    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script></head>
+
+</head>
+<body>
+
+<div class="ui inverted vertical very segment">
+    老树的窝
+</div>
+
+<div class="ui  vertical  segment">
+    <div class="ui container segment">
+        <a href="#" class="ui blue right ribbon label">Eigen矩阵基本运算</a>
+        <h1 class="ui header">
+            1. Eigen矩阵基本运算
+        </h1>
+        <p>
+            Eigen重载了+,-,*运算符。同时提供了一些方法如dot(),cross()等。对于矩阵类的运算符重载只支持线性运算，比如matrix1*matrix2是矩阵相乘，当然必须要满足矩阵乘法规则。对于向量和标量的加法(vector+scalar)这里并不支持，关于非线性运算这里暂不介绍。
+        </p>
+    </div>
+
+    <div class="ui container segment">
+        <a href="#" class="ui blue right ribbon label">加减运算</a>
+        <h1 class="ui header">
+            2. 加减运算
+        </h1>
+        <p>
+            矩阵加减运算中必须要保证左右矩阵的行列对应相等。此外更重要的一点是，矩阵的类型也必须一致，这里的矩阵运算并<b>不支持隐式的类型转换</b>。矩阵运算中重载的运算符有：
+        </p>
+        <ol>
+            <li>二元运算符+：a+b</li>
+            <li>二元运算符-：a-b</li>
+            <li>一元运算符-：-a</li>
+            <li>复合运算符+=：a+=b</li>
+            <li>复合运算符-=：a-=b</li>
+        </ol>
+        <p>下面是使用示例：</p>
+        <pre><code class="cpp">
+#include &lt;iostream&gt;
+#include "Eigen\Dense"
+
+using namespace Eigen;
+
+int main()
+{
+    Matrix2d a;
+    a&lt;&lt;1,2,
+       3,4;
+    MatrixXd b(2,2);
+    b&lt;&lt;2,3,
+       1,4;
+    std::cout&lt;&lt;"a+b=\n"&lt;&lt;a+b&lt;&lt;std::endl;
+    std::cout&lt;&lt;"a-b=\n"&lt;&lt;a-b&lt;&lt;std::endl;
+    std::cout&lt;&lt;"Doing a+=b;"&lt;&lt;std::endl;
+    a+=b;
+    std::cout&lt;&lt;"Now a=\n"&lt;&lt;a&lt;&lt;std::endl;
+    Vector3d v(1,2,3);
+    Vector3d w(1,0,0);
+    std::cout&lt;&lt;"-v+w-v=\n"&lt;&lt;-v+w-v&lt;&lt;std::endl;
+}
+</code></pre>
+        <p>执行结果如下：</p>
+        <pre><code class="text">a+b=
+3 5
+4 8
+a-b=
+-1 -1
+ 2  0
+Doing a+=b;
+Now a=
+3 5
+4 8
+-v+w-v=
+-1
+-4
+-6</code></pre>
+    </div>
+
+    <div class="ui container segment">
+        <a href="#" class="ui blue right ribbon label">和标量的乘法和除法</a>
+        <h1 class="ui header">
+            3. 和标量的乘法和除法
+        </h1>
+        <p>
+            对于矩阵和标量的乘法和除法也非常简单，重载的操作符如下：
+        </p>
+        <ol>
+            <li>二元运算符<em>：matrix</em>scalar</li>
+            <li>二元运算符<em>：scalar</em>matrix</li>
+            <li>二元运算符/：matrix/scalar</li>
+            <li>复合运算符<em>=：matrix</em>=scalar</li>
+            <li>复合运算符/=：matrix/=scalar</li>
+        </ol>
+        <p>下面是使用示例:</p>
+        <pre><code class="cpp">#include &lt;iostream&gt;
+#include "Eigen\Dense"
+
+using namespace Eigen;
+
+int main()
+{
+    Matrix2d a;
+    a&lt;&lt;1,2,
+       3,4;
+    Vector3d v(1,2,3);
+    std::cout&lt;&lt;"a*2.5=\n"&lt;&lt;a*2.5&lt;&lt;std::endl;
+    std::cout&lt;&lt;"0.1*v=\n"&lt;&lt;0.1*v&lt;&lt;std::endl;
+    std::cout&lt;&lt;"Doing v*=2;"&lt;&lt;std::endl;
+    v*=2;
+    std::cout&lt;&lt;"Now v=\n"&lt;&lt;v&lt;&lt;std::endl;
+}</code> </pre>
+        <p>执行结果如下：</p>
+        <pre><code class="text">a*2.5=
+2.5   5
+7.5  10
+0.1*v=
+0.1
+0.2
+0.3
+Doing v*=2;
+Now v=
+2
+4
+6
+</code></pre>
+    </div>
+
+
+
+    <div class="ui container segment">
+        <a href="#" class="ui blue right ribbon label">表达式计算优化原则</a>
+        <h1 class="ui header">
+            4. 表达式计算优化原则
+        </h1>
+        <p>
+            关于矩阵表达式的计算这里有一点需要说明。在Eigen中，算数运算操作(比如+)并不会立即对表达式两端进行求值，而仅仅只是返回一个“表达式”，这个表达式对计算的结果的表现进行简单的描述，而真正的计算会等到最后才会进行。一般来说会等到操作运算符=执行时进行计算。这个机制会极大的优化矩阵的计算性能。
+        </p>
+        <p>下面是使用示例:</p>
+        <pre><code class="cpp">VectorXf a(50),b(50),c(50),d(50);
+...
+a=3*b+4*c+5*d;
+</code></pre>
+
+        <p>虽然上面这个表达式中有多个运算符，但并不会使用多个循环对每个运算符左右两边的矩阵进行求值。而是简化为下面这一个循环。</p>
+        <pre><code class="cpp">for(int i = 0;i &lt; 50;++i)
+  a[i] = 3*b[i] + 4*c[i] + 5*d[i];
+</code></pre>
+    </div>
+
+
+
+
+    <div class="ui container segment">
+        <a href="#" class="ui blue right ribbon label">转置(Transposition)和共轭(conjugation)</a>
+        <h1 class="ui header">
+            5. 转置(Transposition)和共轭(conjugation)
+        </h1>
+        <p>
+            可以使用transpose(),conjugate(),adjoint()函数求得。
+        </p>
+        <p>下面是使用示例:</p>
+        <pre><code class="cpp">#include &lt;iostream&gt;
+#include &quot;Eigen\Dense&quot;
+
+using namespace Eigen;
+
+int main()
+{
+    MatrixXcf a = MatrixXcf::Random(2,2);
+    std::cout&lt;&lt;&quot;Matrix a=\n&quot;&lt;&lt;a&lt;&lt;std::endl;
+    std::cout&lt;&lt;&quot;Here is the matrix a^T\n&quot;&lt;&lt;a.transpose()&lt;&lt;std::endl;
+    std::cout&lt;&lt;&quot;Here is the conjugate of a\n&quot;&lt;&lt;a.conjugate()&lt;&lt;std::endl;
+    std::cout&lt;&lt;&quot;Here is the matrix a^*\n&quot;&lt;&lt;a.adjoint()&lt;&lt;std::endl;
+}
+</code></pre>
+
+        <p>执行结果如下：</p>
+        <pre><code class="text">Matrix a=
+ (0.127171,-0.997497) (-0.0402539,0.170019)
+ (0.617481,-0.613392)  (0.791925,-0.299417)
+Here is the matrix a^T
+ (0.127171,-0.997497)  (0.617481,-0.613392)
+(-0.0402539,0.170019)  (0.791925,-0.299417)
+Here is the conjugate of a
+   (0.127171,0.997497) (-0.0402539,-0.170019)
+   (0.617481,0.613392)    (0.791925,0.299417)
+Here is the matrix a^*
+   (0.127171,0.997497)    (0.617481,0.613392)
+(-0.0402539,-0.170019)    (0.791925,0.299417)
+</code></pre>
+    </div>
+
+
+    <div class="ui container segment">
+        <a href="#" class="ui blue right ribbon label">矩阵-矩阵以及矩阵-向量相乘</a>
+        <h1 class="ui header">
+            6. 矩阵-矩阵以及矩阵-向量相乘
+        </h1>
+        <p>
+            由于向量属于特殊的矩阵，所以我们只需考虑矩阵的相乘即可。矩阵和矩阵相乘可以使用如下两种运算符：
+        </p>
+        <ol>
+            <li>二元运算符<em>：a</em>b</li>
+            <li>复合运算符<em>=：a</em>=b</li>
+        </ol>
+        <p>下面是使用示例:</p>
+        <pre><code class="cpp">#include &lt;iostream&gt;
+#include &quot;Eigen\Dense&quot;
+
+using namespace Eigen;
+using namespace std;
+
+int main()
+{
+    Matrix2d mat;
+    mat&lt;&lt;1,2,
+         3,4;
+    Vector2d u(1,-1),v(2,0);
+
+    cout&lt;&lt;&quot;Here is mat*mat:\n&quot;&lt;&lt;mat*mat&lt;&lt;endl;
+    cout&lt;&lt;&quot;Here is mat*u:\n&quot;&lt;&lt;mat*u&lt;&lt;endl;
+    cout&lt;&lt;&quot;Here is u^T*mat:\n&quot;&lt;&lt;u.transpose()*mat&lt;&lt;endl;
+    cout&lt;&lt;&quot;Here is u^T*v:\n&quot;&lt;&lt;u.transpose()*v&lt;&lt;endl;
+    cout&lt;&lt;&quot;Here is u*v^T:\n&quot;&lt;&lt;u*v.transpose()&lt;&lt;endl;
+    cout&lt;&lt;&quot;Let&#x27;s multiply mat by itsef&quot;&lt;&lt;endl;
+    mat = mat*mat;
+    cout&lt;&lt;&quot;Now mat is mat:\n&quot;&lt;&lt;mat&lt;&lt;endl;
+}
+</code></pre>
+
+        <p>执行结果如下：</p>
+        <pre><code class="text">Here is mat*mat:
+ 7 10
+15 22
+Here is mat*u:
+-1
+-1
+Here is u^T*mat:
+-2 -2
+Here is u^T*v:
+2
+Here is u*v^T:
+ 2  0
+-2 -0
+Let's multiply mat by itsef
+Now mat is mat:
+ 7 10
+15 22
+</code></pre>
+    </div>
+
+
+    <div class="ui container segment">
+        <a href="#" class="ui blue right ribbon label">点乘和叉乘</a>
+        <h1 class="ui header">
+            7. 点乘和叉乘
+        </h1>
+        <p>
+            对于內积和外积的计算可以使用dot()和cross()函数。当然点乘会得到一个1×1的矩阵(u.adjoint()*v)。
+        </p>
+        <p>下面是使用示例:</p>
+        <pre><code class="cpp">#include &lt;iostream&gt;
+#include &quot;Eigen\Dense&quot;
+
+using namespace Eigen;
+using namespace std;
+
+int main()
+{
+    Vector3d v(1,2,3);
+    Vector3d w(0,1,2);
+
+    cout&lt;&lt;&quot;DOt product:&quot;&lt;&lt;v.dot(w)&lt;&lt;endl;
+    double dp = v.adjoint()*w;  //automatic conversion of the inner product to a scalar
+    cout&lt;&lt;&quot;Dot product via a matrix product: &quot;&lt;&lt;dp&lt;&lt;endl;
+    cout&lt;&lt;&quot;Cross product:\n&quot;&lt;&lt;v.cross(w)&lt;&lt;endl;
+}
+</code></pre>
+
+        <p>执行结果如下：</p>
+        <pre><code class="text">DOt product:8
+Dot product via a matrix product: 8
+Cross product:
+ 1
+-2
+ 1
+</code></pre>
+    </div>
+
+
+
+    <div class="ui container segment">
+        <a href="#" class="ui blue right ribbon label">其他一些基本运算</a>
+        <h1 class="ui header">
+            8. 其他一些基本运算
+        </h1>
+        <p>
+            Eigen同样提供了其他的函数对矩阵的所有元素进行操作，比如sum(对矩阵所有元素求和)，product（全部元素相乘），maximum（求最大值）和minimum（求最小值）
+        </p>
+        <p>下面是使用示例:</p>
+        <pre><code class="cpp">#include &lt;iostream&gt;
+#include &quot;Eigen\Dense&quot;
+
+using namespace Eigen;
+using namespace std;
+
+int main()
+{
+    Matrix2d mat;
+    mat&lt;&lt;1,2,
+         3,4;
+    cout&lt;&lt;&quot;Here is mat.sum():\t\t&quot;&lt;&lt;mat.sum()&lt;&lt;endl;
+    cout&lt;&lt;&quot;Here is mat.prd():\t\t&quot;&lt;&lt;mat.prod()&lt;&lt;endl;
+    cout&lt;&lt;&quot;Here is mat.mean():\t\t&quot;&lt;&lt;mat.mean()&lt;&lt;endl;
+    cout&lt;&lt;&quot;Here is mat.minCoeff():\t\t&quot;&lt;&lt;mat.minCoeff()&lt;&lt;endl;
+    cout&lt;&lt;&quot;Here is mat.maxCoeff():\t\t&quot;&lt;&lt;mat.maxCoeff()&lt;&lt;endl;
+    cout&lt;&lt;&quot;Here is mat.trace():\t\t&quot;&lt;&lt;mat.trace()&lt;&lt;endl;
+}
+</code></pre>
+
+        <p>执行结果如下：</p>
+        <pre><code class="text">Here is mat.sum():              10
+Here is mat.prd():              24
+Here is mat.mean():             2.5
+Here is mat.minCoeff():         1
+Here is mat.maxCoeff():         4
+Here is mat.trace():            5
+</code></pre>
+    </div>
+
+
+
+</div>
+
+
+
+
+
+</body>
+</html>
