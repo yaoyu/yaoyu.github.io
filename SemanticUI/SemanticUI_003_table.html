@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Semantic UI 003 表格</title>
+    <link href="https://cdn.bootcss.com/semantic-ui/2.2.13/semantic.min.css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.slim.min.js"></script>
+    <script src="https://cdn.bootcss.com/semantic-ui/2.2.13/semantic.min.js"></script>
+    <script>
+        $(document).ready(function() {
+
+        } );
+    </script>
+</head>
+<body>
+<div class="ui  vertical container segment">
+
+    <h1 class="ui header" style="text-align:center;">
+        桥梁部件统计表
+    </h1>
+
+    <div class="ui container segment statistics">
+    <div class="red statistic">
+        <div class="value">
+            40
+        </div>
+        <div class="label">桥面铺装</div>
+    </div>
+    <div class="orange statistic">
+        <div class="value">
+            200
+        </div>
+        <div class="label">T梁</div>
+    </div>
+    <div class="yellow statistic">
+        <div class="value">
+            960
+        </div>
+        <div class="label">T梁横隔板</div>
+    </div>
+    <div class="olive statistic">
+        <div class="value">
+            400
+        </div>
+        <div class="label">支座 </div>
+    </div>
+    <div class="green statistic">
+        <div class="value">
+            42
+        </div>
+        <div class="label">墩台帽 </div>
+    </div>
+    <div class="teal statistic">
+        <div class="value">
+            84
+        </div>
+        <div class="label">墩台柱 </div>
+    </div>
+    <div class="blue statistic">
+        <div class="value">
+            84
+        </div>
+        <div class="label">桩基础 </div>
+    </div>
+    <div class="violet statistic">
+        <div class="value">
+            42
+        </div>
+        <div class="label">桩系梁 </div>
+    </div>
+</div>
+   </div>
+    <div class="ui vertical container segment">
+        <table id="idBridgeComponents" class="ui celled table" cellspacing="0" width="100%">
+            <thead><tr><th>名称</th><th>单位</th><th>数量</th></tr></thead>
+            <tbody><tr><td>桥面铺装</td><td>段</td><td>40</td></tr>
+            <tr><td>T梁片数</td><td>片</td><td>200</td></tr>
+            <tr><td>T梁横隔板</td><td>片</td><td>960</td></tr>
+            <tr><td>支座</td><td>个</td><td>400</td></tr>
+            <tr><td>墩台帽</td><td>处</td><td>42</td></tr>
+            <tr><td>墩台柱</td><td>根</td><td>84</td></tr>
+            <tr><td>桩基础</td><td>根</td><td>84</td></tr>
+            <tr><td>桩系梁</td><td>根</td><td>42</td></tr></tbody>
+        </table>
+
+    </div>
+</div>
+</body>
+</html>
