@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pro AngularJS todo</title>
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/highlight.js/9.12.0/styles/vs2015.min.css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+    <script src="https://cdn.bootcss.com/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" crossorigin="anonymous"></script>
+
+    <script src="https://cdn.bootcss.com/angular.js/1.6.6/angular.min.js"></script>
+    <script src="https://cdn.bootcss.com/angular.js/1.6.6/angular-route.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+</head>
+<script>
+    var model = {
+        user: "张三",
+        items: [
+            { action: "买花", done: false },
+            { action: "拿鞋子", done: false },
+            { action: "收票", done: true },
+            { action: "给李四打电话", done: false }
+            ]
+    };
+    var todoApp = angular.module("todoApp", []);
+
+    todoApp.filter("checkedItems", function () {
+        return function (items, showComplete) {
+            var resultArr = [];
+            angular.forEach(items, function (item) {
+                if (item.done == false || showComplete == true) {
+                    resultArr.push(item);
+                }
+            });
+            return resultArr;
+        }
+    });
+
+    todoApp.controller("ToDoCtrl", function ($scope) {
+        $scope.todo = model;
+
+        $scope.incompleteCount = function () {
+            var count = 0;
+            angular.forEach($scope.todo.items, function (item) {
+                if (!item.done) { count++ }
+            });
+            return count;
+        }
+
+        $scope.warningLevel = function () {
+            return $scope.incompleteCount() < 3 ? "label-success" : "label-warning";
+        }
+
+        $scope.addNewItem = function (actionText) {
+            $scope.todo.items.push({ action: actionText, done: false });
+        }
+    });
+</script>
+<body ng-app="todoApp" ng-controller="ToDoCtrl">
+    <div class="page-header">
+        <h1>
+            {{todo.user}}的待完成列表
+            <span class="label label-default" ng-class="warningLevel()" ng-hide="incompleteCount() == 0">
+                {{incompleteCount()}}
+            </span>
+        </h1>
+    </div>
+    <div class="panel">
+        <div class="input-group">
+            <input class="form-control" ng-model="actionText" />
+            <span class="input-group-btn">
+                <button class="btn btn-default"
+                        ng-click="addNewItem(actionText)">添加</button>
+            </span>
+        </div>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>描述</th>
+                <th>完成情况</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat=
+                        "item in todo.items | checkedItems:showComplete | orderBy:'action'">
+                    <td>{{item.action}}</td>
+                    <td><input type="checkbox" ng-model="item.done" /></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="checkbox-inline">
+            <label><input type="checkbox" ng_model="showComplete"> Show Complete</label>
+        </div>
+    </div>
+</body>
+</html>
