@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>angularJS 2017.11.05 作用域(多控制器)</title>
+    <link href="https://cdn.bootcss.com/highlight.js/9.12.0/styles/vs2015.min.css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+    <script src="https://cdn.bootcss.com/angular.js/1.6.6/angular.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+<div ng-app="myApp">
+    <div ng-controller="myCtrl">
+        <input ng-model="name">
+        <h1>{{greeting}}</h1>
+        <button ng-click='sayHello()'>点我</button>
+        {{name}}
+    </div>
+
+
+<h2>根作用域 $rootScope</h2>
+<p>
+    所有的应用都有一个 $rootScope，它可以作用在 ng-app 指令包含的所有 HTML 元素中。
+    $rootScope 可作用于整个应用中。是各个 controller 中 scope 的桥梁。用 rootscope 定义的值，可以在各个 controller 中使用。</p>
+
+<div  ng-controller="control2">
+
+    <h1>{{lastname}} 家族成员:</h1>
+
+    <ul>
+        <li ng-repeat="x in names">{{x}} {{lastname}}</li>
+    </ul>
+
+</div>
+</div>
+<pre><code class="js">    var app = angular.module('myApp', []);
+    app.controller('myCtrl', function($scope, $rootScope, $location) {
+        $scope.name = $location.absUrl();
+        $scope.sayHello = function() {
+            $scope.greeting = 'Hello ' + $scope.name + '!';
+        };
+    });
+    app.controller('control2', function($scope, $rootScope) {
+        $scope.names = ["Emil", "Tobias", "Linus"];
+        $rootScope.lastname = "Refsnes";
+    })</code> </pre>
+</body>
+<script>
+    var app = angular.module('myApp', []);
+    app.controller('myCtrl', function($scope, $rootScope, $location) {
+        $scope.name = $location.absUrl();
+        $scope.sayHello = function() {
+            $scope.greeting = 'Hello ' + $scope.name + '!';
+        };
+    });
+    app.controller('control2', function($scope, $rootScope) {
+        $scope.names = ["Emil", "Tobias", "Linus"];
+        $rootScope.lastname = "Refsnes";
+    })
+</script>
+</html>

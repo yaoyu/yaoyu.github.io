@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>angularJS 2017.11.01 简例</title>
+    <script src="https://cdn.bootcss.com/angular.js/1.6.6/angular.min.js"></script>
+</head>
+<body>
+
+<div ng-app="" ng-init="name='张三'">
+    <p>名字: <input type="text" ng-model="name"></p>
+    <h1>Hello <span ng-bind="name"></span></h1>
+</div>
+
+<ol>
+    <li> ng-app=" "  定义angularJS的使用范围；</li>
+    <li> ng-init="变量=值;变量='值'"  初始化变量的值，有多个变量时，中间用分号隔开；</li>
+    <li> ng-model="变量"  定义变量名；</li>
+    <li> ng-bind="变量"  绑定变量名，获取该变量的数据。这里的变量就是第3条的变量名。但是一般都用双重花括号来获取变量的值，比如：{{变量}}。</li>
+</ol>
+</body>
+</html>

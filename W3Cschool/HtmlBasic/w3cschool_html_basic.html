@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>W3Cschool HTML 基础</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" crossorigin="anonymous">
+    <link href="https://cdn.bootcss.com/highlight.js/9.12.0/styles/vs2015.min.css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.slim.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+    <script src="https://cdn.bootcss.com/popper.js/1.12.3/umd/popper.min.js" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" crossorigin="anonymous"></script>
+
+    <script src="https://cdn.bootcss.com/angular.js/1.6.6/angular.min.js"></script>
+    <script src="https://cdn.bootcss.com/angular.js/1.6.6/angular-route.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+<h2>HTML标签</h2>
+<p><code>&lt;h1&gt;Hello&lt;/h1&gt;</code>, 这是一个HTML <code>元素</code> 。</p>
+<p>大多数HTML元素都有一个 <code>开始标签</code> 和一个 <code>结束标签</code> 。</p>
+<h2>HTML注释语句</h2>
+<p>你可以使用 <code>&lt;!--</code> 开始添加注释，并用 <code>--&gt;</code> 结束注释。</p>
+
+<h2>HTML 更换文本的颜色</h2>
+<p><code>&lt;h2 style="color: blue"&gt;CatPhotoApp&lt;/h2&gt;</code></p>
+
+<h2>使用CSS选择器定义标签</h2>
+<pre><code class="css">&lt;style&gt;
+    选择器 {属性名称: 属性值;}
+    h2 {color: red;}
+&lt;/style&gt;
+</code></pre>
+
+<h2>使用一个CSS Class去给标签定义Style</h2>
+<pre><code class="css">&lt;style&gt;
+    .blue-text {
+        color: blue;
+    }
+&lt;/style&gt;
+</code></pre>
+
+<h2>HTML 设置标签的字体大小</h2>
+<pre><code class="css">&lt;style&gt;
+    h1 {    
+      font-size: 30px;    
+    }
+&lt;/style&gt;
+</code></pre>
+
+<h2>HTML 设置标签的字体样式</h2>
+<pre><code class="css">&lt;style&gt;
+    h1 {    
+      font-family: Sans-serif;      
+    }
+&lt;/style&gt;
+</code></pre>
+
+<h2>HTML 处理多个字体降级</h2>
+<pre><code class="css">&lt;style&gt;
+    h1 {    
+      font-family: Helvetica, Sans-Serif;       
+    }
+&lt;/style&gt;
+</code></pre>
+
+<h2>HTML 给页面添加图片</h2>
+<pre><code>&lt;img src="https://www.your-image-source.com/your-image.jpg"&gt;</code></pre>
+
+<h2>HTML 调整网页里图片大小</h2>
+<pre><code>&lt;style&gt;    <br>&nbsp;&nbsp;.larger-image {    <br>&nbsp;&nbsp;&nbsp;&nbsp;width: 500px;    <br>&nbsp;&nbsp;}    <br>&lt;/style&gt;
+</code></pre>
+
+<h2>给标签增加边框</h2>
+<pre><code>  .thin-red-border {    
+    border-color: red;    
+    border-width: 5px;    
+    border-style: solid;    
+  }    
+</code></pre>
+
+<h2>给标签增加圆角边框</h2>
+<pre><code>.thick-green-border {
+    border-radius: 10px;
+}
+</code></pre>
+
+<h2>给图像设置圆角边框</h2>
+<p>图片设定 <code>border-radius</code> 为 <code>50%</code>。</p>
+<pre><code>.thick-green-border {
+    border-radius: 50%;
+}
+</code></pre>
+
+<h2>设置链接锚元素外部页面</h2>
+<p><code>a</code>元素，也叫<code>anchor（锚点）</code>元素，用于链接到当前页面之外的内容。</p>
+<pre><code>&lt;p&gt;这是一个a标签 &lt;a href="https://www.w3cschool.cn"&gt;W3Cschool.cn&lt;/a&gt;跳转到W3Cschool.cn&lt;/p&gt;
+</code></pre>
+
+<h2>为图片设置超链接</h2>
+<pre><code>&lt;a href="#"&gt;&lt;img src="/images/relaxing-cat.jpg"&gt;&lt;/a&gt;
+</code></pre>
+
+<h2>为图片添加alt描述</h2>
+<p><code>alt</code> 属性， 是当图片无法显示时的替代文本。<code>alt</code> 属性对于盲人或视觉障碍的用户理解图片中的内容非常重要，搜索引擎也会搜索<code>alt</code> 属性来了解图片的内容。</p>
+<pre><code>&lt;img src="www.your-image-source.com/your-image.jpg" alt="your alt text"&gt;
+</code></pre>
+
+<h2>无序列表</h2>
+<pre><code>&lt;ul&gt;    <br>&nbsp;&nbsp;&lt;li&gt;milk&lt;/li&gt;    <br>&nbsp;&nbsp;&lt;li&gt;cheese&lt;/li&gt;    <br>&lt;/ul&gt;
+</code></pre>
+
+<h2有序列表</h2>
+<pre><code>&lt;ol&gt;    <br>&nbsp;&nbsp;&lt;li&gt;milk&lt;/li&gt;    <br>&nbsp;&nbsp;&lt;li&gt;cheese&lt;/li&gt;    <br>&lt;/ol&gt;
+</code></pre>
+
+<h2>文本输入框</h2>
+<pre><code>&lt;input type="text"&gt;</code></pre>
+
+<h2>为文本输入框设定预定值</h2>
+<pre><code>&lt;input type="text" placeholder="this is placeholder text"&gt;</code></pre>
+
+<h2>表单</h2>
+<p>你可以使用HTML来构建跟服务器交互的Web表单。你可以通过在<code>form</code>元素上添加一个<code>action</code>属性来执行此操作。</p>
+<pre><code>&lt;form action="/url-where-you-want-to-submit-form-data"&gt;&lt;/form&gt;</code></pre>
+
+<h2>为表单添加提交按钮</h2>
+<pre><code>&lt;button type="submit"&gt;this button submits the form&lt;/button&gt;</code></pre>
+
+<h2>使用HTML5技术把表单设置为必填</h2>
+<p>例如，如果你想要一个文本输入框设置为必填项，你可以在 <code>input</code> 元素中加上 <code>required</code> 属性，你可以使用：    <br><code>&lt;input type="text" required&gt;</code></p>
+
+<h2>单选框</h2>
+<p>单选按钮是 <code>input</code> 输入框的一种类型。</p>
+<pre><code>&lt;label&gt;&lt;input type="radio" name="indoor-outdoor"&gt; Indoor&lt;/label&gt;</code></pre>
+
+<h2>复选框</h2>
+<p>复选按钮是 <code>input</code> 的输入框的一种类型。</p>
+<pre><code>&lt;label&gt;&lt;input type="checkbox" name="personality"&gt; Loving&lt;/label&gt;</code></pre>
+
+<h2>使用checked属性设置复选框和单选框默认被选中</h2>
+<pre><code>&lt;input type="radio" name="test-name" checked&gt;</code></pre>
+
+<h2>在div元素中嵌套多个元素</h2>
+<div><p><code>div</code> 元素，也被称作division(层)元素，是一个盛装其他元素的通用容器。</p><p><code>div</code> 元素是最常用的HTML元素。所以可以利用CSS的继承关系把 <code>div</code> 上的CSS传递给它所有子元素。</p><p>你可以使用<code>&lt;div&gt;</code>来标记一个div元素的开始，并使用<code>&lt;/div&gt;</code>来标记一个div元素的结束。</p><p>尝试在你的"Things cats love" <code>p</code>元素之前放置<code>div</code>的开始标记，在你的<code>ol</code>结束标记之后放置<code>div</code>的结束标记，这样你的两个列表就都嵌套在<code>div</code>中了。</p><p>把"Things cats love"和"Things cats hate"两个列表都嵌套在同一个<code>div</code>元素中。</p><br/></div>
+
+
+<h2>为div元素设置背景颜色</h2>
+<pre><code>.green-background {    <br>&nbsp;&nbsp;background-color: green;    <br>}</code></pre>
+
+<h2>为标签添加ID属性</h2>
+<p>除了 <code>class</code>属性之外，每一个 HTML 元素也可以具有 <code>id</code> 属性。</p>
+<pre><code>&lt;h2 id="cat-photo-app"&gt;</code></pre>
+
+<h2>使用ID属性设置标签样式</h2>
+<pre><code>#cat-photo-element {    <br>&nbsp;&nbsp;background-color: green;    <br>}</code></pre>
+<br><br>
+
+<h2>使用padding布局页面标签</h2>
+<p>有三个重要的属性控制每个HTML元素的布局：<code>padding(内边距)</code>、<code>margin(外边距)</code>、<code>border(边框)</code>。</p>
+<p>元素的 <code>padding</code> 控制元素与其边框 <code>border</code> 之间的距离。</p>
+<pre><code>.green-box {
+    padding: 20px;
+}</code></pre>
+
+<h2>使用margin布局页面标签</h2>
+<p>元素的 <code>margin</code> （外边距）控制元素 <code>border</code> （边框）和周围元素实际所占空间的距离。</p>
+<pre></pre>
+
+<h2>使用负值设置页面元素的margin属性</h2>
+<p>如果将一个元素的 <code>margin</code> 设置为负值，则元素将会变大。</p>
+<pre></pre>
+
+<h2>为不同方向padding设置不同的值</h2>
+<p>CSS 允许你使用 <code>padding-top</code>、<code>padding-right</code>、<code>padding-bottom</code> 和 <code>padding-left</code>属性来控制元素四个方向的 <code>padding</code>。</p>
+<pre></pre>
+
+<h2>为不同方向margin设置不同的值</h2>
+<p>CSS 允许你使用 <code>margin-top</code>、<code>margin-right</code>、<code>margin-bottom</code> 和 <code>margin-left</code> 属性来控制元素四个方向的<code>margin</code>。</p>
+<pre></pre>
+
+<h2>CSS中padding简写</h2>
+<div><p>除了分别指定元素的 <code>padding-top</code>、<code>padding-right</code>、<code>padding-bottom</code> 和 <code>padding-left</code> 属性外，你还可以集中起来指定它们，如下所示：</p>
+<p><code>padding: 10px 20px 10px 20px;</code></p>
+<p>这四个值以顺时针方式排列：顶部、右侧、底部、左侧，简称：上右下左。</p>
+<p>使用顺时针表示法，给".green-box" class在其顶部和左侧具有 <code>40px</code> 的 <code>padding</code>，而底部和右侧具有 <code>20px</code> 的 <code>padding</code>。</p>
+</div>
+
+<h2>CSS中margin简写</h2>
+<p>与padding写法一样</p>
+
+<h2>CSS 样式的继承</h2>
+<p>我们可以证明<code>body</code>元素的存在，将其 <code>background-color</code> 设置为黑色。</p>
+<pre><code>body {
+  background-color: black;
+}</code></pre>
+
+<h2>CSS 继承Body元素样式</h2>
+<p>记住，你可以像任何其他HTML元素一样对你的<code>body</code>元素应用样式，并且所有其他元素都将继承你的<code>body</code>元素的样式。</p>
+
+<h2>CSS 样式的覆盖</h2>
+<p> "pink-text" class 覆盖了 body 元素的 CSS 声明！</p>
+
+<h2>CSS 多个class处理样式覆盖</h2>
+<p>注意：在 HTML元素中列出这些 class 的顺序并不重要。</p>
+<p>然而，<code>&lt;style&gt;</code> 部分中的&nbsp;<code>class</code> 声明的顺序是重要的，第二个声明将始终优先于第一个声明。因为 <code>.blue-text</code> 是第二个声明，它会覆盖&nbsp;<code>.pink-text</code>&nbsp;的属性。</p>
+
+<h2>CSS 通过ID的样式属性覆盖class类的声明</h2>
+<pre><code>#brown-text {    <br>&nbsp;&nbsp;color: brown;    <br>}</code></pre>
+
+<h2>CSS 通过内联样式覆盖class类的声明</h2>
+<p>我们已经证明了，id 声明都会覆盖 class 声明，不管它在你的 <code>style</code> 元素 CSS 的哪个位置进行声明。</p>
+<p>使用 <code>in-line style</code>（内联样式）来尝试使我们的 <code>h1</code> 元素变为白色。记住，内联样式如下所示：</p>
+<pre><code>&lt;h1 style="color: white;"&gt;</code></pre>
+
+<h2>CSS 通过使用Important覆盖所有其他样式</h2>
+<p>我们来给 pink-text 元素的 color 声明加上关键字 <code>!important</code>，以使 100% 确保你的 <code>h1</code> 元素是粉色的。</p>
+<pre><code>.pink-text {
+    color: pink !important;
+}</code>
+</pre>
+
+<h2>CSS 通过使用十六进制代码设置特定的颜色</h2>
+<pre><code>.pink-text {
+    color: #000000 !important;
+}</code>
+</pre>
+<br><br>
+
+<h2>CSS 十六进制RGB混合颜色</h2>
+<div class="challenge-instructions">
+<div><p>十六进制代码使用6个十六进制数字表示颜色，每 2 个分别表示红（R），绿（G）和蓝（B）成分。</p><p>从这三种纯色（红、绿、蓝），我们可以改变每种颜色创造超过1600万种其他颜色！</p><p>例如，橙色是纯红，与一些绿色混合，没有蓝色。在十六进制代码中，这转换为 <code>＃FFA500</code>。</p><p>数字 <code>0</code> 是十六进制代码中最低的数字，表示完全没有颜色。</p><p>数字 <code>F</code> 是十六进制代码中最高的数字，表示最大可能的亮度。</p><p>用正确的十六进制代码替换 <code>&lt;style&gt;</code> 元素中的颜色词。</p><table class="table table-striped">    <tbody>        <tr>            <th>Color</th>            <th>Hex Code</th>        </tr>        <tr>            <td>Dodger Blue</td>            <td><code>#2998E4</code>             </td>        </tr>        <tr>            <td>Green</td>            <td><code>#00FF00</code>             </td>        </tr>        <tr>            <td>Orange</td>            <td><code>#FFA500</code>             </td>        </tr>        <tr>            <td>Red</td>            <td><code>#FF0000</code>             </td>        </tr>    </tbody></table><p>    <br></p></div>
+<div class="negative-bottom-margin-30"></div>
+</div>
+
+<h2>CSS 十六进制RGB表达式缩写</h2>
+<p>例如，红色的十六进制码 <code>#FF0000</code> 可以缩短为 <code>#F00</code>。这个缩写形式给出一个数字为红色，一个数字为绿色，一个数字为蓝色。</p>
+
+<h2>CSS 使用rgb属性设定颜色</h2>
+<div><p>在 CSS 中表示颜色的另一个方法是使用 <code>RGB</code> 值。</p><p>代表黑色的 RGB 值如下所示：</p><p><code>rgb(0, 0, 0)</code></p><p>代表白色的 RGB 值如下所示：</p><p><code>rgb(255, 255, 255)</code></p><p>使用 <code>RGB</code>，是使用RGB指定每个颜色的亮度，数字介于0到255之间，而不是像使用十六进制代码那样使用六个十六进制数字。</p><p>如果你做个算术，一个颜色的两位数字等于16 乘以 16，这给我们256个总值，因此，从零开始计数的 <code>RGB</code> 具有与十六进制代码完全相同数量的可能值。</p><p>现在，我们用黑色的 RGB 值 <code>rgb(0, 0, 0)</code> 替换掉 <code>body</code> 元素背景色的hex code（十六进制代码）。</p><p>    <br></p></div>
+
+
+</body>
+</html>
