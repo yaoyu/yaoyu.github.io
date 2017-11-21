@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>W3Cschool Bootstrap 基础</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" crossorigin="anonymous">
+    <link href="https://cdn.bootcss.com/highlight.js/9.12.0/styles/vs2015.min.css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.slim.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+    <script src="https://cdn.bootcss.com/popper.js/1.12.3/umd/popper.min.js" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" crossorigin="anonymous"></script>
+
+    <script src="https://cdn.bootcss.com/angular.js/1.6.6/angular.min.js"></script>
+    <script src="https://cdn.bootcss.com/angular.js/1.6.6/angular-route.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <style>
+        body{
+            width:90%;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+<br/>
+
+<h2>使用Bootstrap设计响应式页面</h2>
+<p>使用<span style="font-family: Verdana, Arial, Helvetica, sans-serif;">Bootstrap也非常简单,你只需要把下面的链接添加到你需要使用</span><span style="font-family: Verdana, Arial, Helvetica, sans-serif;">Bootstrap来进行布局的应用的头部</span><span style="font-family: Verdana, Arial, Helvetica, sans-serif;">：</span></p>
+<p><code>&lt;link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap
+/3.3.1/css/bootstrap.min.css"/&gt;</code></p>
+
+
+<h2>通过Bootstrap使图片适配手机显示</h2>
+<p>其实很简单的，通过Bootstrap，我们只要给图片添加 <code>img-responsive</code> 的class属性,图片的宽度就能自动适配你手机屏幕的宽度啦。</p>
+<pre><code class="css">&lt;div class=&quot;container-fluid&quot;&gt;
+&lt;h2 class=&quot;red-text&quot;&gt;CatPhotoApp&lt;/h2&gt;
+
+&lt;p&gt;Click here for &lt;a href=&quot;#&quot;&gt;cat photos&lt;/a&gt;.&lt;/p&gt;
+
+&lt;a href=&quot;#&quot;&gt;&lt;img class=&quot;smaller-image thick-green-border&quot; src=&quot;/statics/codecamp/images/relaxing-cat.jpg&quot;&gt;&lt;/a&gt;
+&lt;a href=&quot;#&quot;&gt;&lt;img class=&quot;img-responsive thick-green-border&quot; src=&quot;/statics/codecamp/images/running-cat.jpg&quot;&gt;&lt;/a&gt;
+</code></pre>
+
+<h2>使文本居中</h2>
+<pre><code>&lt;h2 class="red-text text-center"&gt;your text&lt;/h2&gt;</code></pre>
+
+<h2>按钮</h2>
+<pre><code>&lt;button class=&quot;btn&quot;&gt;Like&lt;/button&gt;
+
+//让按钮充满整个屏幕 btn-block
+&lt;button class=&quot;btn btn-block&quot;&gt;Like&lt;/button&gt;
+
+//按钮添加颜色 btn-primary
+&lt;button class=&quot;btn btn-block btn-primary&quot;&gt;Like&lt;/button&gt;
+
+//按钮添加颜色 btn-info
+&lt;button class=&quot;btn btn-block btn-info&quot;&gt;Info&lt;/button&gt;
+
+//按钮添加颜色 btn-danger
+&lt;button class=&quot;btn btn-block btn-danger&quot;&gt;Delete&lt;/button&gt;
+</code></pre>
+
+<h2>使用Bootstrap做页面布局</h2>
+<div class="row">
+    <div class="col-xs-4"><button class="btn btn-block btn-primary">Like</button></div>
+    <div class="col-xs-4"><button class="btn btn-block btn-info">Info</button></div>
+    <div class="col-xs-4"><button class="btn btn-block btn-danger">Delete</button></div>
+</div>
+<pre><code>&lt;div class=&quot;row&quot;&gt;
+    &lt;div class=&quot;col-xs-4&quot;&gt;&lt;button class=&quot;btn btn-block btn-primary&quot;&gt;Like&lt;/button&gt;&lt;/div&gt;
+    &lt;div class=&quot;col-xs-4&quot;&gt;&lt;button class=&quot;btn btn-block btn-info&quot;&gt;Info&lt;/button&gt;&lt;/div&gt;
+    &lt;div class=&quot;col-xs-4&quot;&gt;&lt;button class=&quot;btn btn-block btn-danger&quot;&gt;Delete&lt;/button&gt;&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+
+<h2>span标签来创建行内元素</h2>
+<p>还记得我们使用 <code>.btn-block</code>来创建填满整行的按钮吗？你可以使用<code>span</code><span style="font-family: Verdana, Arial, Helvetica, sans-serif;">&nbsp;标签来创建一个充满整行的内联元素</span><span style="font-family: Verdana, Arial, Helvetica, sans-serif;">。</span></p>
+<p>"Top 3 things cats <code>hate</code>" 的写法如下：</p>
+<p><code>&lt;p&gt;Top 3 things cats &lt;span class = "text-danger"&gt;hate:&lt;/span&gt;&lt;/p&gt;</code></p>
+<pre></pre>
+
+<h2>row, col-xs-8, col-xs-4</h2>
+<p>使用<code>&lt;div class="row"&gt;</code><span style="font-family: Verdana, Arial, Helvetica, sans-serif;">&nbsp;标签把你的第一张猫咪图片跟</span><code>h2</code><span style="font-family: Verdana, Arial, Helvetica, sans-serif;">&nbsp;标签包含起来,然后创建一个</span><code>&lt;div class="col-xs-8"&gt;</code><span style="font-family: Verdana, Arial, Helvetica, sans-serif;">&nbsp;元素把</span><code>h2</code><span style="font-family: Verdana, Arial, Helvetica, sans-serif;">元素包含进去,猫咪图片则放到</span><span style="font-family: Verdana, Arial, Helvetica, sans-serif;">&nbsp;</span><code>&lt;div class="col-xs-4"&gt;</code><span style="font-family: Verdana, Arial, Helvetica, sans-serif;">标签里,这样,</span><code>h2</code><span style="font-family: Verdana, Arial, Helvetica, sans-serif;">&nbsp;标签跟猫咪图片就处于同一行中了</span><span style="font-family: Verdana, Arial, Helvetica, sans-serif;">。</span></p>
+
+<h2>在按钮上使用Font Awesome图标</h2>
+<p><span style="font-family: Verdana, Arial, Helvetica, sans-serif;">Font&nbsp;Awesome是一个方便的图标库。&nbsp;这些图标都是矢量图形，以.svg文件格式存储。&nbsp;这些图标可以像字体一样被处理,你可以使用像素设置字体大小一样指定这些图标的大小，并且这些图标可以继承父类HTML标签的字体大小。</span>     <br></p>
+<pre></pre>
+
+<h2></h2>
+<pre></pre>
+
+<h2></h2>
+<pre></pre>
+
+<h2></h2>
+<pre></pre>
+
+<h2></h2>
+<pre></pre>
+
+<h2></h2>
+<pre></pre>
+
+<h2></h2>
+<pre></pre>
+
+<h2></h2>
+<pre></pre>
+
+<h2></h2>
+<pre></pre>
+
+<h2></h2>
+<pre></pre>
+
+<h2></h2>
+<pre></pre>
+
+<h2></h2>
+<pre></pre>
+
+<h2></h2>
+<pre></pre>
+
+<h2></h2>
+<pre></pre>
+
+<h2></h2>
+<pre></pre>
+
+<h2></h2>
+<pre></pre>
+
+<h2></h2>
+<pre></pre>
+
+<h2></h2>
+<pre></pre>
+
+<h2></h2>
+<pre></pre>
+
+<h2></h2>
+<pre></pre>
+
+<h2></h2>
+<pre></pre>
+
+<h2></h2>
+<pre></pre>
+
+<h2></h2>
+<pre></pre>
+
+</body>
+</html>

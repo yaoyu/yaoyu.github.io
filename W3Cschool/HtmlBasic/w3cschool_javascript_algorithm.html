@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>W3Cschool Jquery 基础</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" crossorigin="anonymous">
+    <link href="https://cdn.bootcss.com/highlight.js/9.12.0/styles/vs2015.min.css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.slim.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+    <script src="https://cdn.bootcss.com/popper.js/1.12.3/umd/popper.min.js" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" crossorigin="anonymous"></script>
+
+    <script src="https://cdn.bootcss.com/angular.js/1.6.6/angular.min.js"></script>
+    <script src="https://cdn.bootcss.com/angular.js/1.6.6/angular-route.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <style>
+        body{
+            width:90%;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+<br/>
+<h2>1. 实战翻转字符串算法</h2>
+<pre><code class="JavaScript">function reverseString(str) {
+    var arr = str.split('');
+    return arr.reverse().join('');
+}
+
+reverseString("hello");
+</code></pre>
+
+<h2>阶乘算法</h2>
+<pre><code class="JavaScript">function factorialize1(num) {
+    if (num > 2)
+        return num * factorialize(num-1);
+    else if (num === 0)
+        return 1;
+    return num;
+}
+
+function factorialize(num) {
+    var res = 1;
+    for (var i = 2; i<=num; ++i)
+        res *= i;
+    return res;
+}
+
+factorialize(5);
+</code></pre>
+
+<h2>回文算法</h2>
+<p><span style="font-family: Verdana, Arial, Helvetica, sans-serif;">一个字符串忽略标点符号、大小写和空格，正着读和反着读一模一样</span></p>
+<pre><code class="JavaScript">function palindrome(str) {
+    str = str.replace(/[\ |\~|`|\!|\@|\#|\$|\%|\^|\&|\*|\(|\)|\-|\_|\+|\=|\||\|\[|\]|\{|\}|\;|\:|\"|\'|\,|\<|\.|\>|\/|\?]/g,"");
+    str = str.toLowerCase();
+    var length = str.length;
+    var length2 = length * 0.5;
+    length--;
+    for(var i=0; i&lt;length2; ++i){
+        if (str[i] != str[length-i])
+            return false;
+    }
+    // Good luck!
+    return true;
+}
+
+palindrome("eye");
+</code></pre>
+
+<h2>寻找最长的单词算法</h2>
+<pre><code class="JavaScript">function findLongestWord(str) {
+    var parts = str.split(' ');
+    var max = 0;
+    var len = 0;
+    for (var x in parts){
+        len = parts[x].length;
+        if (max < len){
+            max = len;
+        }
+    }
+    return max;
+}
+
+findLongestWord("The quick brown fox jumped over the lazy dog");
+</code></pre>
+
+<h2>设置首字母大写算法</h2>
+<pre><code class="JavaScript">function UpperFirst(word){
+    return word[0].toUpperCase() + word.slice(1).toLowerCase();
+}
+
+function titleCase(str) {
+    var parts = str.split(' ');
+    var newWords = [];
+    for (var x in parts){
+        newWords.push(UpperFirst(parts[x]));
+    }
+    return newWords.join(' ');
+}
+
+titleCase("I'm a little tea pot");
+</code></pre>
+
+<h2>最大值列表</h2>
+<pre><code class="JavaScript">function largest(arr){
+    var max = -99999999;
+    for (var x in arr){
+        if (max < arr[x]){
+            max = arr[x];
+        }
+    }
+    return max
+}
+function largestOfFour(arr) {
+    var newArray = [];
+    for (var x in arr){
+        newArray.push(largest(arr[x]))
+    }
+    return newArray;
+}
+
+largestOfFour([[4, 5, 1, 3], [13, 27, 18, 26], [32, 35, 37, 39], [1000, 1001, 857, 1]]);
+</code></pre>
+
+<h2>endsWith</h2>
+<pre><code class="JavaScript">function confirmEnding(str, target) {
+    return str.endsWith(target);
+}
+
+confirmEnding("Bastian", "n");
+</code></pre>
+
+<h2>重复操作算法</h2>
+<pre><code class="JavaScript">function repeat(str, num) {
+    var res = []
+    for (var i=0; i&lt;num; ++i){
+        res.push(str);
+    }
+    return res.join('');
+}
+
+repeat("abc", 3);
+</code></pre>
+
+<h2>字符串截取算法 slice</h2>
+<pre><code class="JavaScript">function truncate(str, num) {
+    // Clear out that junk in your trunk
+    if (str.length <= num)
+        return str;
+    var num2 = num - 3;
+    if (num2 < 0)
+        num2 = num;
+    return str.slice(0, num2) + '...';
+}
+
+truncate("A-tisket a-tasket A green and yellow basket", 11);
+</code></pre>
+
+<h2>数组分割算法 slice</h2>
+<pre><code class="JavaScript">function chunk(arr, size) {
+    var res = [];
+    while(arr.length > size){
+        res.push(arr.slice(0, size));
+        arr = arr.slice(size);
+    }
+    if (arr.length > 0){
+        res.push(arr);
+    }
+    return res;
+}
+
+chunk(["a", "b", "c", "d"], 2);
+</code></pre>
+
+<h2>slice, splice(修改数组)</h2>
+<pre><code class="JavaScript">function slasher1(arr, howMany) {
+    var res = arr.slice(howMany);
+    return res;
+}
+
+function slasher(arr, howMany) {
+    arr.splice(0, howMany);
+    return arr;
+}
+
+
+slasher([1, 2, 3], 2);
+</code></pre>
+
+<h2>数组查询算法 indexOf</h2>
+<pre><code class="JavaScript">function mutation(arr) {
+    var src = arr[0].toLowerCase();
+    var compare = arr[1].toLowerCase();
+    for (var x in compare){
+        if (src.indexOf(compare[x]) < 0)
+            return false;
+    }
+    return true;
+}
+
+mutation(["hello", "hey"]);
+</code></pre>
+
+<h2>删除数组中特定值算法, filter</h2>
+<pre><code class="JavaScript">function bouncer1(arr) {
+    var res = [];
+    for (var x in arr){
+        if (arr[x])
+            res.push(arr[x]);
+    }
+    return res;
+}
+
+function myFilter(value){
+    return value
+}
+
+function bouncer(arr) {
+    return arr.filter(myFilter);
+}
+
+bouncer([7, "ate", "", false, 9]);
+</code></pre>
+
+<h2>去除数组中任意多个值算法</h2>
+<pre><code class="JavaScript">function destroyer(arr) {
+    var datas = [];
+    for (var i=1; i&lt;arguments.length; ++i){
+        console.log(arguments[i]);
+        datas.push(arguments[i]);
+    }
+    function myFilter(value){
+        return datas.indexOf(value) < 0;
+    }
+    return arr.filter(myFilter);
+}
+
+destroyer([1, 2, 3, 1, 2, 3], 2, 3);
+</code></pre>
+
+<h2>数组排序并插入值算法 sort(function)</h2>
+<pre><code class="JavaScript">function sortNumber(a,b)
+{
+    return a - b;
+}
+
+function where(arr, num) {
+    var index = -1;
+    arr.sort(sortNumber);
+    for (var x = 0; x < arr.length; ++x){
+        if (arr[x] > num){
+            index = x;
+            arr.splice(index, 0, num);
+            break;
+        } else if (arr[x] == num) {
+            index = x;
+            break;
+        }
+    }
+    if (index == -1){
+        index = arr.length;
+        arr.push(num);
+    }
+    return index;
+}
+
+where([40, 60], 50);
+</code></pre>
+
+<h2>位移密码算法</h2>
+<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/charCodeAt" target="_blank">String.prototype.charCodeAt()</a><br>
+<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/fromCharCode" target="_blank">String.fromCharCode()</a>
+
+<p>一个常见的案例就是<a href="http://www.baike.com/wiki/ROT13&amp;prd=so_1_doc" target="_blank">ROT13</a>密码，字母会移位13个位置。由'A' ↔ 'N', 'B' ↔'O'，以此类推。</p>
+<p>写一个<a href="http://www.baike.com/wiki/ROT13&amp;prd=so_1_doc" target="_blank">ROT13</a>函数，实现输入加密字符串，输出解密字符串。</p>
+<p>所有的字母都是大写，不要转化任何非字母形式的字符(例如：空格，标点符号)，遇到这些特殊字符，就跳过它们。</p>
+<pre><code class="JavaScript">function rot13(str) { // LBH QVQ VG!
+    var res = []
+    var datas = str.split('');
+    for (var i = 0; i < datas.length; ++i){
+        var item = datas[i];
+        var code = item.charCodeAt();
+        if ((item >= 'a' && item <= 'z') || (item >= 'A' && item <= 'Z')) {
+            if (code > 77)
+                res.push(String.fromCharCode(code - 13));
+            else
+                res.push(String.fromCharCode(code + 13));
+        } else {
+            res.push(item);
+        }
+    }
+    return res.join('');
+}
+
+// Change the inputs below to test
+rot13("SERR PBQR PNZC");
+</code></pre>
+
+
+</body>
+</html>

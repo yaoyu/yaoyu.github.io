@@ -3,12 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <title>angularJS 2017.11.01 简例</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" crossorigin="anonymous">
+    <link href="https://cdn.bootcss.com/highlight.js/9.12.0/styles/vs2015.min.css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.slim.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
     <script src="https://cdn.bootcss.com/angular.js/1.6.6/angular.min.js"></script>
 </head>
 <body>
 
 <div ng-app="" ng-init="name='张三'">
-    <p>名字: <input type="text" ng-model="name"></p>
+	<div class="form-group">
+	    <label class="col-md-2 control-label">名字: </label><input class="col-md-10" class="form-control" type="text" ng-model="name" placeholder="请输入名字">
+	</div>
     <h1>Hello <span ng-bind="name"></span></h1>
 </div>
 

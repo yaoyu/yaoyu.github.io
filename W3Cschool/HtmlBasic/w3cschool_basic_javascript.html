@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>W3Cschool Jquery 基础</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" crossorigin="anonymous">
+    <link href="https://cdn.bootcss.com/highlight.js/9.12.0/styles/vs2015.min.css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.slim.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+    <script src="https://cdn.bootcss.com/popper.js/1.12.3/umd/popper.min.js" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" crossorigin="anonymous"></script>
+
+    <script src="https://cdn.bootcss.com/angular.js/1.6.6/angular.min.js"></script>
+    <script src="https://cdn.bootcss.com/angular.js/1.6.6/angular-route.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <style>
+        body{
+            width:90%;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+<br/>
+
+<h2>JavaScript 注释语句操作</h2>
+<pre><code>// This is an in-line comment.
+
+/* This is a 
+ multi-line comment */
+</code></pre>
+
+<h2>声明JavaScript变量</h2>
+<p>在计算机科学中, <code>data</code>(数据)大于一切，因为它对于计算机的意义重大。JavaScript提供七种不同的<dfn>data types</dfn>(数据类型)，它们是<code>undefined</code>（未定义）, <code>null</code>（空）, <code>boolean</code>（布尔型）, <code>string</code>（字符串）, <code>symbol</code>(符号), <code>number</code>（数字）, and <code>object</code>（对象）。</p>
+<pre><code class="JavaScript">var ourName;</code></pre>
+
+<h2>使用=为变量赋值</h2>
+<pre><code class="JavaScript">myVar = 5;    <br>myNum = myVar;</code></pre>
+
+<h2>JavaScript 使用=为变量赋初始值</h2>
+<pre><code class="JavaScript">var myVar = 0;</code></pre>
+
+<h2>变量的大小写敏感</h2>
+<pre><code>var someVariable;<br>var anotherVariableName;<br>var thisVariableNameIsTooLong;</code></pre>
+
+<h2>加,减,乘,除运算,自增++,自减--,取余%, +=, -=, *=, /=</h2>
+<pre><code class="JavaScript">    myVar = 5 + 10; // 等于 15
+    myVar = 12 - 6; // 等于 6
+    myVar = 13 * 13; // assigned 169
+    myVar = 16 / 2; // assigned 8
+    i++;  // 等效于 i = i + 1;
+    i--;  // 等效于 i = i - 1;
+    5 % 2 = 1
+    17 % 2 = 1 (17 is 奇数)    
+    48 % 2 = 0 (48 is 偶数)
+    myVar += 5; 
+    myVar -= 5;
+</code></pre>
+
+<h2>转义字符串</h2>
+<pre><code class="JavaScript">var sampleStr = "Alan said, \"Peter is learning JavaScript\".";
+    var myStr = '&lt;a href="http://www.example.com" target="_blank"&gt;Link&lt;/a&gt;'; //使用单引号
+</code></pre>
+
+<h2>转义字符串中的特殊符号</h2>
+<table class="table table-striped"><thead><tr><th>Code</th><th>Output</th></tr></thead><tbody><tr><td>\'</td><td>单引号</td></tr><tr><td>\"</td><td>双引号</td></tr><tr><td>\\</td><td>反斜杠符</td></tr><tr><td>\n</td><td>换行符</td></tr><tr><td>\r</td><td>回车符</td></tr><tr><td>\t</td><td>制表符</td></tr><tr><td>\b</td><td>退格符</td></tr><tr><td>\f</td><td>换页符</td></tr></tbody></table>
+
+<h2>字符串连接方式</h2>
+<pre><code class="JavaScript">    'My name is Alan,' + ' I concatenate.'
+    var myStr = 'This is the first sentence.';
+    myStr += '  This is the second sentence.';
+</code></pre>
+
+<h2>字符串的长度 .length</h2>
+<pre><code class="JavaScript">    "Alan Peter".length; // 10</code></pre>
+
+<h2>字符串索引 []</h2>
+<pre><code class="JavaScript">    firstLetterOfLastName = lastName[0];
+    var lastLetterOfLastName = lastName[lastName.length-1];
+</code></pre>
+
+<h2>数组操作</h2>
+<p>通过左括号<code>[</code>开始定义一个数组，以右括号<code>]</code>结束定义，并把每个数据条目之间用逗号隔开，就像这样：<br>
+<pre><code class="JavaScript">var sandwich = ["peanut butter", "jelly", "bread"]</code></pre></p>
+
+<h2>多维数组</h2>
+<p>你也可以在数组中包含其他数组，就像这样: <code>[["Bulls", 23], ["White Sox", 45]]</code>。这被称为一个 <dfn>多维数组<dfn>。</dfn></dfn></p>
+
+<h2>数组索引</h2>
+<pre><code class="JavaScript">    var array = [1,2,3];
+    array[0]; // 等于 1
+    var data = array[1];// 等于 2
+
+    var ourArray = [3,2,1];
+    ourArray[0] = 1; // ourArray等于 [1,2,1]
+
+    // Setup
+    var myArray = [[1,2,3], [4,5,6], [7,8,9], [[10,11,12], 13, 14]];
+    var myData = myArray[2][1];
+</code></pre>
+
+<h2>push()函数追加数组数据</h2>
+<pre><code class="JavaScript">    var arr = [1,2,3];
+    arr.push(4);
+    // 现在arr的值为 [1,2,3,4]
+</code></pre>
+
+<h2>pop()函数弹出数组最后数据</h2>
+<pre><code class="JavaScript">// 举例
+var ourArray = [1,2,3];
+var removedFromOurArray = ourArray.pop(); 
+</code></pre>
+
+<h2> shift()函数移出数组第一个数据</h2>
+<pre><code class="JavaScript">// 举例
+var ourArray = [1,2,3];
+var removedFromOurArray = ourArray.pop(); 
+</code></pre>
+
+<h2>unshift()函数移入数据到数组第一位</h2>
+<pre><code class="JavaScript">// 举例
+var ourArray = ["Stimpson", "J", "cat"];
+ourArray.shift(); // ourArray now equals ["J", "cat"]
+ourArray.unshift("Happy"); 
+// ourArray now equals ["Happy", "J", "cat"]
+</code></pre>
+
+<h2>函数定义</h2>
+<pre><code class="JavaScript">function functionName() {
+    console.log("Hello World");
+}
+
+function testFun(param1, param2) {
+    console.log(param1, param2);
+}
+
+function plusThree(num) {
+    return num + 3;
+}
+var answer = plusThree(5); // 8
+
+function queue(arr, item) {
+  // Your code here
+  arr.push(item);
+  var aArr = arr.shift();
+  return aArr;  // Change this line
+}
+// Test Setup
+var testArr = [1,2,3,4,5];
+// Display Code
+console.log("Before: " + JSON.stringify(testArr));
+console.log(queue(testArr, 3)); // Modify this line to test
+console.log("After: " + JSON.stringify(testArr));
+</code></pre>
+
+<h2>全局变量</h2>
+<p>没有使用<code>var</code>关键字定义的变量，会被自动创建在全局作用域中，变成全局变量。当在代码其他地方无意间定义了一个变量，刚好变量名与全局变量相同，这时候会产生意想不到的后果，可能导致你的代码出现BUG。因此你应该总是使用var关键字来声明你的变量。</p>
+<pre><code class="JavaScript">function fun1() {
+    // 这里创建了全局变量
+    oopsGlobal = 5;
+}</code></pre>
+
+<h2>if, ==, !=, ===, !==, &lt;, &lt;=, &gt;, &gt;=</h2>
+<pre><code class="JavaScript">// Setup
+function myTest(val) {
+    if (val == 12) { // Change this line
+        return "Equal";
+    }
+    return "Not Equal";
+}
+
+function myTest2(val) {
+    if (val === 7) { // Change this line
+        return "Equal";
+    }
+    return "Not Equal";
+}
+
+function myTest3(val) {
+    if (val != 99) { // Change this line
+        return "Not Equal";
+    }
+    return "Equal";
+}
+
+</code></pre>
+
+<h2>&&, ||, if-else-if</h2>
+<pre><code class="JavaScript">function myTest(val) {
+    // Only change code below this line
+    if (val&gt;24 && val&lt;51) {
+        return "Yes";
+    }
+
+    // Only change code above this line
+    return "No";
+}
+
+function myTest2(val) {
+    // Only change code below this line
+    if (val&gt;20 || val&lt;10) {
+        return "Yes";
+    }
+
+    // Only change code above this line
+    return "No";
+}
+
+function myTest3(num) {
+    if (num < 5)  return "Tiny"
+    else if (num <10 ) return "Small" 
+    else if (num < 15 ) return "Medium"
+    else if (num < 20 ) return "Large" 
+    else if (num >= 20) return "Huge"
+    return "Change Me";
+}
+
+function golfScore(par, strokes) {
+   if(strokes==1){
+    return "Hole-in-one!";
+  }else if(strokes<= par - 2){
+    return "Eagle";
+  }else if(strokes==par-1){
+    return "Birdie";
+  }else if(strokes==par){
+    return "Par";
+  }else if(strokes==par+1){
+    return "Bogey";
+  }else if(strokes==par + 2){
+    return "Double Bogey";
+  }
+  else if(strokes>= par + 3){
+    return "Go Home!";
+  } 
+}
+</code></pre>
+
+<h2>switch</h2>
+<pre><code class="JavaScript">function myTest(val) {
+  var answer = "";
+  switch(val){
+    case 1: 
+      answer = "alpha";
+      break;
+    case  2:
+      answer = "beta";
+      break;
+    case 3:
+      answer = "gamma";
+      break;
+    case 4:
+      answer = "delta";
+      break;
+  }
+
+  // Only change code above this line  
+  return answer;  
+}
+
+function myTest2(val) {
+    var answer = "";
+    // Only change code below this line
+    switch(val) {
+        case 1:
+        case 2:
+        case 3:
+            answer = "Low";
+            break;
+        case 4:
+        case 5:
+        case 6:
+            answer = "Mid";
+            break;
+        case 7:
+        case 8:
+        case 9:
+            answer = "High";
+    }
+
+    return answer;
+}
+</code></pre>
+
+<h2>对象操作, .[变量]读取对象属性, 删除对象属性</h2>
+<pre><code class="JavaScript">var cat = {
+    "name": "Whiskers",
+    "legs": 4,
+    "tails": 1,
+    "enemies": ["Water", "Dogs"]
+};
+
+// 使用.操作符读取属性
+var myObj = {
+    prop1: "val1",
+    prop2: "val2"
+};
+var prop1val = myObj.prop1; // val1
+var prop2val = myObj.prop2; // val2
+
+// 使用[]操作符读取属性
+var myObj = {
+    "Space Name": "Kirk",
+    "More Space": "Spock"
+};
+myObj["Space Name"]; // Kirk
+myObj['More Space']; // Spock
+
+//使用变量访问对象属性
+var someProp = "propName";
+var myObj = {
+    propName: "Some Value"
+}
+myObj[someProp]; // "Some Value"
+
+//更新对象属性
+myObj.name = "Happy Camper"
+
+//删除对象属性
+delete myObj.name;
+</code></pre>
+
+<h2>使用对象属性进行值查找</h2>
+<pre><code class="JavaScript">// Setup
+function phoneticLookup(val) {
+    var result = "";
+
+    // Only change code below this line
+    var datas ={ "alpha":  "Adams",
+        "bravo":  "Boston",
+        "charlie":  "Chicago",
+        "delta":  "Denver",
+        "echo": "Easy",
+        "foxtrot": "Frank"
+    }
+    result = datas[val];
+
+    // Only change code above this line
+    return result;
+}
+
+// Change this value to test
+phoneticLookup("charlie");
+
+// Setup
+var myObj = {
+    gift: "pony",
+    pet: "kitten",
+    bed: "sleigh"
+};
+
+function checkObj(checkProp) {
+    // Your Code Here
+    if (myObj.hasOwnProperty(checkProp))
+        return myObj[checkProp];
+    return "Not Found";
+}
+
+// Test your code by modifying these values
+checkObj("gift");
+</code></pre>
+
+<h2> JSON操作</h2>
+<pre><code class="JavaScript">var myMusic = [
+    {
+        "artist": "Billy Joel",
+        "title": "Piano Man",
+        "release_year": 1973,
+        "formats": [ 
+        "CS", 
+        "8T", 
+        "LP" ],
+        "gold": true
+    },
+    // Add record here
+    {
+        "artist": "Pip",
+        "title": "A Piano Man",
+        "release_year": 1983,
+        "formats": [ 
+        "CS", 
+        "8T", 
+        "LP" ],
+        "gold": true
+    }
+];
+
+// Setup
+var myStorage = {
+    "car": {
+        "inside": {
+            "glove box": "maps",
+            "passenger seat": "crumbs"
+        },
+        "outside": {
+            "trunk": "jack"
+        }
+    }
+};
+
+// Only change code below this line
+var gloveBoxContents = myStorage.car.inside["glove box"];
+
+// Setup
+var myPlants = [
+    { 
+        type: "flowers",
+        list: [
+            "rose",
+            "tulip",
+            "dandelion"
+        ]
+    },
+    {
+        type: "trees",
+        list: [
+            "fir",
+            "pine",
+            "birch"
+        ]
+    }
+];
+
+// Only change code below this line
+var secondTree = myPlants[1].list[1];
+
+// Setup
+var collection = {
+    2548: {
+        album: "Slippery When Wet",
+        artist: "Bon Jovi",
+        tracks: [ 
+                "Let It Rock", 
+                "You Give Love a Bad Name" 
+        ]
+    },
+    2468: {
+        album: "1999",
+        artist: "Prince",
+        tracks: [ 
+            "1999", 
+            "Little Red Corvette" 
+        ]
+    },
+    1245: {
+        artist: "Robert Palmer",
+        tracks: [ ]
+    },
+    5439: {
+        album: "ABBA Gold"
+    }
+};
+// Keep a copy of the collection for tests
+var collectionCopy = JSON.parse(JSON.stringify(collection));
+
+// Only change code below this line
+function update(id, prop, value) {
+    var ppp = collection[id][prop];
+    if (value === "")
+        delete collection[id][prop];
+    else if (prop === 'tracks')
+        ppp.push(value);
+    else
+        collection[id][prop] = value;
+    return collection;
+}
+
+// Alter values below to test your code
+update(5439, "artist", "ABBA");
+</code></pre>
+
+<h2>循环</h2>
+<pre><code class="JavaScript">// 举例
+var ourArray = [];
+
+//for 循环
+for (var i = 0; i &lt; 5; i++) {
+    ourArray.push(i);
+}
+
+//while循环
+var ourArray = [];    
+var i = 0;    
+while(i < 5) {    
+    ourArray.push(i);    
+    i++;    
+}
+</code></pre>
+
+<h2>通讯录查找</h2>
+<pre><code class="JavaScript">//Setup
+var contacts = [
+    {
+        "firstName": "Akira",
+        "lastName": "Laine",
+        "number": "0543236543",
+        "likes": ["Pizza", "Coding", "Brownie Points"]
+    },
+    {
+        "firstName": "Harry",
+        "lastName": "Potter",
+        "number": "0994372684",
+        "likes": ["Hogwarts", "Magic", "Hagrid"]
+    },
+    {
+        "firstName": "Sherlock",
+        "lastName": "Holmes",
+        "number": "0487345643",
+        "likes": ["Intriguing Cases", "Violin"]
+    },
+    {
+        "firstName": "Kristian",
+        "lastName": "Vos",
+        "number": "unknown",
+        "likes": ["Javascript", "Gaming", "Foxes"]
+    }
+];
+
+
+function lookUpProfile(firstName, prop){
+// Only change code below this line
+    for (var i=0; i&lt;contacts.length; ++i)
+    {
+        if (firstName == contacts[i].firstName){
+            /**
+            //方法1
+            var val = contacts[i][prop];
+            if (val)
+                return val;
+            */
+            //方法2
+            if (contacts[i].hasOwnProperty(prop))
+            {
+                return contacts[i][prop];
+            }
+            return 'No such property';
+        }
+    }
+    return 'No such contact';
+// Only change code above this line
+}
+
+// Change these values to test your function
+lookUpProfile("Kristian", "lastName");
+
+</code></pre>
+
+<h2>随机数</h2>
+<pre><code class="JavaScript">Math.random();
+Math.floor(Math.random() * 20);  //随机整数
+
+//指定区间的随机数
+function randomRange(myMin, myMax) {
+    return Math.floor(Math.random()*(myMax - myMin + 1)) + myMin;
+}
+</code></pre>
+
+<br><br><br>
+<h2>正则表达式</h2>
+<div><p><code>Regular expressions</code> 正则表达式被用来根据某种匹配模式来寻找<code>strings</code>中的某些单词。</p>
+<p>例如：如果我们想要找到字符串<code>The dog chased the cat</code>中单词 <code>the</code>，我们可以使用下面的正则表达式: <code>/the/gi</code></p>
+<p>我们可以把这个正则表达式分成几段：</p>
+<p><code>/</code> 是这个正则表达式的头部</p>
+<p><code>the</code> 是我们想要匹配的模式</p>
+<p><code>/</code> 是这个正则表达式的尾部</p>
+<p><code>g</code> 代表着 <code>global</code>(全局)，意味着返回所有的匹配而不仅仅是第一个。</p>
+<p><code>i</code> 代表着忽略大小写，意思是当我们寻找匹配的字符串的时候忽略掉字母的大小写。</p>
+</div>
+<pre><code class="JavaScript">// Setup
+var testString = "Ada Lovelace and Charles Babbage designed the first computer and the software that would have run on it.";
+
+// 举例
+var expressionToGetSoftware = /software/gi;
+var softwareCount = testString.match(expressionToGetSoftware).length;
+
+var expression = /and/gi;//
+
+// This code counts the matches of expression in testString
+var andCount = testString.match(expression).length;
+</code></pre>
+
+<h2>正则表达式选取数值</h2>
+<p>在JavaScript中, 数字选择器类似于: <code>/\d/g</code>。</p>
+<p>在选择器后面添加一个加号标记(<code>+</code>)，例如：<code>/\d+/g</code>，它允许这个正则表达式匹配一个或更多数字。</p>
+<pre><code class="JavaScript">// Setup
+var testString = "There are 3 cats but 4 dogs.";
+
+var expression = /\d+/g;
+
+// This code counts the matches of expression in testString
+var digitCount = testString.match(expression).length;
+</code></pre>
+
+<h2>正则表达式选取空白字符</h2>
+<p>空白字符有 <code>" "</code> (空格符)、<code>\r</code> (回车符)、<code>\n</code> (换行符)、<code>\t</code> (制表符) 和 <code>\f</code> (换页符)。</p>
+<p>空白正则表达式类似于：</p>
+<p><code>/\s+/g</code></p>
+<pre><code class="JavaScript">// Setup
+var testString = "How many spaces are there in this sentence?";
+
+var expression = /\s+/g;
+
+// This code counts the matches of expression in testString
+var spaceCount = testString.match(expression).length;
+</code></pre>
+
+<h2>正则表达式反转匹配</h2>
+<p>你可以用正则表达式选择器的大写版本来反转任何匹配（相反意思）。</p>
+<p>例如：<code>\s</code> 匹配任何空白字符，<code>\S</code> 匹配任何非空白字符。</p>
+<pre><code class="JavaScript">// Setup
+var testString = "How many non-space characters are there in this sentence?";
+
+var expression = /\S/g;
+
+// This code counts the matches of expression in testString
+var nonSpaceCount = testString.match(expression).length;
+</code></pre>
+
+<h2>使用$及数组操作html对象</h2>
+<pre><code class="JavaScript">function runSlots() {
+    var slotOne;
+    var slotTwo;
+    var slotThree;
+    
+    var images = ["https://www.w3cschool.cn/statics/codecamp/images/9H17QFk.png", "https://www.w3cschool.cn/statics/codecamp/images/9RmpXTy.png", "https://www.w3cschool.cn/statics/codecamp/images/VJnmtt5.png"];
+    
+    slotOne = Math.floor(Math.random() * (3 - 1 + 1)) + 1;
+    slotTwo = Math.floor(Math.random() * (3 - 1 + 1)) + 1;
+    slotThree = Math.floor(Math.random() * (3 - 1 + 1)) + 1;
+    
+    
+    // Only change code below this line.
+    $($('.slot')[0]).html('<img src = "' + images[slotOne-1] + '">');
+    $($('.slot')[1]).html('<img src = "' + images[slotTwo-1] + '">');
+    $($('.slot')[2]).html('<img src = "' + images[slotThree-1] + '">');
+    // Only change code above this line.
+    
+    if (slotOne === slotTwo && slotTwo === slotThree) {
+        $('.logger').html("It's A Win");
+        return null;
+    }
+    
+    if (slotOne !== undefined && slotTwo !== undefined && slotThree !== undefined){
+        $(".logger").html(slotOne + " " + slotTwo + " " + slotThree);
+    }
+    
+    $('.logger').append(" Not A Win");
+    
+    return [slotOne, slotTwo, slotThree];
+}
+
+$(document).ready(function() {
+     $('.go').click(function() {
+        runSlots();
+     });
+ });
+</code></pre>
+
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>W3Cschool Jquery 基础</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" crossorigin="anonymous">
+    <link href="https://cdn.bootcss.com/highlight.js/9.12.0/styles/vs2015.min.css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.slim.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+    <script src="https://cdn.bootcss.com/popper.js/1.12.3/umd/popper.min.js" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" crossorigin="anonymous"></script>
+
+    <script src="https://cdn.bootcss.com/angular.js/1.6.6/angular.min.js"></script>
+    <script src="https://cdn.bootcss.com/angular.js/1.6.6/angular-route.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <style>
+        body{
+            width:90%;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+<br/>
+<h2 class="text-primary">JQuery准备</h2>
+<pre><code>&lt;script&gt;
+    $(document).ready(function(){
+
+    });
+&lt;/script&gt;
+</code></pre>
+
+<h2>使用选择器获取HTML元素</h2>
+<pre><code>$("button").addClass("animated bounce");</code></pre>
+
+<h2>使用addClass()方法给元素加class</h2>
+<p>例如，你可以将下面的代码写在<code>document ready function</code>里，给所有具有<code>text-primary</code>class的元素添加<code>animated</code>和<code>shake</code>：</p>
+<pre><code>$(".text-primary").addClass("animated shake");</code></pre>
+
+<h2>根据id属性来获取元素</h2>
+<p>首先，使用<code>$("#target3")</code>选择器来选择id为<code>target3</code>的<code>button</code>元素。</p>
+<pre><code>$("#target6").addClass("animated fadeOut")</code></pre>
+
+<h2>删除HTML元素的class</h2>
+<pre><code>$("#target2").removeClass("btn-default");</code></pre>
+
+<h2>改变HTML元素的CSS样式</h2>
+<p>以下代码显示如何将颜色改变成蓝色：</p>
+<pre><code>$("#target1").css("color", "blue");</code></pre>
+
+<h2>设置元素不可用</h2>
+<pre><code>$("button").prop("disabled", true);</code></pre>
+
+<h2>改变元素中的文本</h2>
+<p>jQuery有一个<code>.html()</code>方法，可以让你在元素中添加HTML标签和文字，而元素中之前的内容都会被方法中的内容所替换掉。</p>
+<pre><code>$("h3").html("&lt;em&gt;jQuery Playground&lt;/em&gt;");</code></pre>
+
+<h2>删除元素</h2>
+<p>jQuery 有一个<code>.remove()</code>的方法，可以彻底删除一个HTML元素。</p>
+<pre><code>$('#target4').remove();</code></pre>
+
+<h2>使用appendTo()移动HTML元素</h2>
+<pre><code>$("#target4").appendTo("#left-well");</code></pre>
+
+<h2>使用clone()方法复制元素</h2>
+<pre><code>$("#target2").clone().appendTo("#right-well");</code></pre>
+
+<h2>使用parent()操作父级元素</h2>
+<pre><code>$("#left-well").parent().css("background-color", "blue")</code></pre>
+
+<h2>使用children()操作子级元素</h2>
+<pre><code>$("#left-well").children().css("color", "blue")</code></pre>
+
+<h2>使用target:nth-child(n) CSS选择器获取子元素</h2>
+<pre><code>$(".target:nth-child(3)").addClass("animated bounce");</code></pre>
+
+<h2>使用选择器操作偶数索引元素</h2>
+<pre><code>$(".target:odd").addClass("animated shake");</code></pre>
+
+<h2>使用jQuery修改整个页面</h2>
+<pre><code>$("body").addClass("animated fadeOut");</code></pre>
+</body>
+</html>
