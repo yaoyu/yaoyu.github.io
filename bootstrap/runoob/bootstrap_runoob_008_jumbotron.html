@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Bootstrap4 超大屏幕(Jumbotron)</title>
+    <link href="https://cdn.bootcss.com/bootstrap/4.0.0-beta.2/css/bootstrap.css" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/highlight.js/9.12.0/styles/vs2015.min.css" rel="stylesheet">
+
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.slim.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/4.0.0-beta.2/js/bootstrap.js"></script>
+    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+    <script src="https://cdn.bootcss.com/angular.js/1.6.6/angular.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <style>
+      p{
+        margin-bottom: 0.5rem;
+      }
+    </style>
+</head>
+<body>
+<div class="container">
+
+  <div class="article-body">
+    
+      <div class="article-intro" id="content">
+      
+      <h1>Bootstrap4 Jumbotron
+</h1>
+<p>Jumbotron（超大屏幕）会创建一个大的灰色背景框，里面可以设置一些特殊的内容和信息。</p>
+
+
+<p><strong>提示:</strong> Jumbotron 里头可以放一些 HTML标签，也可以是 Bootstrap 的元素。</p>
+<p>我们可以通过在 <mark class="marked">&lt;div&gt;</mark> 元素 中添加 <mark class="marked">.jumbotron</mark> 类来创建 jumbotron:</p>
+<pre><code class="html">&lt;div class=&quot;jumbotron&quot;&gt;
+  &lt;h1&gt;菜鸟教程&lt;/h1&gt; 
+  &lt;p&gt;学的不仅是技术，更是梦想！！！&lt;/p&gt; 
+&lt;/div&gt;
+</code></pre>
+<div class="jumbotron">
+  <h1>菜鸟教程</h1> 
+  <p>学的不仅是技术，更是梦想！！！</p> 
+</div>
+
+<hr>
+<h2>全屏幕的 Jumbotron</h2>
+
+<p>如果你想创建一个没有圆角的全屏幕，可以在 <mark class="marked">.jumbotron-fluid</mark> 类里头的 div添加 <mark class="marked">.container</mark> 或 
+<mark class="marked">.container-fluid</mark> 类来实现:</p>
+<pre><code class="html">&lt;div class=&quot;jumbotron jumbotron-fluid&quot;&gt;
+  &lt;div class=&quot;container&quot;&gt;
+      &lt;h1&gt;菜鸟教程&lt;/h1&gt; 
+      &lt;p&gt;学的不仅是技术，更是梦想！！！&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+      <h1>菜鸟教程</h1> 
+      <p>学的不仅是技术，更是梦想！！！</p>
+  </div>
+</div>
+      
+
+
+</div>
+</body>
+</html>

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Bootstrap4 卡片</title>
+    <link href="https://cdn.bootcss.com/bootstrap/4.0.0-beta.2/css/bootstrap.css" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/highlight.js/9.12.0/styles/vs2015.min.css" rel="stylesheet">
+
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.slim.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/4.0.0-beta.2/js/bootstrap.js"></script>
+    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+    <script src="https://cdn.bootcss.com/angular.js/1.6.6/angular.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <style>
+      p{
+        margin-bottom: 0.5rem;
+      }
+    </style>
+</head>
+<body>
+<div class="container">
+<div class="article-intro" id="content">
+      
+      <h1>Bootstrap4 卡片</h1>
+<h2>简单的卡片</h2>
+<p>我们可以通过 Bootstrap4 的 <mark class="marked">.card</mark> 与 <mark class="marked">.card-body</mark> 类来创建一个简单的卡片，实例如下:</p>
+<div class="card">
+  <div class="card-body">简单的卡片</div>
+</div>
+<pre><code class="html">&lt;div class=&quot;card&quot;&gt;
+  &lt;div class=&quot;card-body&quot;&gt;简单的卡片&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+
+<blockquote>
+<p>Bootstrap4 的卡片类似 Bootstrap 3 中的面板、图片缩略图、well。</p>
+</blockquote>
+<hr>
+<h2>头部和底部</h2>
+<p> <mark class="marked">.card-header</mark>类用于创建卡片的头部样式， <mark class="marked">.card-footer</mark> 类用于创建卡片的底部样式：</p>
+<div class="card">
+  <div class="card-header">头部</div>
+  <div class="card-body">内容</div> 
+  <div class="card-footer">底部</div>
+</div>
+<pre><code class="html">&lt;div class=&quot;card&quot;&gt;
+  &lt;div class=&quot;card-header&quot;&gt;头部&lt;/div&gt;
+  &lt;div class=&quot;card-body&quot;&gt;内容&lt;/div&gt; 
+  &lt;div class=&quot;card-footer&quot;&gt;底部&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+
+
+<hr>
+<h2>多种颜色卡片</h2>
+
+<p>Bootstrap 4 提供了多种卡片的背景颜色类： <mark class="marked">.bg-primary</mark>, <mark class="marked">
+.bg-success</mark>, <mark class="marked">.bg-info</mark>, <mark class="marked">.bg-warning</mark>, <mark class="marked">.bg-danger</mark>, <mark class="marked">.bg-secondary</mark>, <mark class="marked">.bg-dark</mark> 和 <mark class="marked">.bg-light</mark>。</p>
+<div class="container">
+  <h2>多种颜色卡片</h2>
+  <div class="card">
+    <div class="card-body">Basic card</div>
+  </div>
+  <br>
+  <div class="card bg-primary text-white">
+    <div class="card-body">Primary card</div>
+  </div>
+  <br>
+  <div class="card bg-success text-white">
+    <div class="card-body">Success card</div>
+  </div>
+  <br>
+  <div class="card bg-info text-white">
+    <div class="card-body">Info card</div>
+  </div>
+  <br>
+  <div class="card bg-warning text-white">
+    <div class="card-body">Warning card</div>
+  </div>
+  <br>
+  <div class="card bg-danger text-white">
+    <div class="card-body">Danger card</div>
+  </div>
+  <br>
+  <div class="card bg-secondary text-white">
+    <div class="card-body">Secondary card</div>
+  </div>
+  <br>
+  <div class="card bg-dark text-white">
+    <div class="card-body">Dark card</div>
+  </div>
+  <br>
+  <div class="card bg-light text-dark">
+    <div class="card-body">Light card</div>
+  </div>
+</div>
+<pre><code class="html">&lt;div class=&quot;container&quot;&gt;
+  &lt;h2&gt;多种颜色卡片&lt;/h2&gt;
+  &lt;div class=&quot;card&quot;&gt;
+    &lt;div class=&quot;card-body&quot;&gt;Basic card&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;br&gt;
+  &lt;div class=&quot;card bg-primary text-white&quot;&gt;
+    &lt;div class=&quot;card-body&quot;&gt;Primary card&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;br&gt;
+  &lt;div class=&quot;card bg-success text-white&quot;&gt;
+    &lt;div class=&quot;card-body&quot;&gt;Success card&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;br&gt;
+  &lt;div class=&quot;card bg-info text-white&quot;&gt;
+    &lt;div class=&quot;card-body&quot;&gt;Info card&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;br&gt;
+  &lt;div class=&quot;card bg-warning text-white&quot;&gt;
+    &lt;div class=&quot;card-body&quot;&gt;Warning card&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;br&gt;
+  &lt;div class=&quot;card bg-danger text-white&quot;&gt;
+    &lt;div class=&quot;card-body&quot;&gt;Danger card&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;br&gt;
+  &lt;div class=&quot;card bg-secondary text-white&quot;&gt;
+    &lt;div class=&quot;card-body&quot;&gt;Secondary card&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;br&gt;
+  &lt;div class=&quot;card bg-dark text-white&quot;&gt;
+    &lt;div class=&quot;card-body&quot;&gt;Dark card&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;br&gt;
+  &lt;div class=&quot;card bg-light text-dark&quot;&gt;
+    &lt;div class=&quot;card-body&quot;&gt;Light card&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+
+<hr>
+<h2>标题、文本和链接</h2>
+<p>我们可以在头部元素上使用 <mark class="marked">.card-title</mark> 类来设置卡片的标题 。
+<mark class="marked">.card-text</mark> 类用于设置卡片正文的内容。 <mark class="marked">.card-link</mark> 类用于给链接设置颜色。 </p>
+<div class="card">
+  <div class="card-body">
+    <h4 class="card-title">Card title</h4>
+    <p class="card-text">Some example text. Some example text.</p>
+    <a href="#" class="card-link">Card link</a>
+    <a href="#" class="card-link">Another link</a>
+  </div>
+</div>
+<pre><code class="html">&lt;div class=&quot;card&quot;&gt;
+  &lt;div class=&quot;card-body&quot;&gt;
+    &lt;h4 class=&quot;card-title&quot;&gt;Card title&lt;/h4&gt;
+    &lt;p class=&quot;card-text&quot;&gt;Some example text. Some example text.&lt;/p&gt;
+    &lt;a href=&quot;#&quot; class=&quot;card-link&quot;&gt;Card link&lt;/a&gt;
+    &lt;a href=&quot;#&quot; class=&quot;card-link&quot;&gt;Another link&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+
+<hr>
+<h2>图片卡片</h2>
+<p>我们可以给 <mark class="marked">
+&lt;img&gt;</mark> 添加 <mark class="marked">.card-image-top</mark>（图片在文字上方） 或 <mark class="marked">.card-image-bottom</mark>（图片在文字下方 来设置图片卡片：</p>
+<div class="card" style="width:400px">
+  <img class="card-img-top" src="../../assets/images/all_in_one_60_442jjgjq.PNG" alt="Card image">
+  <div class="card-body">
+    <h4 class="card-title">John Doe</h4>
+    <p class="card-text">Some example text.</p>
+    <a href="#" class="btn btn-primary">See Profile</a>
+  </div>
+</div>
+<pre><code class="html">&lt;div class=&quot;card&quot; style=&quot;width:400px&quot;&gt;
+  &lt;img class=&quot;card-img-top&quot; src=&quot;../../assets/images/all_in_one_60_442jjgjq.PNG&quot; alt=&quot;Card image&quot;&gt;
+  &lt;div class=&quot;card-body&quot;&gt;
+    &lt;h4 class=&quot;card-title&quot;&gt;John Doe&lt;/h4&gt;
+    &lt;p class=&quot;card-text&quot;&gt;Some example text.&lt;/p&gt;
+    &lt;a href=&quot;#&quot; class=&quot;btn btn-primary&quot;&gt;See Profile&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+
+<p>如果图片要设置为背景，可以使用 <mark class="marked">.card-img-overlay</mark> 类:</p>
+<div class="card" style="width:500px">
+  <img class="card-img-top" src="../../assets/images/all_in_one_60_442jjgjq.PNG" alt="Card image">
+  <div class="card-img-overlay">
+    <h4 class="card-title">John Doe</h4>
+    <p class="card-text">Some example text.</p>
+    <a href="#" class="btn btn-primary">See Profile</a>
+  </div>
+</div>
+
+</div>
+</body>
+</html>

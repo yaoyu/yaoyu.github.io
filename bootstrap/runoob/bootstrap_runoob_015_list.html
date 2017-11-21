@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Bootstrap4 列表组</title>
+    <link href="https://cdn.bootcss.com/bootstrap/4.0.0-beta.2/css/bootstrap.css" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/highlight.js/9.12.0/styles/vs2015.min.css" rel="stylesheet">
+
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.slim.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/4.0.0-beta.2/js/bootstrap.js"></script>
+    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+    <script src="https://cdn.bootcss.com/angular.js/1.6.6/angular.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <style>
+      p{
+        margin-bottom: 0.5rem;
+      }
+    </style>
+</head>
+<body>
+<div class="container">
+
+<div class="article-intro" id="content">
+      
+      <h1>Bootstrap4 列表组</h1>
+<p>大部分基础列表组都是无序的。</p>
+<ul class="list-group">
+  <li class="list-group-item">First item</li>
+  <li class="list-group-item">Second item</li>
+  <li class="list-group-item">Third item</li>
+</ul><p>要创建列表组，可以在 <mark class="marked">&lt;ul&gt;</mark> 元素上添加 <mark class="marked">.list-group</mark> 类, 在
+<mark class="marked">&lt;li&gt;</mark> 元素上添加 <mark class="marked">.list-group-item</mark> 类:</p>
+<pre><code class="html">&lt;ul class=&quot;list-group&quot;&gt;
+  &lt;li class=&quot;list-group-item&quot;&gt;First item&lt;/li&gt;
+  &lt;li class=&quot;list-group-item&quot;&gt;Second item&lt;/li&gt;
+  &lt;li class=&quot;list-group-item&quot;&gt;Third item&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+
+
+<hr>
+<h2>激活状态的列表项</h2>
+<p>通过添加 <mark class="marked">.active</mark> 类来设置激活状态的列表项：</p>
+<ul class="list-group">
+  <li class="list-group-item active">Active item</li>
+  <li class="list-group-item">Second item</li>
+  <li class="list-group-item">Third item</li>
+</ul>
+<pre><code class="html">&lt;ul class=&quot;list-group&quot;&gt;
+  &lt;li class=&quot;list-group-item active&quot;&gt;Active item&lt;/li&gt;
+  &lt;li class=&quot;list-group-item&quot;&gt;Second item&lt;/li&gt;
+  &lt;li class=&quot;list-group-item&quot;&gt;Third item&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+
+
+<hr>
+<h2>禁用的列表项</h2>
+
+<p> <mark class="marked">.disabled</mark> 类用于设置禁用的列表项:</p>
+<ul class="list-group">
+  <li class="list-group-item disabled">Disabled item</li>
+  <li class="list-group-item">Second item</li>
+  <li class="list-group-item">Third item</li>
+</ul>
+<pre><code class="html">&lt;ul class=&quot;list-group&quot;&gt;
+  &lt;li class=&quot;list-group-item disabled&quot;&gt;Disabled item&lt;/li&gt;
+  &lt;li class=&quot;list-group-item&quot;&gt;Second item&lt;/li&gt;
+  &lt;li class=&quot;list-group-item&quot;&gt;Third item&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+
+
+<hr>
+<h2>链接列表项</h2>
+<p>要创建一个链接的列表项，可以将<mark class="marked">&lt;div&gt;</mark> 替换 <mark class="marked">&lt;ul&gt;</mark> 
+， <mark class="marked">&lt;a&gt;</mark> 替换 <mark class="marked">&lt;li&gt;</mark>。如果你想鼠标悬停显示灰色背景就添加<mark class="marked">.list-group-item-action</mark> 类:</p>
+<div class="list-group">
+  <a href="#" class="list-group-item list-group-item-action">First item</a>
+  <a href="#" class="list-group-item list-group-item-action">Second item</a>
+  <a href="#" class="list-group-item list-group-item-action">Third item</a>
+</div>
+<pre><code class="html">&lt;div class=&quot;list-group&quot;&gt;
+  &lt;a href=&quot;#&quot; class=&quot;list-group-item list-group-item-action&quot;&gt;First item&lt;/a&gt;
+  &lt;a href=&quot;#&quot; class=&quot;list-group-item list-group-item-action&quot;&gt;Second item&lt;/a&gt;
+  &lt;a href=&quot;#&quot; class=&quot;list-group-item list-group-item-action&quot;&gt;Third item&lt;/a&gt;
+&lt;/div&gt;
+</code></pre>
+
+
+<hr>
+<h2>多种颜色列表项</h2>
+<p>
+<p>列表项目的颜色可以通过以下列来设置：<mark class="marked">
+.list-group-item-success</mark>, <mark class="marked">list-group-item-secondary</mark>, <mark class="marked">list-group-item-info</mark>, <mark class="marked">
+list-group-item-warning</mark>, <mark class="marked">.list-group-item-danger</mark>, <mark class="marked">list-group-item-dark</mark> 和 <mark class="marked">list-group-item-light</mark>:</p>
+<ul class="list-group">
+  <li class="list-group-item list-group-item-success">成功列表项</li>
+  <li class="list-group-item list-group-item-secondary">次要列表项</li>
+  <li class="list-group-item list-group-item-info">信息列表项</li>
+  <li class="list-group-item list-group-item-warning">警告列表项</li>
+  <li class="list-group-item list-group-item-danger">危险列表项</li>
+  <li class="list-group-item list-group-item-primary">主要列表项</li>
+  <li class="list-group-item list-group-item-dark">深灰色列表项</li>
+  <li class="list-group-item list-group-item-light">浅色列表项</li>
+</ul>
+<pre><code class="html">&lt;ul class=&quot;list-group&quot;&gt;
+  &lt;li class=&quot;list-group-item list-group-item-success&quot;&gt;成功列表项&lt;/li&gt;
+  &lt;li class=&quot;list-group-item list-group-item-secondary&quot;&gt;次要列表项&lt;/li&gt;
+  &lt;li class=&quot;list-group-item list-group-item-info&quot;&gt;信息列表项&lt;/li&gt;
+  &lt;li class=&quot;list-group-item list-group-item-warning&quot;&gt;警告列表项&lt;/li&gt;
+  &lt;li class=&quot;list-group-item list-group-item-danger&quot;&gt;危险列表项&lt;/li&gt;
+  &lt;li class=&quot;list-group-item list-group-item-primary&quot;&gt;主要列表项&lt;/li&gt;
+  &lt;li class=&quot;list-group-item list-group-item-dark&quot;&gt;深灰色列表项&lt;/li&gt;
+  &lt;li class=&quot;list-group-item list-group-item-light&quot;&gt;浅色列表项&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+
+
+<hr>
+<h3>链接的多种颜色列表项</h3>
+<div class="list-group">
+    <a href="#" class="list-group-item list-group-item-action">激活列表项</a>
+    <a href="#" class="list-group-item list-group-item-success">成功列表项</a>
+    <a href="#" class="list-group-item list-group-item-secondary">次要列表项</a>
+    <a href="#" class="list-group-item list-group-item-info">信息列表项</a>
+    <a href="#" class="list-group-item list-group-item-warning">警告列表项</a>
+    <a href="#" class="list-group-item list-group-item-danger">危险列表项</a>
+    <a href="#" class="list-group-item list-group-item-primary">主要列表项</a>
+    <a href="#" class="list-group-item list-group-item-dark">深灰色列表项</a>
+    <a href="#" class="list-group-item list-group-item-light">浅色列表项</a>
+</div>
+<pre><code class="html">&lt;div class=&quot;list-group&quot;&gt;
+    &lt;a href=&quot;#&quot; class=&quot;list-group-item list-group-item-action&quot;&gt;激活列表项&lt;/a&gt;
+    &lt;a href=&quot;#&quot; class=&quot;list-group-item list-group-item-success&quot;&gt;成功列表项&lt;/a&gt;
+    &lt;a href=&quot;#&quot; class=&quot;list-group-item list-group-item-secondary&quot;&gt;次要列表项&lt;/a&gt;
+    &lt;a href=&quot;#&quot; class=&quot;list-group-item list-group-item-info&quot;&gt;信息列表项&lt;/a&gt;
+    &lt;a href=&quot;#&quot; class=&quot;list-group-item list-group-item-warning&quot;&gt;警告列表项&lt;/a&gt;
+    &lt;a href=&quot;#&quot; class=&quot;list-group-item list-group-item-danger&quot;&gt;危险列表项&lt;/a&gt;
+    &lt;a href=&quot;#&quot; class=&quot;list-group-item list-group-item-primary&quot;&gt;主要列表项&lt;/a&gt;
+    &lt;a href=&quot;#&quot; class=&quot;list-group-item list-group-item-dark&quot;&gt;深灰色列表项&lt;/a&gt;
+    &lt;a href=&quot;#&quot; class=&quot;list-group-item list-group-item-light&quot;&gt;浅色列表项&lt;/a&gt;
+&lt;/div&gt;
+</code></pre>
+
+
+</div>
+</body>
+</html>

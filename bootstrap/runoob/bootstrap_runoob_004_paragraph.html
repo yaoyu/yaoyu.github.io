@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Bootstrap4 段落排版()</title>
+    <link href="https://cdn.bootcss.com/bootstrap/4.0.0-beta.2/css/bootstrap.css" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/highlight.js/9.12.0/styles/vs2015.min.css" rel="stylesheet">
+
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.slim.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/4.0.0-beta.2/js/bootstrap.js"></script>
+    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+    <script src="https://cdn.bootcss.com/angular.js/1.6.6/angular.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <style>
+      p{
+        margin-bottom: 0.5rem;
+      }
+    </style>
+</head>
+<body>
+<div class="container">
+<div class="article-intro" id="content">
+  <h1>Bootstrap4 文字排版</h1>
+  <hr>
+  <h2>Bootstrap 4 默认设置</h2>
+  <p>Bootstrap 4 默认的
+    <span class="marked">font-size</span> 为 16px, 
+    <span class="marked">line-height</span> 为 1.5。</p>
+    <p>默认的 <span class="marked">font-family</span> 为 "Helvetica Neue", Helvetica, Arial, sans-serif。</p>
+
+<p>此外，所有的 <span class="marked">&lt;p&gt;</span> 元素
+<span class="marked">margin-top: 0</span> 、 <span class="marked">margin-bottom: 1rem</span> (16px)。</p>
+<hr>
+<h2>&lt;h1&gt; - &lt;h6&gt;</h2>
+
+<p>Bootstrap 中定义了所有的 HTML 标题（h1 到 h6）的样式。请看下面的实例：</p>
+<div class="container">
+  <h1>h1 Bootstrap 标题 (2.5rem = 40px)</h1>
+  <h2>h2 Bootstrap 标题 (2rem = 32px)</h2>
+  <h3>h3 Bootstrap 标题 (1.75rem = 28px)</h3>
+  <h4>h4 Bootstrap 标题 (1.5rem = 24px)</h4>
+  <h5>h5 Bootstrap 标题 (1.25rem = 20px)</h5>
+  <h6>h6 Bootstrap 标题 (1rem = 16px)</h6>
+</div>
+
+
+<h3>Display 标题类</h3>
+
+<p>Bootstrap 还提供了四个 Display 类来控制标题的样式: .display-1, .display-2, .display-3, .display-4。</p>
+<pre><code class="html">&lt;div class=&quot;container&quot;&gt;
+  &lt;h1&gt;Display 标题&lt;/h1&gt;
+  &lt;p&gt;Display 标题可以输出更大更粗的字体样式。&lt;/p&gt;
+  &lt;h1 class=&quot;display-1&quot;&gt;Display 1&lt;/h1&gt;
+  &lt;h1 class=&quot;display-2&quot;&gt;Display 2&lt;/h1&gt;
+  &lt;h1 class=&quot;display-3&quot;&gt;Display 3&lt;/h1&gt;
+  &lt;h1 class=&quot;display-4&quot;&gt;Display 4&lt;/h1&gt;
+&lt;/div&gt;
+</code></pre>
+
+<div class="container">
+  <p>Display 标题可以输出更大更粗的字体样式。</p>
+  <h1 class="display-1">Display 1</h1>
+  <h1 class="display-2">Display 2</h1>
+  <h1 class="display-3">Display 3</h1>
+  <h1 class="display-4">Display 4</h1>
+</div>
+
+<hr>
+<h2>&lt;small&gt;</h2>
+<p>在 Bootstrap 4 中 HTML <span class="marked">&lt;small&gt;</span> 元素用于创建字号更小的颜色更浅的文本:</p>
+<pre><code class="html">&lt;div class=&quot;container&quot;&gt;
+  &lt;h1&gt;更小文本标题&lt;/h1&gt;
+  &lt;p&gt;small 元素用于字号更小的颜色更浅的文本:&lt;/p&gt;       
+  &lt;h1&gt;h1 标题 &lt;small&gt;副标题&lt;/small&gt;&lt;/h1&gt;
+  &lt;h2&gt;h2 标题 &lt;small&gt;副标题&lt;/small&gt;&lt;/h2&gt;
+  &lt;h3&gt;h3 标题 &lt;small&gt;副标题&lt;/small&gt;&lt;/h3&gt;
+  &lt;h4&gt;h4 标题 &lt;small&gt;副标题&lt;/small&gt;&lt;/h4&gt;
+  &lt;h5&gt;h5 标题 &lt;small&gt;副标题&lt;/small&gt;&lt;/h5&gt;
+  &lt;h6&gt;h6 标题 &lt;small&gt;副标题&lt;/small&gt;&lt;/h6&gt;
+&lt;/div&gt;
+</code></pre>
+<div class="container">
+  <p>small 元素用于字号更小的颜色更浅的文本:</p>       
+  <h1>h1 标题 <small>副标题</small></h1>
+  <h2>h2 标题 <small>副标题</small></h2>
+  <h3>h3 标题 <small>副标题</small></h3>
+  <h4>h4 标题 <small>副标题</small></h4>
+  <h5>h5 标题 <small>副标题</small></h5>
+  <h6>h6 标题 <small>副标题</small></h6>
+</div>
+
+<hr>
+<h2>&lt;mark&gt;</h2>
+<p>Bootstrap 4 定义 <span class="marked">&lt;mark&gt;</span> 为黄色背景及有一定的内边距:</p>
+<pre><code class="html">&lt;div class=&quot;container&quot;&gt;
+  &lt;h1&gt;高亮文本&lt;/h1&gt;    
+  &lt;p&gt;使用 mark 元素来 &lt;mark&gt;高亮&lt;/mark&gt; 文本。&lt;/p&gt;
+&lt;/div&gt;
+</code></pre>
+
+<div class="container">
+  <p>使用 mark 元素来 <mark>高亮</mark> 文本。</p>
+</div>
+
+<hr>
+<h2>&lt;abbr&gt;</h2>
+<p>Bootstrap 4 定义 HTML <span class="marked">&lt;abbr&gt;</span>  元素的样式为显示在文本底部的一条虚线边框:</p>
+<pre><code class="html">&lt;div class=&quot;container&quot;&gt;
+  &lt;h1&gt;Abbreviations&lt;/h1&gt;
+  &lt;p&gt;The abbr element is used to mark up an abbreviation or acronym:&lt;/p&gt;
+  &lt;p&gt;The &lt;abbr title=&quot;World Health Organization&quot;&gt;WHO&lt;/abbr&gt; was founded in 1948.&lt;/p&gt;
+&lt;/div&gt;
+</code></pre>
+
+<div class="container">
+  <p>The abbr element is used to mark up an abbreviation or acronym:</p>
+  <p>The <abbr title="World Health Organization">WHO</abbr> was founded in 1948.</p>
+</div>
+
+<hr>
+<h2>&lt;blockquote&gt;</h2>
+<p>对于引用的内容可以在  <span class="marked">&lt;blockquote&gt;</span> 上添加 <span class="marked">.blockquote</span> 类 :</p>
+<pre><code class="html">&lt;div class=&quot;container&quot;&gt;
+  &lt;h1&gt;Blockquotes&lt;/h1&gt;
+  &lt;p&gt;The blockquote element is used to present content from another source:&lt;/p&gt;
+  &lt;blockquote class=&quot;blockquote&quot;&gt;
+    &lt;p&gt;For 50 years, WWF has been protecting the future of nature. The world&#x27;s leading conservation organization, WWF works in 100 countries and is supported by 1.2 million members in the United States and close to 5 million globally.&lt;/p&gt;
+    &lt;footer class=&quot;blockquote-footer&quot;&gt;From WWF&#x27;s website&lt;/footer&gt;
+  &lt;/blockquote&gt;
+&lt;/div&gt;
+</code></pre>
+
+<div class="container">
+  <p>The blockquote element is used to present content from another source:</p>
+  <blockquote class="blockquote">
+    <p>For 50 years, WWF has been protecting the future of nature. The world's leading conservation organization, WWF works in 100 countries and is supported by 1.2 million members in the United States and close to 5 million globally.</p>
+    <footer class="blockquote-footer">From WWF's website</footer>
+  </blockquote>
+</div>
+
+<hr>
+<h2>&lt;dl&gt;</h2>
+<p>Bootstrap 4 定义 HTML <span class="marked">&lt;dl&gt;</span> 元素的样式如下:</p>
+<pre><code class="html">&lt;div class=&quot;container&quot;&gt;
+  &lt;h1&gt;Description Lists&lt;/h1&gt;    
+  &lt;p&gt;The dl element indicates a description list:&lt;/p&gt;
+  &lt;dl&gt;
+    &lt;dt&gt;Coffee&lt;/dt&gt;
+    &lt;dd&gt;- black hot drink&lt;/dd&gt;
+    &lt;dt&gt;Milk&lt;/dt&gt;
+    &lt;dd&gt;- white cold drink&lt;/dd&gt;
+  &lt;/dl&gt;     
+&lt;/div&gt;
+</code></pre>
+<div class="container">
+  <p>The dl element indicates a description list:</p>
+  <dl>
+    <dt>Coffee</dt>
+    <dd>- black hot drink</dd>
+    <dt>Milk</dt>
+    <dd>- white cold drink</dd>
+  </dl>     
+</div>
+
+
+<hr>
+
+<h2>&lt;code&gt;</h2>
+<p>Bootstrap 4 定义 HTML <span class="marked">&lt;code&gt;</span> 元素的样式如下:</p>
+<pre><code class="html">&lt;div class=&quot;container&quot;&gt;
+  &lt;h1&gt;代码片段&lt;/h1&gt;
+  &lt;p&gt;可以将一些代码元素放到 code 元素里面:&lt;/p&gt;
+  &lt;p&gt;以下 HTML 元素: &lt;code&gt;span&lt;/code&gt;, &lt;code&gt;section&lt;/code&gt;, 和 &lt;code&gt;div&lt;/code&gt; 用于定义部分文档内容。&lt;/p&gt;
+&lt;/div&gt;
+</code></pre>
+
+
+<div class="container">
+  <p>可以将一些代码元素放到 code 元素里面:</p>
+  <p>以下 HTML 元素: <code>span</code>, <code>section</code>, 和 <code>div</code> 用于定义部分文档内容。</p>
+</div>
+<hr>
+
+<h2>&lt;kbd&gt;</h2>
+<p>Bootstrap 4 定义 HTML <span class="marked">&lt;kbd&gt;</span> 元素的样式如下:</p>
+<pre><code class="html">&lt;div class=&quot;container&quot;&gt;
+  &lt;h1&gt;Keyboard Inputs&lt;/h1&gt;
+  &lt;p&gt;To indicate input that is typically entered via the keyboard, use the kbd element:&lt;/p&gt;
+  &lt;p&gt;Use &lt;kbd&gt;ctrl + p&lt;/kbd&gt; to open the Print dialog box.&lt;/p&gt;
+&lt;/div&gt;
+</code></pre>
+
+<div class="container">
+  <p>To indicate input that is typically entered via the keyboard, use the kbd element:</p>
+  <p>Use <kbd>ctrl + p</kbd> to open the Print dialog box.</p>
+</div>
+
+<hr>
+
+<h2>&lt;pre&gt;</h2>
+<p>Bootstrap 4 定义 HTML <span class="marked">&lt;pre&gt;</span> 元素的样式如下:</p>
+<pre><code class="html">&lt;div class=&quot;container&quot;&gt;
+&lt;h1&gt;Multiple Code Lines&lt;/h1&gt;
+&lt;p&gt;For multiple lines of code, use the pre element:&lt;/p&gt;
+&lt;pre&gt;
+Text in a pre element
+is displayed in a fixed-width
+font, and it preserves
+both spaces and
+line breaks.
+&lt;/pre&gt;
+&lt;/div&gt;
+</code></pre>
+
+<div class="container">
+<p>For multiple lines of code, use the pre element:</p>
+<pre>
+Text in a pre element
+is displayed in a fixed-width
+font, and it preserves
+both spaces and
+line breaks.
+</pre>
+</div>
+
+
+<hr>
+<h2>更多排版类</h2><p>
+下表提供了 Bootstrap4 更多排版类的实例：</p>
+<table class="table table-striped">
+  <tbody><tr>
+    <th style="width:25%;">类名</th>
+    <th style="width:63%;">描述</th>
+    <th style="width:12%;">实例</th>
+  </tr>
+  <tr>
+    <td><span class="marked">.font-weight-bold</span></td>
+    <td>加粗文本</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><span class="marked">.font-weight-normal</span></td>
+    <td>普通文本</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><span class="marked">.font-weight-light</span></td>
+    <td>更细的文本</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><span class="marked">.font-italic</span></td>
+    <td>斜体文本</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><span class="marked">.lead</span></td>
+    <td>让段落更突出</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><span class="marked">.small</span></td>
+    <td>指定更小文本 (为父元素的 85% )</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><span class="marked">.text-left</span></td>
+    <td>左对齐</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><span class="marked">.text-center</span></td>
+    <td>居中</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><span class="marked">.text-right</span></td>
+    <td>右对齐</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><span class="marked">.text-justify</span></td>
+    <td>设定文本对齐,段落中超出屏幕部分文字自动换行</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><span class="marked">.text-nowrap</span></td>
+    <td>段落中超出屏幕部分不换行</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><span class="marked">.text-lowercase</span></td>
+    <td>设定文本小写</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><span class="marked">.text-uppercase</span></td>
+    <td>设定文本大写</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><span class="marked">.text-capitalize</span></td>
+    <td>设定单词首字母大写</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><span class="marked">.initialism</span></td>
+    <td>显示在 &lt;abbr&gt; 元素中的文本以小号字体展示，且可以将小写字母转换为大写字母</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><span class="marked">.list-unstyled</span></td>
+   <td>移除默认的列表样式，列表项中左对齐 ( &lt;ul&gt; 和 &lt;ol&gt; 中)。 这个类仅适用于直接子列表项  
+  (如果需要移除嵌套的列表项，你需要在嵌套的列表中使用该样式)</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><span class="marked">.list-inline</span></td>
+    <td>将所有列表项放置同一行</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><span class="marked">.pre-scrollable</span></td>
+    <td>使 &lt;pre&gt; 元素可滚动，代码块区域最大高度为340px,一旦超出这个高度,就会在Y轴出现滚动条</td>
+    <td></td>
+  </tr>
+</tbody></table>
+      
+      
+      </div>        
+
+</div>
+</body>
+</html>

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Bootstrap4 按钮</title>
+    <link href="https://cdn.bootcss.com/bootstrap/4.0.0-beta.2/css/bootstrap.css" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/highlight.js/9.12.0/styles/vs2015.min.css" rel="stylesheet">
+
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.slim.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/4.0.0-beta.2/js/bootstrap.js"></script>
+    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+    <script src="https://cdn.bootcss.com/angular.js/1.6.6/angular.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <style>
+      p{
+        margin-bottom: 0.5rem;
+      }
+    </style>
+</head>
+<body>
+<div class="container">
+
+<div class="article-intro" id="content">
+      
+      <h1>Bootstrap4 按钮
+</h1>
+<p>Bootstrap 4 提供了不同样式的按钮。</p>
+<div>
+<button type="button" class="btn">基本按钮</button>
+<button type="button" class="btn btn-primary">主要按钮</button>
+<button type="button" class="btn btn-secondary">次要按钮</button>
+<button type="button" class="btn btn-success">成功</button>
+<button type="button" class="btn btn-info">信息</button>
+<button type="button" class="btn btn-warning">警告</button>
+<button type="button" class="btn btn-danger">危险</button>
+<button type="button" class="btn btn-dark">黑色</button>
+<button type="button" class="btn btn-light">浅色</button>
+<button type="button" class="btn btn-link">链接</button>
+</div>
+<br>
+<pre><code class="html">&lt;button type=&quot;button&quot; class=&quot;btn&quot;&gt;基本按钮&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-primary&quot;&gt;主要按钮&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-secondary&quot;&gt;次要按钮&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-success&quot;&gt;成功&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-info&quot;&gt;信息&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-warning&quot;&gt;警告&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-danger&quot;&gt;危险&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-dark&quot;&gt;黑色&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-light&quot;&gt;浅色&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-link&quot;&gt;链接&lt;/button&gt;
+</code></pre>
+
+<p>按钮类可用于 <mark class="marked">&lt;a&gt;</mark>, <mark class="marked">&lt;button&gt;</mark>, 或 
+<mark class="marked">&lt;input&gt;</mark> 元素上:</p>
+<div class="container">
+  <a href="#" class="btn btn-info" role="button">链接按钮</a>
+  <button type="button" class="btn btn-info">按钮</button>
+  <input type="button" class="btn btn-info" value="输入框按钮">
+  <input type="submit" class="btn btn-info" value="提交按钮">
+</div>
+<br>
+<pre><code class="html">&lt;a href=&quot;#&quot; class=&quot;btn btn-info&quot; role=&quot;button&quot;&gt;链接按钮&lt;/a&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-info&quot;&gt;按钮&lt;/button&gt;
+&lt;input type=&quot;button&quot; class=&quot;btn btn-info&quot; value=&quot;输入框按钮&quot;&gt;
+&lt;input type=&quot;submit&quot; class=&quot;btn btn-info&quot; value=&quot;提交按钮&quot;&gt;
+</code></pre>
+
+<hr>
+<h2>按钮设置边框</h2>
+<div class="container">
+  <button type="button" class="btn btn-outline-primary">主要按钮</button>
+<button type="button" class="btn btn-outline-secondary">次要按钮</button>
+<button type="button" class="btn btn-outline-success">成功</button>
+<button type="button" class="btn btn-outline-info">信息</button>
+<button type="button" class="btn btn-outline-warning">警告</button>
+<button type="button" class="btn btn-outline-danger">危险</button>
+<button type="button" class="btn btn-outline-dark">黑色</button>
+<button type="button" class="btn btn-outline-light text-dark">浅色</button>
+</div>
+<br>
+<pre><code class="html">&lt;button type=&quot;button&quot; class=&quot;btn btn-outline-primary&quot;&gt;主要按钮&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-outline-secondary&quot;&gt;次要按钮&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-outline-success&quot;&gt;成功&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-outline-info&quot;&gt;信息&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-outline-warning&quot;&gt;警告&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-outline-danger&quot;&gt;危险&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-outline-dark&quot;&gt;黑色&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-outline-light text-dark&quot;&gt;浅色&lt;/button&gt;
+</code></pre>
+
+
+
+<hr>
+<h2>不同大小的按钮</h2>
+
+<p>Bootstrap 4 可以设置按钮的大小：</p>
+<div class="container">
+<button type="button" class="btn btn-primary btn-lg">大号按钮</button>
+<button type="button" class="btn btn-primary">默认按钮</button>
+<button type="button" class="btn btn-primary btn-sm">小号按钮</button>
+</div>
+<pre><code class="html">&lt;button type=&quot;button&quot; class=&quot;btn btn-primary btn-lg&quot;&gt;大号按钮&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-primary&quot;&gt;默认按钮&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-primary btn-sm&quot;&gt;小号按钮&lt;/button&gt;
+</code></pre>
+
+<hr>
+<h2>块级按钮</h2>
+<p>通过添加 <mark class="marked">.btn-block</mark> 类可以设置块级按钮：</p>
+
+<div class="container">
+<button type="button" class="btn btn-primary btn-block">按钮 1</button>
+</div>
+<br>
+<pre><code class="html">&lt;button type=&quot;button&quot; class=&quot;btn btn-primary btn-block&quot;&gt;按钮 1&lt;/button&gt;
+</code></pre>
+
+<hr>
+<h2>激活和禁用的按钮</h2>
+
+<p>按钮可设置为激活或者禁止点击的状态。</p>
+
+<p><mark class="marked">.active</mark> 类可以设置按钮是可用的， <mark class="marked">disabled</mark> 属性可以设置按钮是不可点击的。 
+注意 &lt;a&gt; 元素不支持 disabled 
+属性，你可以通过添加 <mark class="marked">.disabled</mark> 类来禁止链接的点击。</p>
+<div class="container">
+<button type="button" class="btn btn-primary active">点击后的按钮</button>
+<button type="button" class="btn btn-primary" disabled>禁止点击的按钮</button>
+<a href="#" class="btn btn-primary disabled">禁止点击的链接</a>
+</div>
+
+<br>
+<pre><code class="html">&lt;button type=&quot;button&quot; class=&quot;btn btn-primary active&quot;&gt;点击后的按钮&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-primary&quot; disabled&gt;禁止点击的按钮&lt;/button&gt;
+&lt;a href=&quot;#&quot; class=&quot;btn btn-primary disabled&quot;&gt;禁止点击的链接&lt;/a&gt;
+</code></pre>
+
+
+
+
+      
+      
+      </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Bootstrap4 折叠</title>
+    <link href="https://cdn.bootcss.com/bootstrap/4.0.0-beta.2/css/bootstrap.css" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/highlight.js/9.12.0/styles/vs2015.min.css" rel="stylesheet">
+
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.slim.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/4.0.0-beta.2/js/bootstrap.js"></script>
+    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+    <script src="https://cdn.bootcss.com/angular.js/1.6.6/angular.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <style>
+      p{
+        margin-bottom: 0.5rem;
+      }
+    </style>
+</head>
+<body>
+<div class="container">
+
+  <div class="article-intro" id="content">
+      
+      <h1>Bootstrap4 折叠</h1>
+
+<p>Bootstrap4 折叠可以很容易的实现内容的显示与隐藏。</p>
+<button class="btn btn-primary" data-toggle="collapse" data-target="#demo0">折叠</button>
+ 
+<div id="demo0" class="collapse">
+Lorem ipsum dolor text....
+</div>
+
+<h3>实例解析</h3>
+<p><mark class="marked">.collapse</mark> 类用于指定一个折叠元素 (实例中的 &lt;div&gt;); 
+点击按钮后会在隐藏与显示之间切换。</p>
+<p>控制内容的隐藏与显示，需要在 &lt;a&gt; 或  &lt;button&gt; 元素上添加 <mark class="marked">data-toggle="collapse"</mark> 属性。
+ <mark class="marked">data-target="#id"</mark> 属性是对应折叠的内容 (&lt;div id="demo"&gt;)。</p>
+<p><strong>注意:</strong> &lt;a&gt; 
+元素上你可以使用 <mark class="marked">href</mark> 属性来代替 <mark class="marked">data-target</mark> 
+属性:</p>
+
+<div class="container">
+  <h2>简单的折叠</h2>
+  <a href="#demo1" class="btn btn-primary" data-toggle="collapse">简单的折叠</a>
+  <div id="demo1" class="collapse show">
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+  </div>
+</div>
+<pre><code class="html">&lt;div class=&quot;container&quot;&gt;
+  &lt;h2&gt;简单的折叠&lt;/h2&gt;
+  &lt;a href=&quot;#demo1&quot; class=&quot;btn btn-primary&quot; data-toggle=&quot;collapse&quot;&gt;简单的折叠&lt;/a&gt;
+  &lt;div id=&quot;demo1&quot; class=&quot;collapse&quot;&gt;
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+
+
+<p>默认情况下折叠的内容是隐藏的，你可以添加 <mark class="marked">.show</mark> 类让内容默认显示:</p>
+
+<pre><code class="html">&lt;div id=&quot;demo&quot; class=&quot;collapse show&quot;&gt;
+Lorem ipsum dolor text....
+&lt;/div&gt;
+</code></pre>
+
+
+<p>以下实例通过扩展卡片组件来显示简单的手风琴。
+</p>
+
+<p><strong>注意:</strong> 使用 <mark class="marked">data-parent</mark> 属性来确保所有的折叠元素在指定的父元素下，这样就能实现在一个折叠选项显示时其他选项就隐藏。</p>
+<div id="accordion">
+ 
+  <div class="card">
+    <div class="card-header">
+      <a class="card-link" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+        Collapsible Group Item #1
+      </a>
+    </div>
+    <div id="collapseOne" class="collapse show">
+      <div class="card-body">
+        Lorem ipsum..
+      </div>
+    </div>
+  </div>
+ 
+  <div class="card">
+    <div class="card-header">
+      <a class="collapsed card-link" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+        Collapsible Group Item #2
+      </a>
+    </div>
+    <div id="collapseTwo" class="collapse">
+      <div class="card-body">
+        Lorem ipsum..
+      </div>
+    </div>
+  </div>
+ 
+  <div class="card">
+    <div class="card-header">
+      <a class="collapsed card-link" data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+        Collapsible Group Item #3
+      </a>
+    </div>
+    <div id="collapseThree" class="collapse">
+      <div class="card-body">
+        Lorem ipsum..
+      </div>
+    </div>
+  </div>
+ 
+</div>
+<pre><code class="html">&lt;div id=&quot;accordion&quot;&gt;
+ 
+  &lt;div class=&quot;card&quot;&gt;
+    &lt;div class=&quot;card-header&quot;&gt;
+      &lt;a class=&quot;card-link&quot; data-toggle=&quot;collapse&quot; data-parent=&quot;#accordion&quot; href=&quot;#collapseOne&quot;&gt;
+        Collapsible Group Item #1
+      &lt;/a&gt;
+    &lt;/div&gt;
+    &lt;div id=&quot;collapseOne&quot; class=&quot;collapse show&quot;&gt;
+      &lt;div class=&quot;card-body&quot;&gt;
+        Lorem ipsum..
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+ 
+  &lt;div class=&quot;card&quot;&gt;
+    &lt;div class=&quot;card-header&quot;&gt;
+      &lt;a class=&quot;collapsed card-link&quot; data-toggle=&quot;collapse&quot; data-parent=&quot;#accordion&quot; href=&quot;#collapseTwo&quot;&gt;
+        Collapsible Group Item #2
+      &lt;/a&gt;
+    &lt;/div&gt;
+    &lt;div id=&quot;collapseTwo&quot; class=&quot;collapse&quot;&gt;
+      &lt;div class=&quot;card-body&quot;&gt;
+        Lorem ipsum..
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+ 
+  &lt;div class=&quot;card&quot;&gt;
+    &lt;div class=&quot;card-header&quot;&gt;
+      &lt;a class=&quot;collapsed card-link&quot; data-toggle=&quot;collapse&quot; data-parent=&quot;#accordion&quot; href=&quot;#collapseThree&quot;&gt;
+        Collapsible Group Item #3
+      &lt;/a&gt;
+    &lt;/div&gt;
+    &lt;div id=&quot;collapseThree&quot; class=&quot;collapse&quot;&gt;
+      &lt;div class=&quot;card-body&quot;&gt;
+        Lorem ipsum..
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+ 
+&lt;/div&gt;
+</code></pre>
+
+
+</div>
+</body>
+</html>

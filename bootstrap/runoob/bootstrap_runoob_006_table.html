@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Bootstrap4 表格</title>
+    <link href="https://cdn.bootcss.com/bootstrap/4.0.0-beta.2/css/bootstrap.css" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/highlight.js/9.12.0/styles/vs2015.min.css" rel="stylesheet">
+
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.slim.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/4.0.0-beta.2/js/bootstrap.js"></script>
+    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+    <script src="https://cdn.bootcss.com/angular.js/1.6.6/angular.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <style>
+      p{
+        margin-bottom: 0.5rem;
+      }
+    </style>
+</head>
+<body>
+<div class="container">
+
+<div class="article-body">
+    
+      <div class="article-intro" id="content">
+      
+      <h1>Bootstrap4 表格</h1>
+<h2>
+Bootstrap4 基础表格
+</h2>
+<p>Bootstrap4 通过 <mark class="marked">.table</mark> 类来设置基础表格的样式，实例如下:</p>
+<pre><code class="html">&lt;table class=&quot;table&quot;&gt;
+    &lt;thead&gt;
+      &lt;tr&gt;
+        &lt;th&gt;Firstname&lt;/th&gt;
+        &lt;th&gt;Lastname&lt;/th&gt;
+        &lt;th&gt;Email&lt;/th&gt;
+      &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+      &lt;tr&gt;
+        &lt;td&gt;John&lt;/td&gt;
+        &lt;td&gt;Doe&lt;/td&gt;
+        &lt;td&gt;john@example.com&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;Mary&lt;/td&gt;
+        &lt;td&gt;Moe&lt;/td&gt;
+        &lt;td&gt;mary@example.com&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;July&lt;/td&gt;
+        &lt;td&gt;Dooley&lt;/td&gt;
+        &lt;td&gt;july@example.com&lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;
+</code></pre>
+<table class="table">
+    <thead>
+      <tr>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>John</td>
+        <td>Doe</td>
+        <td>john@example.com</td>
+      </tr>
+      <tr>
+        <td>Mary</td>
+        <td>Moe</td>
+        <td>mary@example.com</td>
+      </tr>
+      <tr>
+        <td>July</td>
+        <td>Dooley</td>
+        <td>july@example.com</td>
+      </tr>
+    </tbody>
+</table>
+
+<hr>
+<h2>条纹表格</h2>
+
+<p>通过添加 <mark class="marked">.table-striped</mark> 类，您将在 <strong>&lt;tbody&gt;</strong> 内的行上看到条纹，如下面的实例所示：</p>
+<pre><code class="html">&lt;table class=&quot;table table-striped&quot;&gt;
+    &lt;thead&gt;
+      &lt;tr&gt;
+        &lt;th&gt;Firstname&lt;/th&gt;
+        &lt;th&gt;Lastname&lt;/th&gt;
+        &lt;th&gt;Email&lt;/th&gt;
+      &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+      &lt;tr&gt;
+        &lt;td&gt;John&lt;/td&gt;
+        &lt;td&gt;Doe&lt;/td&gt;
+        &lt;td&gt;john@example.com&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;Mary&lt;/td&gt;
+        &lt;td&gt;Moe&lt;/td&gt;
+        &lt;td&gt;mary@example.com&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;July&lt;/td&gt;
+        &lt;td&gt;Dooley&lt;/td&gt;
+        &lt;td&gt;july@example.com&lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;
+</code></pre>
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>John</td>
+        <td>Doe</td>
+        <td>john@example.com</td>
+      </tr>
+      <tr>
+        <td>Mary</td>
+        <td>Moe</td>
+        <td>mary@example.com</td>
+      </tr>
+      <tr>
+        <td>July</td>
+        <td>Dooley</td>
+        <td>july@example.com</td>
+      </tr>
+    </tbody>
+</table>
+
+<hr>
+<h2>带边框表格</h2>
+
+<p><mark class="marked">.table-bordered</mark> 类可以为表格添加边框</p>
+<pre><code class="html">&lt;table class=&quot;table table-bordered&quot;&gt;
+    &lt;thead&gt;
+      &lt;tr&gt;
+        &lt;th&gt;Firstname&lt;/th&gt;
+        &lt;th&gt;Lastname&lt;/th&gt;
+        &lt;th&gt;Email&lt;/th&gt;
+      &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+      &lt;tr&gt;
+        &lt;td&gt;John&lt;/td&gt;
+        &lt;td&gt;Doe&lt;/td&gt;
+        &lt;td&gt;john@example.com&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;Mary&lt;/td&gt;
+        &lt;td&gt;Moe&lt;/td&gt;
+        &lt;td&gt;mary@example.com&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;July&lt;/td&gt;
+        &lt;td&gt;Dooley&lt;/td&gt;
+        &lt;td&gt;july@example.com&lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;
+</code></pre>
+<table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>John</td>
+        <td>Doe</td>
+        <td>john@example.com</td>
+      </tr>
+      <tr>
+        <td>Mary</td>
+        <td>Moe</td>
+        <td>mary@example.com</td>
+      </tr>
+      <tr>
+        <td>July</td>
+        <td>Dooley</td>
+        <td>july@example.com</td>
+      </tr>
+    </tbody>
+</table>
+
+<hr>
+<h2>鼠标悬停状态表格</h2>
+
+<p><mark class="marked">.table-hover</mark> 类可以为表格的每一行添加鼠标悬停效果（灰色背景）：</p>
+<pre><code class="html">&lt;table class=&quot;table table-hover&quot;&gt;
+    &lt;thead&gt;
+      &lt;tr&gt;
+        &lt;th&gt;Firstname&lt;/th&gt;
+        &lt;th&gt;Lastname&lt;/th&gt;
+        &lt;th&gt;Email&lt;/th&gt;
+      &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+      &lt;tr&gt;
+        &lt;td&gt;John&lt;/td&gt;
+        &lt;td&gt;Doe&lt;/td&gt;
+        &lt;td&gt;john@example.com&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;Mary&lt;/td&gt;
+        &lt;td&gt;Moe&lt;/td&gt;
+        &lt;td&gt;mary@example.com&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;July&lt;/td&gt;
+        &lt;td&gt;Dooley&lt;/td&gt;
+        &lt;td&gt;july@example.com&lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;
+</code></pre>
+<table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>John</td>
+        <td>Doe</td>
+        <td>john@example.com</td>
+      </tr>
+      <tr>
+        <td>Mary</td>
+        <td>Moe</td>
+        <td>mary@example.com</td>
+      </tr>
+      <tr>
+        <td>July</td>
+        <td>Dooley</td>
+        <td>july@example.com</td>
+      </tr>
+    </tbody>
+</table>
+
+<hr>
+<h2>黑色背景表格</h2>
+
+<p><mark class="marked">.table-dark</mark> 类可以为表格添加黑色背景：</p>
+<pre><code class="html">&lt;table class=&quot;table table-dark&quot;&gt;
+    &lt;thead&gt;
+      &lt;tr&gt;
+        &lt;th&gt;Firstname&lt;/th&gt;
+        &lt;th&gt;Lastname&lt;/th&gt;
+        &lt;th&gt;Email&lt;/th&gt;
+      &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+      &lt;tr&gt;
+        &lt;td&gt;John&lt;/td&gt;
+        &lt;td&gt;Doe&lt;/td&gt;
+        &lt;td&gt;john@example.com&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;Mary&lt;/td&gt;
+        &lt;td&gt;Moe&lt;/td&gt;
+        &lt;td&gt;mary@example.com&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;July&lt;/td&gt;
+        &lt;td&gt;Dooley&lt;/td&gt;
+        &lt;td&gt;july@example.com&lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;
+</code></pre>
+<table class="table table-dark">
+    <thead>
+      <tr>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>John</td>
+        <td>Doe</td>
+        <td>john@example.com</td>
+      </tr>
+      <tr>
+        <td>Mary</td>
+        <td>Moe</td>
+        <td>mary@example.com</td>
+      </tr>
+      <tr>
+        <td>July</td>
+        <td>Dooley</td>
+        <td>july@example.com</td>
+      </tr>
+    </tbody>
+</table>
+
+<hr>
+<h2>黑色条纹表格</h2>
+<p>联合使用 <mark class="marked">.table-dark</mark> 和 <mark class="marked">.table-striped</mark> 类可以创建黑色的条纹表格：</p>
+<pre><code class="html">&lt;table class=&quot;table table-dark table-striped&quot;&gt;
+    &lt;thead&gt;
+      &lt;tr&gt;
+        &lt;th&gt;Firstname&lt;/th&gt;
+        &lt;th&gt;Lastname&lt;/th&gt;
+        &lt;th&gt;Email&lt;/th&gt;
+      &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+      &lt;tr&gt;
+        &lt;td&gt;John&lt;/td&gt;
+        &lt;td&gt;Doe&lt;/td&gt;
+        &lt;td&gt;john@example.com&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;Mary&lt;/td&gt;
+        &lt;td&gt;Moe&lt;/td&gt;
+        &lt;td&gt;mary@example.com&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;July&lt;/td&gt;
+        &lt;td&gt;Dooley&lt;/td&gt;
+        &lt;td&gt;july@example.com&lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;
+</code></pre>
+<table class="table table-dark table-striped">
+    <thead>
+      <tr>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>John</td>
+        <td>Doe</td>
+        <td>john@example.com</td>
+      </tr>
+      <tr>
+        <td>Mary</td>
+        <td>Moe</td>
+        <td>mary@example.com</td>
+      </tr>
+      <tr>
+        <td>July</td>
+        <td>Dooley</td>
+        <td>july@example.com</td>
+      </tr>
+    </tbody>
+</table>
+
+<hr>
+<h2>鼠标悬停效果 - 黑色背景表格</h2>
+<p>联合使用 <mark class="marked">.table-dark</mark> 和 <mark class="marked">.table-hover</mark> 类可以设置黑色背景表格的鼠标悬停效果：</p>
+<pre><code class="html">&lt;table class=&quot;table table-dark table-hover&quot;&gt;
+    &lt;thead&gt;
+      &lt;tr&gt;
+        &lt;th&gt;Firstname&lt;/th&gt;
+        &lt;th&gt;Lastname&lt;/th&gt;
+        &lt;th&gt;Email&lt;/th&gt;
+      &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+      &lt;tr&gt;
+        &lt;td&gt;John&lt;/td&gt;
+        &lt;td&gt;Doe&lt;/td&gt;
+        &lt;td&gt;john@example.com&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;Mary&lt;/td&gt;
+        &lt;td&gt;Moe&lt;/td&gt;
+        &lt;td&gt;mary@example.com&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;July&lt;/td&gt;
+        &lt;td&gt;Dooley&lt;/td&gt;
+        &lt;td&gt;july@example.com&lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;
+</code></pre>
+<table class="table table-dark table-hover">
+    <thead>
+      <tr>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>John</td>
+        <td>Doe</td>
+        <td>john@example.com</td>
+      </tr>
+      <tr>
+        <td>Mary</td>
+        <td>Moe</td>
+        <td>mary@example.com</td>
+      </tr>
+      <tr>
+        <td>July</td>
+        <td>Dooley</td>
+        <td>july@example.com</td>
+      </tr>
+    </tbody>
+</table>
+
+<hr>
+<h2>指定意义的颜色类</h2>
+<p>通过指定意义的颜色类可以为表格的行或者单元格设置颜色：</p>
+<pre><code class="html">&lt;table class=&quot;table&quot;&gt;
+    &lt;thead&gt;
+      &lt;tr&gt;
+        &lt;th&gt;Firstname&lt;/th&gt;
+        &lt;th&gt;Lastname&lt;/th&gt;
+        &lt;th&gt;Email&lt;/th&gt;
+      &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+      &lt;tr&gt;
+        &lt;td&gt;Default&lt;/td&gt;
+        &lt;td&gt;Defaultson&lt;/td&gt;
+        &lt;td&gt;def@somemail.com&lt;/td&gt;
+      &lt;/tr&gt;      
+      &lt;tr class=&quot;table-primary&quot;&gt;
+        &lt;td&gt;Primary&lt;/td&gt;
+        &lt;td&gt;Joe&lt;/td&gt;
+        &lt;td&gt;joe@example.com&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr class=&quot;table-success&quot;&gt;
+        &lt;td&gt;Success&lt;/td&gt;
+        &lt;td&gt;Doe&lt;/td&gt;
+        &lt;td&gt;john@example.com&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr class=&quot;table-danger&quot;&gt;
+        &lt;td&gt;Danger&lt;/td&gt;
+        &lt;td&gt;Moe&lt;/td&gt;
+        &lt;td&gt;mary@example.com&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr class=&quot;table-info&quot;&gt;
+        &lt;td&gt;Info&lt;/td&gt;
+        &lt;td&gt;Dooley&lt;/td&gt;
+        &lt;td&gt;july@example.com&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr class=&quot;table-warning&quot;&gt;
+        &lt;td&gt;Warning&lt;/td&gt;
+        &lt;td&gt;Refs&lt;/td&gt;
+        &lt;td&gt;bo@example.com&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr class=&quot;table-active&quot;&gt;
+        &lt;td&gt;Active&lt;/td&gt;
+        &lt;td&gt;Activeson&lt;/td&gt;
+        &lt;td&gt;act@example.com&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr class=&quot;table-secondary&quot;&gt;
+        &lt;td&gt;Secondary&lt;/td&gt;
+        &lt;td&gt;Secondson&lt;/td&gt;
+        &lt;td&gt;sec@example.com&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr class=&quot;table-light&quot;&gt;
+        &lt;td&gt;Light&lt;/td&gt;
+        &lt;td&gt;Angie&lt;/td&gt;
+        &lt;td&gt;angie@example.com&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr class=&quot;table-dark text-dark&quot;&gt;
+        &lt;td&gt;Dark&lt;/td&gt;
+        &lt;td&gt;Bo&lt;/td&gt;
+        &lt;td&gt;bo@example.com&lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;
+</code></pre>
+<table class="table">
+    <thead>
+      <tr>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Default</td>
+        <td>Defaultson</td>
+        <td>def@somemail.com</td>
+      </tr>      
+      <tr class="table-primary">
+        <td>Primary</td>
+        <td>Joe</td>
+        <td>joe@example.com</td>
+      </tr>
+      <tr class="table-success">
+        <td>Success</td>
+        <td>Doe</td>
+        <td>john@example.com</td>
+      </tr>
+      <tr class="table-danger">
+        <td>Danger</td>
+        <td>Moe</td>
+        <td>mary@example.com</td>
+      </tr>
+      <tr class="table-info">
+        <td>Info</td>
+        <td>Dooley</td>
+        <td>july@example.com</td>
+      </tr>
+      <tr class="table-warning">
+        <td>Warning</td>
+        <td>Refs</td>
+        <td>bo@example.com</td>
+      </tr>
+      <tr class="table-active">
+        <td>Active</td>
+        <td>Activeson</td>
+        <td>act@example.com</td>
+      </tr>
+      <tr class="table-secondary">
+        <td>Secondary</td>
+        <td>Secondson</td>
+        <td>sec@example.com</td>
+      </tr>
+      <tr class="table-light">
+        <td>Light</td>
+        <td>Angie</td>
+        <td>angie@example.com</td>
+      </tr>
+      <tr class="table-dark text-dark">
+        <td>Dark</td>
+        <td>Bo</td>
+        <td>bo@example.com</td>
+      </tr>
+    </tbody>
+</table>
+
+<hr>
+<p>下表列出了表格颜色类的说明:</p>
+
+<table class="table table-striped">
+<thead>
+<tr>
+  <th>类名</th>
+  <th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><mark class="marked">.table-primary</mark></td>
+  <td>蓝色: 指定这是一个重要的操作</td>
+</tr>
+<tr>
+  <td><mark class="marked">.table-success</mark></td>
+  <td>绿色: 指定这是一个允许执行的操作</td>
+</tr>
+<tr>
+  <td><mark class="marked">.table-danger</mark></td>
+  <td>红色: 指定这是可以危险的操作</td>
+</tr>
+<tr>
+  <td><mark class="marked">.table-info</mark></td>
+  <td>浅蓝色: 表示内容已变更</td>
+</tr>
+<tr>
+  <td><mark class="marked">.table-warning</mark></td>
+  <td>橘色: 表示需要注意的操作</td>
+</tr>
+<tr>
+  <td><mark class="marked">.table-active</mark></td>
+  <td>灰色: 用于鼠标悬停效果</td>
+</tr>
+<tr>
+  <td><mark class="marked">.table-secondary</mark></td>
+  <td>灰色: 表示内容不怎么重要</td>
+</tr>
+<tr>
+  <td><mark class="marked">.table-light</mark></td>
+  <td>浅灰色，可以是表格行的背景</td>
+</tr>
+<tr>
+  <td><mark class="marked">.table-dark</mark></td>
+  <td>深灰色，可以是表格行的背景</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2>表头颜色</h2>
+
+<p>在 Bootstrap v4.0.0-beta.2 中<mark class="marked">.thead-dark</mark> 类用于给表头添加黑色背景， <mark class="marked">.thead-light</mark> 类用于给表头添加灰色背景:</p>
+
+
+<blockquote><p>在 Bootstrap v4.0.0-beta  这个版本中，<mark class="marked">.thead-inverse</mark> 类用于给表头添加黑色背景，<mark class="marked">.thead-default</mark> 类用于给表头添加灰色背景。</p></blockquote>
+
+<table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>John</td>
+        <td>Doe</td>
+        <td>john@example.com</td>
+      </tr>
+      <tr>
+        <td>Mary</td>
+        <td>Moe</td>
+        <td>mary@example.com</td>
+      </tr>
+      <tr>
+        <td>July</td>
+        <td>Dooley</td>
+        <td>july@example.com</td>
+      </tr>
+    </tbody>
+  </table>
+  <table class="table">
+    <thead class="thead-light">
+      <tr>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>John</td>
+        <td>Doe</td>
+        <td>john@example.com</td>
+      </tr>
+      <tr>
+        <td>Mary</td>
+        <td>Moe</td>
+        <td>mary@example.com</td>
+      </tr>
+      <tr>
+        <td>July</td>
+        <td>Dooley</td>
+        <td>july@example.com</td>
+      </tr>
+    </tbody>
+</table>
+
+<hr>
+<h2>较小的表格</h2>
+<p><mark class="marked">.table-sm</mark> 类用于通过减少内边距来设置较小的表格:</p>
+<pre><code class="html">&lt;table class=&quot;table table-bordered table-sm&quot;&gt;
+    &lt;thead&gt;
+      &lt;tr&gt;
+        &lt;th&gt;Firstname&lt;/th&gt;
+        &lt;th&gt;Lastname&lt;/th&gt;
+        &lt;th&gt;Email&lt;/th&gt;
+      &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+      &lt;tr&gt;
+        &lt;td&gt;John&lt;/td&gt;
+        &lt;td&gt;Doe&lt;/td&gt;
+        &lt;td&gt;john@example.com&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;Mary&lt;/td&gt;
+        &lt;td&gt;Moe&lt;/td&gt;
+        &lt;td&gt;mary@example.com&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;July&lt;/td&gt;
+        &lt;td&gt;Dooley&lt;/td&gt;
+        &lt;td&gt;july@example.com&lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;
+</code></pre>
+<table class="table table-bordered table-sm">
+    <thead>
+      <tr>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>John</td>
+        <td>Doe</td>
+        <td>john@example.com</td>
+      </tr>
+      <tr>
+        <td>Mary</td>
+        <td>Moe</td>
+        <td>mary@example.com</td>
+      </tr>
+      <tr>
+        <td>July</td>
+        <td>Dooley</td>
+        <td>july@example.com</td>
+      </tr>
+    </tbody>
+</table>
+
+<hr>
+<h2>响应式表格</h2>
+
+<p><mark class="marked">.table-responsive</mark> 类用于创建响应式表格：在屏幕宽度小于 992px 时会创建水平滚动条，如果可视区域宽度大于 992px 则显示不同效果（没有滚动条）:</p>
+<pre><code class="html">&lt;div class=&quot;table-responsive&quot;&gt;
+&lt;table class=&quot;table&quot;&gt;
+    &lt;thead&gt;
+      &lt;tr&gt;
+        &lt;th&gt;#&lt;/th&gt;
+        &lt;th&gt;Firstname&lt;/th&gt;
+        &lt;th&gt;Lastname&lt;/th&gt;
+        &lt;th&gt;Age&lt;/th&gt;
+        &lt;th&gt;City&lt;/th&gt;
+        &lt;th&gt;Country&lt;/th&gt;
+        &lt;th&gt;Sex&lt;/th&gt;
+        &lt;th&gt;Example&lt;/th&gt;
+        &lt;th&gt;Example&lt;/th&gt;
+        &lt;th&gt;Example&lt;/th&gt;
+        &lt;th&gt;Example&lt;/th&gt;
+      &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+      &lt;tr&gt;
+        &lt;td&gt;1&lt;/td&gt;
+        &lt;td&gt;Anna&lt;/td&gt;
+        &lt;td&gt;Pitt&lt;/td&gt;
+        &lt;td&gt;35&lt;/td&gt;
+        &lt;td&gt;New York&lt;/td&gt;
+        &lt;td&gt;USA&lt;/td&gt;
+        &lt;td&gt;Female&lt;/td&gt;
+        &lt;td&gt;Yes&lt;/td&gt;
+        &lt;td&gt;Yes&lt;/td&gt;
+        &lt;td&gt;Yes&lt;/td&gt;
+        &lt;td&gt;Yes&lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+</code></pre>
+
+<div class="table-responsive">
+<table class="table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Age</th>
+        <th>City</th>
+        <th>Country</th>
+        <th>Sex</th>
+        <th>Example</th>
+        <th>Example</th>
+        <th>Example</th>
+        <th>Example</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>Anna</td>
+        <td>Pitt</td>
+        <td>35</td>
+        <td>New York</td>
+        <td>USA</td>
+        <td>Female</td>
+        <td>Yes</td>
+        <td>Yes</td>
+        <td>Yes</td>
+        <td>Yes</td>
+      </tr>
+    </tbody>
+</table>
+</div>
+
+
+<hr>
+
+<p>你可以通过以下类设定在指定屏幕宽度下显示滚动条：</p>
+
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th>类名</th>
+        <th>屏幕宽度</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><mark class="marked">.table-responsive-sm</mark></td>
+        <td>&lt; 576px</td>
+      </tr>      
+      <tr>
+        <td><mark class="marked">.table-responsive-md</mark></td>
+        <td>&lt; 768px</td>
+      </tr>      
+      <tr>
+        <td><mark class="marked">.table-responsive-lg</mark></td>
+        <td>&lt; 992px</td>
+      </tr>      
+      <tr>
+        <td><mark class="marked">.table-responsive-xl</mark></td>
+        <td>&lt; 1200px</td>
+      </tr>      
+    </tbody>
+  </table>
+
+<h2 class="example_head">实例</h2>
+<pre><code class="html">&lt;div class=&quot;table-responsive-sm&quot;&gt;
+  &lt;table class=&quot;table&quot;&gt;
+    ...
+  &lt;/table&gt;
+&lt;/div&gt;
+</code></pre>
+
+
+</div>
+</body>
+</html>
