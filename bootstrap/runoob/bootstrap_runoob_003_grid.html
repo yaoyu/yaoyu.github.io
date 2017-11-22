@@ -168,6 +168,61 @@
    < div class="col" > < /div >
  < /div >
         </code></pre>
+
+
+
+<p>第一个例子：创建一行(<b>&lt;div 
+class="row"&gt;</b>)。然后， 添加是需要的列(
+<b>.col-*-*</b> 类中设置)。 第一个星号 (*) 
+表示响应的设备: sm, md, lg 或 xl, 第二个星号 (*) 表示一个数字, 同一行的数字相加为 12。</p>
+<p>第二个例子: 不在每个 <b>col</b> 上添加数字，让 bootstrap 自动处理布局，同一行的每个列宽度相等： 两个 <b>"col"</b> ，每个就为 50% 的宽度。三个  <b>"col"</b>每个就为 33.33% 的宽度，四个  <b>"col"</b>每个就为 25% 的宽度，以此类推。同样，你可以使用 <b>.col-sm|md|lg|xl</b> 来设置列的响应规则。</p>
+<p>接下来我们可以看看实例。</p>
+<h3>创建相等宽度的列，Bootstrap 自动布局</h3>
+<div class="row">
+  <div class="col">.col</div>
+  <div class="col">.col</div>
+  <div class="col">.col</div>
+</div>
+<pre><code class="html">&lt;div class=&quot;row&quot;&gt;
+  &lt;div class=&quot;col&quot;&gt;.col&lt;/div&gt;
+  &lt;div class=&quot;col&quot;&gt;.col&lt;/div&gt;
+  &lt;div class=&quot;col&quot;&gt;.col&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+
+
+<h3>等宽响应式列</h3>
+<p>以下实例演示了如何在平板及更大屏幕上创建等宽度的响应式列。 <strong>在移动设备上，即屏幕宽度小于 576px 时，四个列将会上下堆叠排版</strong>:</p>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-3" style="background-color:lavender;">.col-sm-3</div>
+    <div class="col-sm-3" style="background-color:lavenderblush;">.col-sm-3</div>
+    <div class="col-sm-3" style="background-color:lavender;">.col-sm-3</div>
+    <div class="col-sm-3" style="background-color:lavenderblush;">.col-sm-3</div>
+  </div>
+  <pre><code class="html">&lt;div class=&quot;row&quot;&gt;
+    &lt;div class=&quot;col-sm-3&quot; style=&quot;background-color:lavender;&quot;&gt;.col-sm-3&lt;/div&gt;
+    &lt;div class=&quot;col-sm-3&quot; style=&quot;background-color:lavenderblush;&quot;&gt;.col-sm-3&lt;/div&gt;
+    &lt;div class=&quot;col-sm-3&quot; style=&quot;background-color:lavender;&quot;&gt;.col-sm-3&lt;/div&gt;
+    &lt;div class=&quot;col-sm-3&quot; style=&quot;background-color:lavenderblush;&quot;&gt;.col-sm-3&lt;/div&gt;
+  &lt;/div&gt;
+</code></pre>
+</div>
+
+<h3>不等宽响应式列</h3>
+
+<p>以下实例演示了在平板及更大屏幕上创建不等宽度的响应式列。 <strong>在移动设备上，即屏幕宽度小于 576px 时，四个列将会上下堆叠排版</strong>:</p>
+
+
+  <div class="row">
+    <div class="col-sm-4" style="background-color:lavender;">.col-sm-4</div>
+    <div class="col-sm-8" style="background-color:lavenderblush;">.col-sm-8</div>
+  </div>
+
+<br>
+<br>
+<br>
+
     </div>
 </body>
 </html>

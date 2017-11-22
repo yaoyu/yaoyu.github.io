@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Bootstrap4 弹出框(popover)</title>
+    <link href="https://cdn.bootcss.com/bootstrap/4.0.0-beta.2/css/bootstrap.css" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/highlight.js/9.12.0/styles/vs2015.min.css" rel="stylesheet">
+
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.slim.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/4.0.0-beta.2/js/bootstrap.js"></script>
+    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+    <script src="https://cdn.bootcss.com/angular.js/1.6.6/angular.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <style>
+      p{
+        margin-bottom: 0.5rem;
+      }
+    </style>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('[data-toggle="popover"]').popover(); 
+        });
+    </script>
+</head>
+<body>
+<div class="container">
+
+<div class="article-intro" id="content">
+            
+            <h1>Bootstrap4 弹出框(popover)</h1>
+<p>弹出框控件类似于提示框，它在鼠标点击到元素后显示，与提示框不同的是它可以显示更多的内容。</p>
+
+
+<hr>
+<h2>如何创建弹出框</h2>
+<p>通过向元素添加 <mark class="marked">data-toggle="popover"</mark> 
+来来创建弹出框。 </p>
+<p><mark class="marked">title</mark> 属性的内容为弹出框的标题，<mark class="marked">data-content</mark> 属性显示了弹出框的文本内容：</p>
+<a href="#" data-toggle="popover" title="弹出框标题" data-content="弹出框内容">多次点我</a>
+<pre><code class="html">&lt;a href=&quot;#&quot; data-toggle=&quot;popover&quot; title=&quot;弹出框标题&quot; data-content=&quot;弹出框内容&quot;&gt;多次点我&lt;/a&gt;
+</code></pre>
+
+
+<p><strong>注意:</strong> 弹出框要写在 jQuery 的初始化代码里: 然后在指定的元素上调用 <mark class="marked">popover()</mark> 方法。</p>
+<p>以下实例可以在文档的任何地方使用弹出框：</p>
+<pre><code class="javascript">$(document).ready(function(){
+    $(&#x27;[data-toggle=&quot;popover&quot;]&#x27;).popover(); 
+});
+</code></pre>
+
+
+<hr>
+<h2>指定弹出框的位置</h2>
+<p>默认情况下弹出框显示在元素右侧。</p>
+<p>可以使用 <mark class="marked">data-placement</mark> 属性来设定弹出框显示的方向: top, bottom, left 或 right:</p>
+<a href="#" title="Header" data-toggle="popover" data-placement="top" data-content="Content">点我</a>
+<a href="#" title="Header" data-toggle="popover" data-placement="bottom" data-content="Content">点我</a>
+<a href="#" title="Header" data-toggle="popover" data-placement="left" data-content="Content">点我</a>
+<a href="#" title="Header" data-toggle="popover" data-placement="right" data-content="Content">点我</a>
+<pre><code class="html">&lt;a href=&quot;#&quot; title=&quot;Header&quot; data-toggle=&quot;popover&quot; data-placement=&quot;top&quot; data-content=&quot;Content&quot;&gt;点我&lt;/a&gt;
+&lt;a href=&quot;#&quot; title=&quot;Header&quot; data-toggle=&quot;popover&quot; data-placement=&quot;bottom&quot; data-content=&quot;Content&quot;&gt;点我&lt;/a&gt;
+&lt;a href=&quot;#&quot; title=&quot;Header&quot; data-toggle=&quot;popover&quot; data-placement=&quot;left&quot; data-content=&quot;Content&quot;&gt;点我&lt;/a&gt;
+&lt;a href=&quot;#&quot; title=&quot;Header&quot; data-toggle=&quot;popover&quot; data-placement=&quot;right&quot; data-content=&quot;Content&quot;&gt;点我&lt;/a&gt;
+</code></pre>
+
+
+<hr>
+<h2>关闭弹出框</h2>
+<p>默认情况下，弹出框在再次点击指定元素后就会关闭，你可以使用 <mark class="marked">data-trigger="focus"</mark> 属性来设置在鼠标点击元素外部区域来关闭弹出框：</p>
+<a href="#" title="取消弹出框" data-toggle="popover" data-trigger="focus" data-content="点击文档的其他地方关闭我">点我</a>
+<pre><code class="html">&lt;a href=&quot;#&quot; title=&quot;取消弹出框&quot; data-toggle=&quot;popover&quot; data-trigger=&quot;focus&quot; data-content=&quot;点击文档的其他地方关闭我&quot;&gt;点我&lt;/a&gt;
+</code></pre>
+
+
+<p><strong>提示:</strong>如果你想实现在鼠标移动到元素上显示，移除后消失的效果，可以使用 <mark class="marked">data-trigger</mark> 属性，并设置值为
+"hover":</p>
+<a href="#" title="Header" data-toggle="popover" data-trigger="hover" data-content="一些内容">鼠标移动到我这</a>
+<pre><code class="html">&lt;a href=&quot;#&quot; title=&quot;Header&quot; data-toggle=&quot;popover&quot; data-trigger=&quot;hover&quot; data-content=&quot;一些内容&quot;&gt;鼠标移动到我这&lt;/a&gt;
+</code></pre>
+
+</div>
+</body>
+</html>

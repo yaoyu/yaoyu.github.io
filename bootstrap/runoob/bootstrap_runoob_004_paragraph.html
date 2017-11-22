@@ -229,102 +229,103 @@ line breaks.
 <hr>
 <h2>更多排版类</h2><p>
 下表提供了 Bootstrap4 更多排版类的实例：</p>
-<table class="table table-striped">
+<table class="table table-striped table-sm">
   <tbody><tr>
-    <th style="width:25%;">类名</th>
-    <th style="width:63%;">描述</th>
-    <th style="width:12%;">实例</th>
+    <th style="width: 25%">类名</th>
+    <th style="width: 75%" >描述</th>
   </tr>
   <tr>
-    <td><span class="marked">.font-weight-bold</span></td>
+    <td><span class="font-weight-bold">.font-weight-bold</span></td>
     <td>加粗文本</td>
-    <td></td>
   </tr>
   <tr>
-    <td><span class="marked">.font-weight-normal</span></td>
+    <td><span class="font-weight-normal">.font-weight-normal</span></td>
     <td>普通文本</td>
-    <td></td>
   </tr>
   <tr>
-    <td><span class="marked">.font-weight-light</span></td>
+    <td><span class="font-weight-light">.font-weight-light</span></td>
     <td>更细的文本</td>
-    <td></td>
   </tr>
   <tr>
-    <td><span class="marked">.font-italic</span></td>
+    <td><span class="font-italic">.font-italic</span></td>
     <td>斜体文本</td>
-    <td></td>
   </tr>
   <tr>
-    <td><span class="marked">.lead</span></td>
+    <td><span class="lead">.lead</span></td>
     <td>让段落更突出</td>
-    <td></td>
   </tr>
   <tr>
-    <td><span class="marked">.small</span></td>
+    <td class="small">.small</td>
     <td>指定更小文本 (为父元素的 85% )</td>
-    <td></td>
   </tr>
   <tr>
-    <td><span class="marked">.text-left</span></td>
+    <td class="text-left">.text-left</td>
     <td>左对齐</td>
-    <td></td>
   </tr>
   <tr>
-    <td><span class="marked">.text-center</span></td>
+    <td class="text-center">.text-center</td>
     <td>居中</td>
-    <td></td>
   </tr>
   <tr>
-    <td><span class="marked">.text-right</span></td>
+    <td class="text-right">.text-right</td>
     <td>右对齐</td>
-    <td></td>
   </tr>
   <tr>
-    <td><span class="marked">.text-justify</span></td>
+    <td class="text-justify">.text-justify</td>
     <td>设定文本对齐,段落中超出屏幕部分文字自动换行</td>
-    <td></td>
   </tr>
   <tr>
-    <td><span class="marked">.text-nowrap</span></td>
+    <td class="text-nowrap">.text-nowrap</td>
     <td>段落中超出屏幕部分不换行</td>
-    <td></td>
   </tr>
   <tr>
-    <td><span class="marked">.text-lowercase</span></td>
+    <td class="text-lowercase">.text-lowercase</td>
     <td>设定文本小写</td>
-    <td></td>
   </tr>
   <tr>
-    <td><span class="marked">.text-uppercase</span></td>
+    <td class="text-uppercase">.text-uppercase</td>
     <td>设定文本大写</td>
-    <td></td>
   </tr>
   <tr>
-    <td><span class="marked">.text-capitalize</span></td>
+    <td class="text-capitalize">.text-capitalize</td>
     <td>设定单词首字母大写</td>
-    <td></td>
   </tr>
   <tr>
-    <td><span class="marked">.initialism</span></td>
+    <td><abbr class="initialism" title="World Health Organization">.initialism</abbr></td>
     <td>显示在 &lt;abbr&gt; 元素中的文本以小号字体展示，且可以将小写字母转换为大写字母</td>
-    <td></td>
   </tr>
   <tr>
-    <td><span class="marked">.list-unstyled</span></td>
+    <td>.list-unstyled</td>
    <td>移除默认的列表样式，列表项中左对齐 ( &lt;ul&gt; 和 &lt;ol&gt; 中)。 这个类仅适用于直接子列表项  
-  (如果需要移除嵌套的列表项，你需要在嵌套的列表中使用该样式)</td>
-    <td></td>
+  (如果需要移除嵌套的列表项，你需要在嵌套的列表中使用该样式)
+<ul class="list-unstyled">
+    <li>Coffee</li>
+    <li>Tea
+      <ul>
+        <li>Black tea</li>
+        <li>Green tea</li>
+      </ul>
+    </li>
+    <li>Milk</li>
+  </ul></td>
   </tr>
   <tr>
     <td><span class="marked">.list-inline</span></td>
-    <td>将所有列表项放置同一行</td>
-    <td></td>
+    <td>将所有列表项放置同一行  <ul class="list-inline">
+    <li class="list-inline-item">Coffee</li>
+    <li class="list-inline-item">Tea</li>
+    <li class="list-inline-item">Milk</li>
+  </ul></td>
   </tr>
   <tr>
     <td><span class="marked">.pre-scrollable</span></td>
-    <td>使 &lt;pre&gt; 元素可滚动，代码块区域最大高度为340px,一旦超出这个高度,就会在Y轴出现滚动条</td>
-    <td></td>
+    <td>使 &lt;pre&gt; 元素可滚动，代码块区域最大高度为340px,一旦超出这个高度,就会在Y轴出现滚动条
+      <pre class="pre-scrollable">Text in a pre element
+  is displayed in a fixed-width
+  font, and it preserves
+  both      spaces and
+  line breaks.</pre>
+</td>
   </tr>
 </tbody></table>
       

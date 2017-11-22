@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Bootstrap4 提示框</title>
+    <link href="https://cdn.bootcss.com/bootstrap/4.0.0-beta.2/css/bootstrap.css" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/highlight.js/9.12.0/styles/vs2015.min.css" rel="stylesheet">
+
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.slim.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/4.0.0-beta.2/js/bootstrap.js"></script>
+    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+    <script src="https://cdn.bootcss.com/angular.js/1.6.6/angular.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <style>
+      p{
+        margin-bottom: 0.5rem;
+      }
+    </style>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('[data-toggle="tooltip"]').tooltip(); 
+        });
+    </script>
+</head>
+<body>
+<div class="container">
+
+<div class="article-intro" id="content">
+            
+            <h1>Bootstrap4 提示框</h1>
+<p>提示框是一个小小的弹窗，在鼠标移动到元素上显示，鼠标移到元素外就消失。</p>
+
+
+<hr>
+<h2>如何创建提示框</h2>
+<p>通过向元素添加 <mark class="marked">data-toggle="tooltip"</mark> 
+来来创建提示框。 </p>
+<p><mark class="marked">title</mark> 属性的内容为提示框显示的内容：</p>
+<br>
+<a href="#" data-toggle="tooltip" title="我是提示内容!">鼠标移动到我这</a>
+<pre><code class="html">&lt;a href=&quot;#&quot; data-toggle=&quot;tooltip&quot; title=&quot;我是提示内容!&quot;&gt;鼠标移动到我这&lt;/a&gt;
+</code></pre>
+
+
+<p><strong>注意:</strong> 提示框要写在 jQuery 的初始化代码里: 然后在指定的元素上调用 <mark class="marked">tooltip()</mark> 方法。</p>
+<p>以下实例可以在文档的任何地方使用提示框：</p>
+<pre><code class="javascript">$(document).ready(function(){
+    $(&#x27;[data-toggle=&quot;tooltip&quot;]&#x27;).tooltip(); 
+});
+</code></pre>
+
+<hr>
+<h2>指定提示框的位置</h2>
+<p>默认情况下提示框显示在元素上方。</p>
+<p>可以使用 <mark class="marked">data-placement</mark> 属性来设定提示框显示的方向: top, bottom, left 或 right:</p>
+<br>
+<a href="#" data-toggle="tooltip" data-placement="top" title="我是提示内容!">鼠标移动到我这</a>
+<a href="#" data-toggle="tooltip" data-placement="bottom" title="我是提示内容!">鼠标移动到我这</a>
+<a href="#" data-toggle="tooltip" data-placement="left" title="我是提示内容!">鼠标移动到我这</a>
+<a href="#" data-toggle="tooltip" data-placement="right" title="我是提示内容!">鼠标移动到我这</a>
+<br>
+<br>
+<br>
+<pre><code class="html">&lt;a href=&quot;#&quot; data-toggle=&quot;tooltip&quot; data-placement=&quot;top&quot; title=&quot;我是提示内容!&quot;&gt;鼠标移动到我这&lt;/a&gt;
+&lt;a href=&quot;#&quot; data-toggle=&quot;tooltip&quot; data-placement=&quot;bottom&quot; title=&quot;我是提示内容!&quot;&gt;鼠标移动到我这&lt;/a&gt;
+&lt;a href=&quot;#&quot; data-toggle=&quot;tooltip&quot; data-placement=&quot;left&quot; title=&quot;我是提示内容!&quot;&gt;鼠标移动到我这&lt;/a&gt;
+&lt;a href=&quot;#&quot; data-toggle=&quot;tooltip&quot; data-placement=&quot;right&quot; title=&quot;我是提示内容!&quot;&gt;鼠标移动到我这&lt;/a&gt;
+</code></pre>
+
+</div>
+</body>
+</html>

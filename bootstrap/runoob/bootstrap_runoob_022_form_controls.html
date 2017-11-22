@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Bootstrap4 表单控件</title>
+    <link href="https://cdn.bootcss.com/bootstrap/4.0.0-beta.2/css/bootstrap.css" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/highlight.js/9.12.0/styles/vs2015.min.css" rel="stylesheet">
+
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.slim.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/4.0.0-beta.2/js/bootstrap.js"></script>
+    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+    <script src="https://cdn.bootcss.com/angular.js/1.6.6/angular.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <style>
+      p{
+        margin-bottom: 0.5rem;
+      }
+    </style>
+</head>
+<body>
+<div class="container">
+
+<div class="article-intro" id="content">
+            
+            <h1>Bootstrap4 表单控件</h1>
+<p>Bootstrap4 支持以下表单控件：</p>
+<ul>
+  <li>input</li>
+  <li>textarea</li>
+  <li>checkbox</li>
+  <li>radio</li>
+  <li>select</li>
+</ul>
+
+<h2>Bootstrap Input</h2>
+
+<p>Bootstrap 支持所有的 HTML5 输入类型: 
+text, password, datetime, datetime-local, date, month, time, week, number, 
+email, url, search, tel, 以及 color。 </p>
+<p><strong>注意：:</strong> 如果 input 的 type 属性未正确声明，输入框的样式将不会显示。</p>
+<p>以下实例使用两个 input 元素，一个是 text，一个是 password ：</p>
+<div class="form-group">
+  <label for="usr">用户名:</label>
+  <input type="text" class="form-control" id="usr">
+</div>
+<div class="form-group">
+  <label for="pwd">密码:</label>
+  <input type="password" class="form-control" id="pwd">
+</div>
+<pre><code class="html">&lt;div class=&quot;form-group&quot;&gt;
+  &lt;label for=&quot;usr&quot;&gt;用户名:&lt;/label&gt;
+  &lt;input type=&quot;text&quot; class=&quot;form-control&quot; id=&quot;usr&quot;&gt;
+&lt;/div&gt;
+&lt;div class=&quot;form-group&quot;&gt;
+  &lt;label for=&quot;pwd&quot;&gt;密码:&lt;/label&gt;
+  &lt;input type=&quot;password&quot; class=&quot;form-control&quot; id=&quot;pwd&quot;&gt;
+&lt;/div&gt;
+</code></pre>
+
+<hr>
+<h2>Bootstrap textarea</h2>
+<p>以下实例演示了 textarea 的样式。</p>
+
+<div class="form-group">
+  <label for="comment">评论:</label>
+  <textarea class="form-control" rows="5" id="comment"></textarea>
+</div>
+<pre><code class="html">&lt;div class=&quot;form-group&quot;&gt;
+  &lt;label for=&quot;comment&quot;&gt;评论:&lt;/label&gt;
+  &lt;textarea class=&quot;form-control&quot; rows=&quot;5&quot; id=&quot;comment&quot;&gt;&lt;/textarea&gt;
+&lt;/div&gt;
+</code></pre>
+
+
+<hr>
+<h2>Bootstrap 复选框(checkbox)</h2>
+<p>复选框用于让用户从一系列预设置的选项中进行选择，可以选一个或多个。</p>
+<p>以下实例包含了三个选项。最后一个是禁用的：</p>
+<div class="form-check">
+  <label class="form-check-label">
+    <input type="checkbox" class="form-check-input" value="">Option 1
+  </label>
+</div>
+<div class="form-check">
+  <label class="form-check-label">
+    <input type="checkbox" class="form-check-input" value="">Option 2
+  </label>
+</div>
+<div class="form-check disabled">
+  <label class="form-check-label">
+    <input type="checkbox" class="form-check-input" value="" disabled>Option 3
+  </label>
+</div>
+<pre><code class="html">&lt;div class=&quot;form-check&quot;&gt;
+  &lt;label class=&quot;form-check-label&quot;&gt;
+    &lt;input type=&quot;checkbox&quot; class=&quot;form-check-input&quot; value=&quot;&quot;&gt;Option 1
+  &lt;/label&gt;
+&lt;/div&gt;
+&lt;div class=&quot;form-check&quot;&gt;
+  &lt;label class=&quot;form-check-label&quot;&gt;
+    &lt;input type=&quot;checkbox&quot; class=&quot;form-check-input&quot; value=&quot;&quot;&gt;Option 2
+  &lt;/label&gt;
+&lt;/div&gt;
+&lt;div class=&quot;form-check disabled&quot;&gt;
+  &lt;label class=&quot;form-check-label&quot;&gt;
+    &lt;input type=&quot;checkbox&quot; class=&quot;form-check-input&quot; value=&quot;&quot; disabled&gt;Option 3
+  &lt;/label&gt;
+&lt;/div&gt;
+</code></pre>
+
+
+<p>使用 <mark class="marked">.form-check-inline</mark> 类可以让选项显示在同一行上：</p>
+
+<div class="form-check form-check-inline">
+  <label class="form-check-label">
+    <input type="checkbox" class="form-check-input" value="">Option 1
+  </label>
+</div>
+<div class="form-check form-check-inline">
+  <label class="form-check-label">
+    <input type="checkbox" class="form-check-input" value="">Option 2
+  </label>
+</div>
+<div class="form-check form-check-inline disabled">
+  <label class="form-check-label">
+    <input type="checkbox" class="form-check-input" value="" disabled>Option 3
+  </label>
+</div>
+<pre><code class="html">&lt;div class=&quot;form-check form-check-inline&quot;&gt;
+  &lt;label class=&quot;form-check-label&quot;&gt;
+    &lt;input type=&quot;checkbox&quot; class=&quot;form-check-input&quot; value=&quot;&quot;&gt;Option 1
+  &lt;/label&gt;
+&lt;/div&gt;
+&lt;div class=&quot;form-check form-check-inline&quot;&gt;
+  &lt;label class=&quot;form-check-label&quot;&gt;
+    &lt;input type=&quot;checkbox&quot; class=&quot;form-check-input&quot; value=&quot;&quot;&gt;Option 2
+  &lt;/label&gt;
+&lt;/div&gt;
+&lt;div class=&quot;form-check form-check-inline disabled&quot;&gt;
+  &lt;label class=&quot;form-check-label&quot;&gt;
+    &lt;input type=&quot;checkbox&quot; class=&quot;form-check-input&quot; value=&quot;&quot; disabled&gt;Option 3
+  &lt;/label&gt;
+&lt;/div&gt;
+</code></pre>
+
+
+<hr>
+<h2>Bootstrap 单选框(Radio)</h2>
+<p>复选框用于让用户从一系列预设置的选项中进行选择，只能选一个。</p>
+<p>以下实例包含了三个选项。最后一个是禁用的：</p>
+<div class="radio">
+  <label><input type="radio" name="optradio">Option 1</label>
+</div>
+<div class="radio">
+  <label><input type="radio" name="optradio">Option 2</label>
+</div>
+<div class="radio disabled">
+  <label><input type="radio" name="optradio" disabled>Option 3</label>
+</div>
+<pre><code class="html">&lt;div class=&quot;radio&quot;&gt;
+  &lt;label&gt;&lt;input type=&quot;radio&quot; name=&quot;optradio&quot;&gt;Option 1&lt;/label&gt;
+&lt;/div&gt;
+&lt;div class=&quot;radio&quot;&gt;
+  &lt;label&gt;&lt;input type=&quot;radio&quot; name=&quot;optradio&quot;&gt;Option 2&lt;/label&gt;
+&lt;/div&gt;
+&lt;div class=&quot;radio disabled&quot;&gt;
+  &lt;label&gt;&lt;input type=&quot;radio&quot; name=&quot;optradio&quot; disabled&gt;Option 3&lt;/label&gt;
+&lt;/div&gt;
+</code></pre>
+
+
+<p>使用 <mark class="marked">.radio-inline</mark> 类可以让选项显示在同一行上：</p>
+
+<label class="radio-inline"><input type="radio" name="optradio">Option 1</label>
+<label class="radio-inline"><input type="radio" name="optradio">Option 2</label>
+<label class="radio-inline"><input type="radio" name="optradio">Option 3</label>
+<pre><code class="html">&lt;label class=&quot;radio-inline&quot;&gt;&lt;input type=&quot;radio&quot; name=&quot;optradio&quot;&gt;Option 1&lt;/label&gt;
+&lt;label class=&quot;radio-inline&quot;&gt;&lt;input type=&quot;radio&quot; name=&quot;optradio&quot;&gt;Option 2&lt;/label&gt;
+&lt;label class=&quot;radio-inline&quot;&gt;&lt;input type=&quot;radio&quot; name=&quot;optradio&quot;&gt;Option 3&lt;/label&gt;
+</code></pre>
+
+
+<hr>
+<h2>Bootstrap select 下拉菜单</h2>
+<p>当您想让用户从多个选项中进行选择，但是默认情况下只能选择一个选项时，则使用选择框。</p>
+<p>以下实例包含了两个下拉菜单：</p>
+<div class="form-group">
+  <label for="sel1">下拉菜单:</label>
+  <select class="form-control" id="sel1">
+    <option>1</option>
+    <option>2</option>
+    <option>3</option>
+    <option>4</option>
+  </select>
+</div>
+<pre><code class="html">&lt;div class=&quot;form-group&quot;&gt;
+  &lt;label for=&quot;sel1&quot;&gt;下拉菜单:&lt;/label&gt;
+  &lt;select class=&quot;form-control&quot; id=&quot;sel1&quot;&gt;
+    &lt;option&gt;1&lt;/option&gt;
+    &lt;option&gt;2&lt;/option&gt;
+    &lt;option&gt;3&lt;/option&gt;
+    &lt;option&gt;4&lt;/option&gt;
+  &lt;/select&gt;
+&lt;/div&gt;
+</code></pre>
+
+</div>
+</body>
+</html>

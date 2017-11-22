@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Bootstrap4 小工具</title>
+    <link href="https://cdn.bootcss.com/bootstrap/4.0.0-beta.2/css/bootstrap.css" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/highlight.js/9.12.0/styles/vs2015.min.css" rel="stylesheet">
+
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.slim.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/4.0.0-beta.2/js/bootstrap.js"></script>
+    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+    <script src="https://cdn.bootcss.com/angular.js/1.6.6/angular.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <style>
+      p{
+        margin-bottom: 0.5rem;
+      }
+      .border, .border1 {
+        display: inline-block;
+        width: 70px;
+        height: 70px;
+        margin: 6px;
+      }
+      .border1{
+        background-color: #555;
+      }
+    </style>
+</head>
+<body>
+<div class="container">
+
+<div class="article-intro" id="content">
+            
+            <h1>Bootstrap4 小工具</h1>
+<p>Bootstrap4 提供了一些小工具，可以让我们不用写 CSS 代码就能实现想要的效果。</p>
+
+
+<hr>
+<h2>边框</h2>
+<p>使用 <mark class="marked">border</mark> 类可以添加或移除边框:</p>
+<div class="container">
+  <h2>边框</h2>
+  <p>使用 border 类可以添加或移除边框:</p> 
+  <span class="border"></span>
+  <span class="border border-0"></span>
+  <span class="border border-top-0"></span>
+  <span class="border border-right-0"></span>
+  <span class="border border-bottom-0"></span>
+  <span class="border border-left-0"></span>
+</div>
+<pre><code class="html">&lt;span class=&quot;border&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;border border-0&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;border border-top-0&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;border border-right-0&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;border border-bottom-0&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;border border-left-0&quot;&gt;&lt;/span&gt;
+</code></pre>
+
+
+
+
+<hr>
+<h2>边框颜色</h2>
+
+
+<p>Bootstrap4 提供了一些类来设置边框颜色:</p>
+<span class="border border-primary"></span>
+<span class="border border-secondary"></span>
+<span class="border border-success"></span>
+<span class="border border-danger"></span>
+<span class="border border-warning"></span>
+<span class="border border-info"></span>
+<span class="border border-light"></span>
+<span class="border border-dark"></span>
+<span class="border border-white"></span>
+<pre><code class="html">&lt;span class=&quot;border border-primary&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;border border-secondary&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;border border-success&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;border border-danger&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;border border-warning&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;border border-info&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;border border-light&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;border border-dark&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;border border-white&quot;&gt;&lt;/span&gt;
+</code></pre>
+
+
+
+<hr>
+<h2>边框圆角设置</h2>
+
+<p>使用<mark class="marked">rounded</mark> 类可以添加圆角边框:</p>
+<span class="border1 rounded"></span>
+<span class="border1 rounded-top"></span>
+<span class="border1 rounded-right"></span>
+<span class="border1 rounded-bottom"></span>
+<span class="border1 rounded-left"></span>
+<span class="border1 rounded-circle"></span>
+<span class="border1 rounded-0"></span>
+<pre><code class="html">&lt;span class=&quot;border1 rounded&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;border1 rounded-top&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;border1 rounded-right&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;border1 rounded-bottom&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;border1 rounded-left&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;border1 rounded-circle&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;border1 rounded-0&quot;&gt;&lt;/span&gt;
+</code></pre>
+
+
+<hr>
+<h2>浮动</h2>
+<p><mark class="marked">.float-right</mark> 类用于设置元素右浮动， <mark class="marked">.float-left</mark> 设置元素左浮动, <mark class="marked">.clearfix</mark> 类用于清除浮动:</p>
+<div class="clearfix">
+  <span class="float-left">左浮动</span>
+  <span class="float-right">右浮动</span>
+</div>
+<pre><code class="html">&lt;div class=&quot;clearfix&quot;&gt;
+  &lt;span class=&quot;float-left&quot;&gt;左浮动&lt;/span&gt;
+  &lt;span class=&quot;float-right&quot;&gt;右浮动&lt;/span&gt;
+&lt;/div&gt;
+</code></pre>
+
+
+<hr>
+<h2>响应式浮动</h2>
+<p>我们看可以设置浮动 (<mark class="marked">.float-*-left|right</mark> -  * 为 sm, md, lg 或 xl)的方向依赖于屏幕的大小:</p>
+<div class="container">
+  <h2>响应式浮动</h2>
+  <p>重置浏览器大小查看效果。</p>
+  <p>我们看可以设置浮动 (.float-*-left|right - * 为 sm, md, lg 或 xl)的方向依赖于屏幕的大小:</p> 
+  <div class="float-sm-right">在大于小屏幕尺寸上右浮动</div><br>
+  <div class="float-md-right">在大于中等屏幕尺寸上右浮动</div><br>
+  <div class="float-lg-right">在大于大屏幕尺寸上右浮动</div><br>
+  <div class="float-xl-right">在大于超大屏幕尺寸上右浮动</div><br>
+  <div class="float-none">没有浮动</div>
+</div>
+<pre><code class="html">&lt;div class=&quot;container&quot;&gt;
+  &lt;h2&gt;响应式浮动&lt;/h2&gt;
+  &lt;p&gt;重置浏览器大小查看效果。&lt;/p&gt;
+  &lt;p&gt;我们看可以设置浮动 (.float-*-left|right - * 为 sm, md, lg 或 xl)的方向依赖于屏幕的大小:&lt;/p&gt; 
+  &lt;div class=&quot;float-sm-right&quot;&gt;在大于小屏幕尺寸上右浮动&lt;/div&gt;&lt;br&gt;
+  &lt;div class=&quot;float-md-right&quot;&gt;在大于中等屏幕尺寸上右浮动&lt;/div&gt;&lt;br&gt;
+  &lt;div class=&quot;float-lg-right&quot;&gt;在大于大屏幕尺寸上右浮动&lt;/div&gt;&lt;br&gt;
+  &lt;div class=&quot;float-xl-right&quot;&gt;在大于超大屏幕尺寸上右浮动&lt;/div&gt;&lt;br&gt;
+  &lt;div class=&quot;float-none&quot;&gt;没有浮动&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+
+<hr>
+<h2>居中对齐</h2>
+<p>使用 <mark class="marked">.mx-auto</mark> 类来设置居中对齐:</p>
+<div class="mx-auto bg-warning text-center" style="width:150px">居中显示</div>
+<pre><code class="html">&lt;div class=&quot;mx-auto bg-warning&quot; style=&quot;width:150px&quot;&gt;居中显示&lt;/div&gt;
+</code></pre>
+
+<hr>
+<h2>宽度</h2>
+<p>元素上使用 w-* 类 (<mark class="marked">.w-25</mark>, <mark class="marked">.w-50</mark>, <mark class="marked">.w-75</mark>, <mark class="marked">.w-100</mark>, <mark class="marked">.mw-100</mark>) 来设置宽度:</p>
+<div class="w-25 bg-warning">宽度 25%</div>
+<div class="w-50 bg-warning">宽度 50%</div>
+<div class="w-75 bg-warning">宽度 75%</div>
+<div class="w-100 bg-warning">宽度 100%</div>
+<div class="mw-100 bg-warning">最大宽度 100%</div>
+<pre><code class="html">&lt;div class=&quot;w-25 bg-warning&quot;&gt;宽度 25%&lt;/div&gt;
+&lt;div class=&quot;w-50 bg-warning&quot;&gt;宽度 50%&lt;/div&gt;
+&lt;div class=&quot;w-75 bg-warning&quot;&gt;宽度 75%&lt;/div&gt;
+&lt;div class=&quot;w-100 bg-warning&quot;&gt;宽度 100%&lt;/div&gt;
+&lt;div class=&quot;mw-100 bg-warning&quot;&gt;最大宽度 100%&lt;/div&gt;
+</code></pre>
+
+
+<hr>
+<h2>高度</h2>
+<p>元素上使用 h-* 类 (<mark class="marked">.h-25</mark>, <mark class="marked">.h-50</mark>, <mark class="marked">.h-75</mark>, <mark class="marked">.h-100</mark>, <mark class="marked">.mh-100</mark>) 来设置高度:</p>
+<div style="height:200px;background-color:#ddd">
+<div class="h-25 bg-primary">高度 25%</div>
+<div class="h-50 bg-warning">高度 50%</div>
+<div class="h-75 bg-info">高度 75%</div>
+<div class="h-100 bg-warning">高度 100%</div>
+<div class="mh-100 bg-danger" style="height:500px">最大高度 100%</div>
+
+<pre><code class="html">&lt;div class=&quot;h-25 bg-primary&quot;&gt;高度 25%&lt;/div&gt;
+&lt;div class=&quot;h-50 bg-warning&quot;&gt;高度 50%&lt;/div&gt;
+&lt;div class=&quot;h-75 bg-info&quot;&gt;高度 75%&lt;/div&gt;
+&lt;div class=&quot;h-100 bg-warning&quot;&gt;高度 100%&lt;/div&gt;
+&lt;div class=&quot;mh-100 bg-danger&quot; style=&quot;height:500px&quot;&gt;最大高度 100%&lt;/div&gt;
+</code></pre>
+
+</div>
+</body>
+</html>

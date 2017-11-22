@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Bootstrap4 201711_01 入门</title>
+    <title>Bootstrap4 201711_01 安装使用</title>
     <link href="https://cdn.bootcss.com/bootstrap/4.0.0-beta.2/css/bootstrap.css" rel="stylesheet">
     <link href="https://cdn.bootcss.com/highlight.js/9.12.0/styles/vs2015.min.css" rel="stylesheet">
 
@@ -18,28 +18,114 @@
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="jumbotron  text-center">
-            <h1>我的第一个 Bootstrap 页面</h1>
-            <p>重置窗口大小，查看响应式效果！</p>
-        </div>
-        <div class="row">
-            <div class="col-sm-4">
-                <h3>第一列</h3>
-                <p>学的不仅是技术，更是梦想！</p>
-                <p>再牛逼的梦想,也抵不住你傻逼似的坚持！</p>
-            </div>
-            <div class="col-sm-4">
-                <h3>第二列</h3>
-                <p>学的不仅是技术，更是梦想！</p>
-                <p>再牛逼的梦想,也抵不住你傻逼似的坚持！</p>
-            </div>
-            <div class="col-sm-4">
-                <h3>第三列</h3>
-                <p>学的不仅是技术，更是梦想！</p>
-                <p>再牛逼的梦想,也抵不住你傻逼似的坚持！</p>
-            </div>
-        </div>
-    </div>
+<div class="container">
+
+<div class="article-intro" id="content">
+            
+            <h1>Bootstrap4 <span class="color_h1">安装使用</span></h1>
+
+<p>我们可以通过以下两种方式来安装 Bootstrap4：</p>
+
+<ul>
+  <li>使用 Bootstrap 4  CDN。</li>
+  <li>从官网 getbootstrap.com 下载 Bootstrap 4。</li>
+</ul>
+
+<h3>Bootstrap 4 CDN</h3>
+
+<p>国内推荐使用 BootCDN 上的库：</p>
+<pre><code class="html">&lt;!-- 新 Bootstrap4 核心 CSS 文件 --&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.bootcss.com/bootstrap/4.0.0-beta/css/bootstrap.min.css&quot;&gt;
+ 
+&lt;!-- jQuery文件。务必在bootstrap.min.js 之前引入 --&gt;
+&lt;script src=&quot;https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js&quot;&gt;&lt;/script&gt;
+ 
+&lt;!-- popper.min.js 用于弹窗、提示、下拉菜单 --&gt;
+&lt;script src=&quot;https://cdn.bootcss.com/popper.js/1.12.5/umd/popper.min.js&quot;&gt;&lt;/script&gt;
+ 
+&lt;!-- 最新的 Bootstrap4 核心 JavaScript 文件 --&gt;
+&lt;script src=&quot;https://cdn.bootcss.com/bootstrap/4.0.0-beta/js/bootstrap.min.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+
+
+<p>此外，你还可以使用以下的 CDN 服务：</p>
+
+<ul>
+<li>国内推荐使用 : <a rel="nofollow" href="https://www.staticfile.org/" target="_blank">https://www.staticfile.org/</a></li>
+<li>国际推荐使用：<a rel="nofollow" href="https://cdnjs.com/" target="_blank">https://cdnjs.com/</a></li></ul>
+
+<h3>
+下载 Bootstrap 4</h3>
+<p>你可以去官网 <a href="https://getbootstrap.com/" target="_blank">https://getbootstrap.com/</a> 下载 Bootstrap4 资源库。</p>
+
+
+<blockquote>
+<p><strong>注：</strong>此外你还可以通过包的管理工具 npm、 gem、 composer 等来安装：</p>
+<pre><code class="html">npm install bootstrap@4.0.0-beta.2
+gem &#x27;bootstrap&#x27;, &#x27;~&gt; 4.0.0.beta2&#x27;
+composer require twbs/bootstrap:4.0.0-beta.2
+</code></pre>
+</blockquote>
+
+
+
+
+
+
+<hr>
+<h2>创建第一个 Bootstrap 4 页面</h2>
+<h3>1、添加 HTML5 doctype</h3>
+<p>Bootstrap 要求使用 HTML5 文件类型，所以需要添加 HTML5 doctype 声明。</p>
+<p>HTML5 doctype 在文档头部声明，并设置对应编码:</p>
+<pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot;&gt; 
+  &lt;/head&gt;
+&lt;/html&gt;
+</code></pre>
+
+
+<h3>移动设备优先</h3>
+
+<p>为了让 Bootstrap 开发的网站对移动设备友好，确保适当的绘制和触屏缩放，需要在网页的 head 之中添加 viewport meta 标签，如下所示：</p>
+<pre><code class="html">&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1, shrink-to-fit=no&quot;&gt;
+</code></pre>
+
+
+<p><code>width=device-width</code> 表示宽度是设备屏幕的宽度。</p>
+
+<p><code>initial-scale=1</code> 表示初始的缩放比例。</p>
+<p><code>shrink-to-fit=no</code> 自动适应手机屏幕的宽度。</p>
+<hr>
+<h2>容器类</h2>
+<p>Bootstrap 4 需要一个容器元素来包裹网站的内容。 </p>
+<p>我们可以使用以下两个容器类：</p>
+<ul><li>
+.container 类用于固定宽度并支持响应式布局的容器。
+</li><li>
+.container-fluid 类用于 100% 宽度，占据全部视口（viewport）的容器。
+</li></ul>
+<p><img src="//www.runoob.com/wp-content/uploads/2017/10/176B67B9-013C-429C-8FD0-BC2409011545.jpg"></p>
+<hr><h2>
+两个 Bootstrap 4 页面
+</h2>
+<div class="container">
+  <h1>我的第一个 Bootstrap 页面</h1>
+  <p>这是一些文本。</p> 
+</div>
+<pre><code class="html">&lt;div class=&quot;container&quot;&gt;
+  &lt;h1&gt;我的第一个 Bootstrap 页面&lt;/h1&gt;
+  &lt;p&gt;这是一些文本。&lt;/p&gt; 
+&lt;/div&gt;
+</code></pre>
+
+<p>以下实例展示了占据全部视口（viewport）的容器。</p>
+<div class="container-fluid bg-primary">
+  <h1>我的第一个 Bootstrap 页面</h1>
+  <p>使用了 .container-fluid，100% 宽度，占据全部视口（viewport）的容器。</p> 
+</div>
+
+</div>
 </body>
 </html>

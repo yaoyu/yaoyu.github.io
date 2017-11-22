@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Bootstrap4 表单</title>
+    <link href="https://cdn.bootcss.com/bootstrap/4.0.0-beta.2/css/bootstrap.css" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/highlight.js/9.12.0/styles/vs2015.min.css" rel="stylesheet">
+
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.slim.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/4.0.0-beta.2/js/bootstrap.js"></script>
+    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+    <script src="https://cdn.bootcss.com/angular.js/1.6.6/angular.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <style>
+      p{
+        margin-bottom: 0.5rem;
+      }
+    </style>
+</head>
+<body>
+<div class="container">
+
+            
+            <h1>Bootstrap4 表单</h1>
+<p>在本章中，我们将学习如何使用 Bootstrap 创建表单。Bootstrap 通过一些简单的 HTML 标签和扩展的类即可创建出不同样式的表单。</p>
+
+<p>表单元素 <mark class="marked">&lt;input&gt;</mark>, <mark class="marked">&lt;textarea&gt;</mark>, 和 
+<mark class="marked">&lt;select&gt;</mark> elements 
+在使用 <mark class="marked">.form-control</mark> 类的情况下，宽度都是设置为 100%。</p>
+
+<h3>Bootstrap4 表单布局</h3>
+<ul>
+  <li>堆叠表单 (全屏宽度)：垂直方向 </li>
+  <li>内联表单：水平方向</li>
+</ul>
+<p>Bootstrap 提供了两种类型的表单布局:</p>
+<hr>
+<h2>堆叠表单</h2>
+<p>以下实例使用两个输入框，一个复选框，一个提交按钮来创建堆叠表单：</p>
+<form>
+  <div class="form-group">
+    <label for="email">Email address:</label>
+    <input type="email" class="form-control" id="email">
+  </div>
+  <div class="form-group">
+    <label for="pwd">Password:</label>
+    <input type="password" class="form-control" id="pwd">
+  </div>
+  <div class="form-check">
+    <label class="form-check-label">
+      <input class="form-check-input" type="checkbox"> Remember me
+    </label>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+<pre><code class="html">&lt;form&gt;
+  &lt;div class=&quot;form-group&quot;&gt;
+    &lt;label for=&quot;email&quot;&gt;Email address:&lt;/label&gt;
+    &lt;input type=&quot;email&quot; class=&quot;form-control&quot; id=&quot;email&quot;&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;form-group&quot;&gt;
+    &lt;label for=&quot;pwd&quot;&gt;Password:&lt;/label&gt;
+    &lt;input type=&quot;password&quot; class=&quot;form-control&quot; id=&quot;pwd&quot;&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;form-check&quot;&gt;
+    &lt;label class=&quot;form-check-label&quot;&gt;
+      &lt;input class=&quot;form-check-input&quot; type=&quot;checkbox&quot;&gt; Remember me
+    &lt;/label&gt;
+  &lt;/div&gt;
+  &lt;button type=&quot;submit&quot; class=&quot;btn btn-primary&quot;&gt;Submit&lt;/button&gt;
+&lt;/form&gt;
+</code></pre>
+
+<hr>
+<h2>内联表单</h2>
+<p>所有内联表单中的元素都是左对齐的。</p>
+<p><strong>注意：在屏幕宽度小于 576px 时为垂直堆叠，如果屏幕宽度大于等于576px时表单元素才会显示在同一个水平线上。</strong></p>
+
+<p>内联表单需要在 <mark class="marked">&lt;form&gt;</mark> 元素上添加  <mark class="marked">.form-inline</mark>类。 </p>
+
+<p>以下实例使用两个输入框，一个复选框，一个提交按钮来创建内联表单：</p>
+<form class="form-inline">
+  <label for="email">Email address:</label>
+  <input type="email" class="form-control" id="email">
+  <label for="pwd">Password:</label>
+  <input type="password" class="form-control" id="pwd">
+  <div class="form-check">
+    <label class="form-check-label">
+      <input class="form-check-input" type="checkbox"> Remember me
+    </label>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+<pre><code class="html">&lt;form class=&quot;form-inline&quot;&gt;
+  &lt;label for=&quot;email&quot;&gt;Email address:&lt;/label&gt;
+  &lt;input type=&quot;email&quot; class=&quot;form-control&quot; id=&quot;email&quot;&gt;
+  &lt;label for=&quot;pwd&quot;&gt;Password:&lt;/label&gt;
+  &lt;input type=&quot;password&quot; class=&quot;form-control&quot; id=&quot;pwd&quot;&gt;
+  &lt;div class=&quot;form-check&quot;&gt;
+    &lt;label class=&quot;form-check-label&quot;&gt;
+      &lt;input class=&quot;form-check-input&quot; type=&quot;checkbox&quot;&gt; Remember me
+    &lt;/label&gt;
+  &lt;/div&gt;
+  &lt;button type=&quot;submit&quot; class=&quot;btn btn-primary&quot;&gt;Submit&lt;/button&gt;
+&lt;/form&gt;
+</code></pre>
+            
+            
+       
+</div>
+</body>
+</html>
