@@ -1,0 +1,4 @@
+[[package]]
+name = "s001_hello_cargo"
+version = "0.1.0"
+
