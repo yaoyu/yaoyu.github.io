@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>CGAL 4.11 安装</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <link href="https://cdn.bootcss.com/highlight.js/9.12.0/styles/vs2015.min.css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.bootcss.com/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+
+    <style>
+        body{
+            width:90%;
+            margin: 0 auto;
+        }
+        p, li{
+            line-height: 150%;
+            text-indent:2em;
+        }
+    </style>
+    <script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+<div class="container">
+    <h1>CGAL 4.11 在Windows上安装</h1>
+    <hr>
+
+    <h3>2 先决条件 Prerequisites</h3>
+    <p>安装CGAL之前, 先要安装几个组件: 一个支持的编译器, CMake, BOOST, 至少要有GMP和MPFR;<p>
+
+    <h3>4 CAGL源代码下载</h3>
+    <p>下载和安装<a href="https://github.com/CGAL/cgal/releases/download/releases">CGAL-x.xx-Setup.exe</a>. 
+    它是一个CGAL源文件自解压包, 还能让你选择和下载一些预编译第三方库. 
+    但是要自己编译CGAL库.</p>
+    <p>安装完的目录包含下列子目录(<code>我安装在C:\dev\CGAL-4.11</code>)</p>
+    <table class="table table-sm">
+    <tbody><tr>
+    <th align="left">目录 </th><th align="left">内容  </th></tr>
+    <tr>
+    <td align="left"><code>auxiliary</code> </td><td align="left">预编译 <span style="font-variant: small-caps;">Gmp</span> and <span style="font-variant: small-caps;">Mpfr</span> for Windows </td></tr>
+    <tr>
+    <td align="left"><code>cmake/modules</code> </td><td align="left">modules for finding and using libraries </td></tr>
+    <tr>
+    <td align="left"><code>config</code> </td><td align="left">configuration files for install script </td></tr>
+    <tr>
+    <td align="left"><code>demo</code> </td><td align="left">demo programs (most of them need <span style="font-variant: small-caps;">Qt</span>, geomview or other third-party products) </td></tr>
+    <tr>
+    <td align="left"><code>doc_html</code> </td><td align="left">documentation (HTML) </td></tr>
+    <tr>
+    <td align="left"><code>examples</code> </td><td align="left">example programs </td></tr>
+    <tr>
+    <td align="left"><code>include</code> </td><td align="left">header files </td></tr>
+    <tr>
+    <td align="left"><code>scripts</code> </td><td align="left">some useful scripts (e.g. for creating CMakeLists.txt files) </td></tr>
+    <tr>
+    <td align="left"><code>src</code> </td><td align="left">source files </td></tr>
+    </tbody></table>
+    <hr>
+    <p>The directories <code>include/CGAL/CORE</code> and <code>src/CGALCore</code> contain a distribution of the <span style="font-variant: small-caps;">Core</span> library<span class="footnote"><sup><a href="#cite-text-0-0" name="cite-ref-0-0" id="cite-ref-0-0" dir="ltr" title="<a href=&quot;http://www.cs.nyu.edu/exact/&quot;><code>http://www.cs.nyu.edu/exact/</code></a>" class="footnoteLink">[1]</a></sup></span> version 1.7 for dealing with algebraic numbers. <span style="font-variant: small-caps;">Core</span> is not part of <span style="font-variant: small-caps;">CGAL</span> and has its own license.</p>
+    <p>The directory <code>include/CGAL/OpenNL</code> contains a distribution of the Open Numerical Library which provides solvers for sparse linear systems, especially designed for the Computer Graphics community. <span style="font-variant: small-caps;">OpenNL</span> is not part of <span style="font-variant: small-caps;">CGAL</span> and has its own license.</p>
+    <p>CGAL文档必须单独下载</p>
+    <p>The only documentation shipped with <span style="font-variant: small-caps;">CGAL</span> sources is the present installation manual. The <span style="font-variant: small-caps;">CGAL</span> manual must be downloaded separately from <a href="http://www.cgal.org/download.html"><code>http://www.cgal.org/download.html</code></a>.</p>
+
+    <h3>6 使用CMake配置CGAL</h3>
+    <p>这里只列出配置CGAL的相关属性</p>
+    <p>在编译CGAL之前, 需要选择编译器, 设置编译器选项, 指定需要使用的第三方库. 设置这些信息的过程叫<span>配置</span>, 配置完成后, 生成项目文件.</p>
+
+    <h4>6.1 使用CMake-GUI配置CGAL</h4>
+    <p>使用命令行</p>
+    <div class="container">
+        <pre><code class="bat">    cd CGAL-x.xxx
+    cmake-gui</code></pre>
+    </div>
+    <p>在cmake-gui打开之后, 按"Configure", 会弹出一个对话框让你选择生成哪些. 当你选择完成之后, 按"Finish", 你会看到在程序的下方看到配置参数测试情况。当测试完成, 你会在程序上方看到很多红色选项. 忽略它们按"Configure". 现在CMake会查找一些库并设置初始值. 如果还有红色选项, 你需要填入必要的信息. <mark>它主要是因为没有按标准位置安装造成的</mark>. 输入信息直到按"Configure"后, 所有配置为灰色为止, 就可以按"Generate". 完成之后, 可以退出cmake-gui</p>
+
+    <p>After cmake-gui opens, press 'Configure'. A dialog will pop up and you will have to choose what shall gets generated. After you have made your choice and pressed 'Finish', you will see the output of configuration tests in the lower portion of the application. When these tests are done, you will see many red entries in the upper portion of the application. Just ignore them and press 'Configure'. By now CMake should have found many libraries and have initialized variables. If you still find red entries, you have to provide the necessary information. This typically happens if you have installed software at non-standard locations. Providing information and pressing 'Configure' goes on until all entries are grayed. You are now ready to press 'Generate'. Once this is done, you can quit cmake-gui.</p>
+
+    <p>配置过程不但决定了依赖的位置, 而且动态生成了<mark>compiler_config.h</mark>文件(它编码了你系统的属性), 以及<mark>cgalconfig.cmake</mark>文件(用于构建使用CGAL的程序。此文件的用途解释如下</p>
+
+    <p>The configuration process not only determines the location of the required dependencies, it also dynamically generates a compiler_config.h file, which encodes the properties of your system and a special file named CGALConfig.cmake, which is used to build programs using CGAL. The purpose of this file is explained below.</p>
+
+
+    <h3>7 CGAL库</h3>
+    <p>CGAL被分解成5个库. 在配置过程中, 你可以通过设置CMake变量<mark>WITH_(library)</mark>来选择想要编译的库. 默认情况下, 所有变量的开关都是<mark>ON</mark>.</p>
+    <p>下面列出相应库及依赖项</p>
+
+    <table class="table table-sm">
+<tbody><tr>
+<th align="left">Library </th><th align="left">CMake Variable </th><th align="left">Functionality </th><th align="left">Dependencies  </th></tr>
+<tr>
+<td align="left"><code>CGAL</code> </td><td align="left">none </td><td align="left">Main library </td><td align="left"><span style="font-variant: small-caps;">Gmp</span>, <span style="font-variant: small-caps;">Mpfr</span>, <span style="font-variant: small-caps;">Boost</span> (headers), Boost.Thread and Boost.System (library) for compilers not supporting the keywords <code>thread_local</code> and the class <code>std::mutex</code> </td></tr>
+<tr>
+<td align="left"><code>CGAL_Core</code> </td><td align="left"><code>WITH_CGAL_Core</code> </td><td align="left">The <a class="elRef" doxygen="/home/cgal-testsuite/cgal_doc_build/CGAL-4.11-I-90/doc/scripts/doc_dir/doc_tags/Number_types.tag:../Number_types/" href="../Number_types/namespaceCORE.html">CORE</a> library for algebraic numbers.<span class="footnote"><sup><a href="#cite-text-0-5" name="cite-ref-0-5" id="cite-ref-0-5" dir="ltr" title="CGAL_Core is not part of <span style=&quot;font-variant: small-caps;&quot;>CGAL</span>, but a custom version of the <span style=&quot;font-variant: small-caps;&quot;>Core</span> library distributed by <span style=&quot;font-variant: small-caps;&quot;>CGAL</span> for the user convenience and it has it's own license." class="footnoteLink">[6]</a></sup></span> </td><td align="left"><span style="font-variant: small-caps;">Gmp</span> and <span style="font-variant: small-caps;">Mpfr</span> </td></tr>
+<tr>
+<td align="left"><code>CGAL_ImageIO</code> </td><td align="left"><code>WITH_CGAL_ImageIO</code> </td><td align="left">Utilities to read and write image files </td><td align="left"><span style="font-variant: small-caps;">OpenGL</span>, <span style="font-variant: small-caps;">zlib</span>, <span style="font-variant: small-caps;">Vtk</span>(optional) </td></tr>
+<tr>
+<td align="left"><code>CGAL_Qt5</code> </td><td align="left"><code>WITH_CGAL_Qt5</code> </td><td align="left"><code>QGraphicsView</code> support for <span style="font-variant: small-caps;">Qt</span>5-based demos </td><td align="left"><span style="font-variant: small-caps;">Qt</span>5 and <span style="font-variant: small-caps;">OpenGL</span> </td></tr>
+</tbody></table>
+    
+    <h4>7.1 Debug vs. Release</h4>
+    <p>CMake变量 <mark>CMAKE_BUILD_TYPE</mark> 说明如何编译库. 它接受变量 <mark>Release</mark> 或 <mark>Debug</mark>.</p>
+    <p>对于解决方案/项目文件来说，这不是问题，因为用户可以在IDE中选择构建类型。</p>
+
+    <h4>7.2 Static vs. Shared Libraries</h4>
+    <p>默认编译共享库(动态库)Shared libraries, also called dynamic-link libraries, are built by default (.dll on Windows, .so on Linux, .dylib on MacOS). You can choose to produce static libraries instead by setting the CMake variable <mark>BUILD_SHARED_LIBS</mark> to FALSE. If you use cmake-gui, a tick box for that variable is available to set it.
+    </p>
+    <p>这些设置会影响第三方库参数</p>
+    <p>These setting affect the variants of third-party libraries (see next section) selected whenever the choice is available.</p>
+
+    <h4>7.3 Header-only 选项</h4>
+    <p>从CGAL 4.9开始, CGAL可以单独头文件模式下使用. 通过设置 <mark>CGAL_HEADER_ONLY</mark> 变量</p>
+    <p>Since CGAL 4.9, CGAL can be used in headers only mode, i.e. without compiling the CGAL libraries and linking with these libraries when compiling examples, tests and demos. This possibility can be enabled by setting the value of the CMake variable CGAL_HEADER_ONLY to ON. CMake version 3.0.0 or higher is required to use this option.</p>
+    <p>在Windows下使用CGAL头文件模式会有一个可能问题</p>
+    <p>There is one possible problem when using CGAL in header-only mode on a Windows operating system when compiling a program using several modules (executable programs or dynamic-link libraries DLL). If two different modules use the same static variable, this variable is defined independently in each of these modules. If one module modifies the value of this variable, it will not be modified in the other module, which could induce an unexpected behavior. In CGAL, this concerns only a few specific variables: the default random, the failure behavior, IO mode. One example is the following: if you change the default random in one DLL, then if you use the default random in another DLL, you will not obtain the modified default random but the original one.</p>
+
+
+    <h3>8 必要第三方库</h3>
+    <p>The focus of CGAL is on geometry, and we rely on other highly specialized libraries and software for non-geometric issues, for instance, for numeric solvers, or visualization. We first list software that is essential to build (all) libraries of CGAL, that is, this software must be found during the configuration of CGAL for an actived library of CGAL (i.e. <mark>WITH_(library)=ON</mark>); see sec3partysoftwareconfig to specify the location of 3rd party software.</p>
+    <p>The libraries STL (shipped with any compiler) and Boost are essential to all components (i.e. libCGAL, libCGAL_Core, libCGAL_ImageIO, and libCGAL_Qt5)</p>
+
+    <h4>8.1 Standard Template Library (STL)</h4>
+    <p>CGAL依赖于STL, 采用了非常多设计思想.</p>
+    <p>STL随编译器一起提供, 不需要安装</p>
+
+    <h4>8.2 Boost</h4>
+    <p>Boost是一组便携式C++源代码库. 大部分Boost库只需要头文件, 一小部分库需要编译或安装二进制库.<p>
+    <p>在Windows上, 设置环境变量<mark>BOOST_ROOT</mark></p>
+    <p>CGAL requires the Boost libraries. In particular the header files and the threading library (Boost.Thread and Boost.System binaries). Version 1.48 (or higher) are needed for compilers not supporting the keyword thread_local and the class std::mutex (This is supported for GCC 4.8 and later when using the C++ 11 standard, and for Visual C++ starting with 2015, that is VC14).</p>
+
+    <p>On Windows, as auto-linking is used, you also need the binaries of Boost.Serialization and Boost.DateTime, but the dependency is artificial and used only at link-time: the CGAL libraries do not depend on the DLL's of those two libraries.<p>
+    <p>In CGAL some demos and examples depend on Boost.Program_options.</p>
+    <p>In case the Boost libraries are not installed on your system already, you can obtain them from <a href="http://www.boost.org/">http://www.boost.org/</a>. For Visual C++ you can download precompiled libraries from <a href="http://sourceforge.net/projects/boost/files/boost-binaries/">http://sourceforge.net/projects/boost/files/boost-binaries/</a>. For Visual C++ versions prior to 2015 Boost.Thread is required, so make sure to either install the precompiled libraries for your compiler or build libboost-thread and libboost-system.</p>
+
+<p>As on Windows there is no canonical directory for where to find Boost, we recommend that you define the environment variable <mark>BOOST_ROOT</mark> and set it to where you have installed Boost, e.g., C:\boost\boost_1_41_0.</p>
+
+    <h4>8.3 GMP 和 MPFR</h4>
+    <p>CGAL-Setup.exe会提供预编译库下载. Visual C++不支持Gmp和Mpfr项目.</p>
+    <p>The components libCGAL, libCGAL_Core, and libCGAL_Qt5 require Gmp and Mpfr which are libraries for multi precision integers and rational numbers, and for multi precision floating point numbers.</p>
+
+    <p>CGAL combines floating point arithmetic with exact arithmetic, in order to be efficient and reliable. CGAL has a built-in number type for that, but Gmp and Mpfr provide a faster solution, and we recommend to use them.</p>
+
+    <p>Having Gmp version 4.2 or higher and Mpfr version 2.2.1 or higher installed is recommended. These libraries can be obtained from <a href="http://gmplib.org/">http://gmplib.org/</a> and <a href="http://www.mpfr.org/">http://www.mpfr.org/</a>, respectively.</p>
+
+    <p>As Visual C++ is not properly supported by the Gmp and Mpfr projects, we provide precompiled versions of Gmp and Mpfr, which can be downloaded with the installer CGAL--Setup.exe.</p>
+
+    <h4>8.4 zlib</h4>
+    <p><mark>zlib</mark>是一个数据压缩库, <mark>libCGAL_ImageIO</mark>库依赖于它</p>
+    <p>In CGAL this library is used in the examples of the <mark>3D Surface Mesh Generation Reference package</mark>.</p>
+
+    <p>If it is not already on your system, for instance, on Windows, you can download it from http://www.zlib.net/.</p>
+
+    <h4>8.5 OpenGL</h4>
+    <p>OpenGL一般随系统安装, 不需要单独配置</p>
+    <p>OpenGL (Open Graphics Library) provides an API for applications that produce 2D and 3D computer graphics.</p>
+
+    <p>In CGAL the library is essential for the component libCGAL_Qt5, as well as libCGAL_ImageIO and for various demos.</p>
+
+    <p>Typically, OpenGL is preinstalled on systems; if not, it can be downloaded from <a href="http://www.opengl.org/">http://www.opengl.org/</a>.</p>
+
+    <h4>8.6 Qt5</h4>
+    <p>Qt is a cross-platform application and UI framework.</p>
+
+    <p>The component libCGAL_Qt5 requires Qt5 installed on your system. In case Qt is not yet installed on your system, you can download it from <a href="http://download.qt.io/official_releases/qt/">Qt5</a>.</p>
+
+    <p>The exhaustive list of Qt5 components used in demos is: Core, Gui, Help, OpenGL, Script, ScriptTools, Svg, Widgets, qcollectiongenerator (with sqlite driver plugin) and Xml.</p>
+
+    <p>Having Qt5 version 5.3.0 is recommended.</p>
+
+    <h3>9 CGAL 示例和演示 Examples and Demos</h3>
+    <p>CGAL有大量的示例和演示. 默认不编译, 你可以通过设置CMake变量<mark>WITH_examples=ON</mark> 和/或 <mark>WITH_demos=ON</mark>来编译</p>
+    <p>CGAL is distributed with a large collection of examples and demos. By default, these are not configured along with the CGAL libraries, unless you set the variables <mark>WITH_examples=ON</mark> and/or <mark>WITH_demos=ON</mark>.</p>
+
+    <p>Nevertheless, even when configured with CGAL, they are not automatically built along with the libraries. You must build the examples or demos targets (or IDE projects) explicitly.</p>
+
+    <p>If you do not plan to compile any demos, you might skip some of the essential libraries (as Qt or OpenGL), as the corresponding CGAL-libraries are not linked. But for your own demos you might need these CGAL-libraries.
+
+    </p>
+
+    <h3>10 可选第三方库</h3>
+    <ol>
+        <li>LEDA</li>
+        <li>MPFI</li>
+        <li>RS和RS3</li>
+        <li>NTL</li>
+        <li>Eigen</li>
+        <li>libQGLViewer, 用于一些3d演示</li>
+        <li>ESBTL</li>
+        <li>Intel TBB, 用于提供了并行计算的内核</li>
+        <li>LASlib</li>
+    </ol>
+
+
+    <h3> 依赖项 Prerequisites</h3>
+    <div class="container">
+        <p>CGAL安装需要先安装一些第三方组件: 一个支持的编译器, CMake, Boost, 最新GMP, MPFR. 还有一些第三方库</p>
+        <h5>CMake</h5>
+        <p>下载和安装<a href="https://cmake.org/download/">CMake</a></p>
+
+        <h5>CGAL安装程序</h5>
+        <p><a href="https://www.cgal.org/download/last">CGAL安装程序</a></p>
+
+        <h5>Boost预编译库</h5>
+        <p>下载<a href="http://sourceforge.net/projects/boost/files/boost-binaries/">SourceForge上的Boost预编译库</a>，它包括了boost头文件和已编译库。<p>
+        <p>然后，设置Boost环境变量。下面是一个示例</p>
+        <pre><code class="bat">        BOOST_LIBRARYDIR=C:\develop\boost_1_65_1\lib64-msvc-14.0
+        BOOST_INCLUDEDIR=C:\develop\boost_1_65_1</code></pre>
+        <p>把二进制库目录添加到PATH环境变量</p>
+        <pre><code class="bat">        我在PATH环境变量中添加变量 PATH=%BOOST_LIBRARYDIR%;%PATH%</code></pre>
+
+        <h5>QT5</h5>
+        <ul>
+            <li>下载和安装<a href="http://download.qt.io/official_releases/qt/">Qt5</a></li>
+            <li>设置环境变量, 下面是我的参数示例<pre><code class="bat">QTDIR=D:\\Qt\\Qt5.9.3\\5.9.3\\msvc2015_64</code></pre></li>
+            <li>把二进制库目录添加到PATH环境变量, 下面是我的参数示例<pre><code class="bat">PATH=%QTDIR%\bin;%PATH%</code><pre></li>
+        </ul>
+
+        <h5>libQGLViewer</h5>
+        <ul>
+            <li>下载源代码<a href="http://www.libqglviewer.com/">libQGLViewer</a></li>
+            <li>我把它解压到<pre><code class="bat">D:\Develop\Libs\libQGLViewer-2.7.1</code></pre></li>
+            <li>启动VS2015 x64命令行,进入目录</li>
+            <li><pre><code class="bat">    cd /d D:\Develop\Libs\libQGLViewer-2.7.1
+  qmake.exe
+  nmake</code></pre></li>
+            <li>定义环境变量QGLVIEWERROOT<pre><code class="bat">    QGLVIEWERROOT= D:\Develop\Libs\libQGLViewer-2.7.1\</code></pre></li>
+            <li>把二进制库目录添加到PATH环境变量, 下面是我的参数示例<pre><code class="bat">PATH=%QGLVIEWERROOT%\QGLViewer;%PATH%</code><pre></li>
+        </ul>
+    </div>
+
+    <hr>
+    <h2>编译CGAL</h2>
+    <p>运行安装程序，选择你想要安装的版本（这只是用来下载预编译的GMP和MPFR）。<br>Run the installer and select the version you want to install (this is only used to download the precompiled GMP and MPFR).</p>
+    <p><pre><code>   我选择 C:\dev\CGAL-4.11 作为安装目录</code></pre></p>
+
+    <h3>编译步骤</h3>
+    <ol>
+        <li>打开CMake-GUI</li>
+        <li>设置源文件和编译目录<pre><code>   我分别选择 C:\dev\CGAL-4.11 作为源文件，D:\Develop\build\vc140\CGAL-4.11作为编译目录</code></pre></li>
+        <li>点击"Configure"按钮</li>
+        <li>选择"Visual Studio xx xxxx"生成32位版本, "Visual Studio xx xxxx Win64"生成64位版本</li>
+        <li>修改 CMAKE_INSTALL_PREFIX 变量, 设置库安装目录<pre><code>   我的设置为 CMAKE_INSTALL_PREFIX=D:\Develop\Packages\CGAL</code></pre></li>
+        <li>点击"Generate"<pre><code>   CMake会在D:\Develop\build\vc140\CGAL-4.11目录下生成 CGAL.sln</code></pre></li>
+        <li>运行Visual Studio编译所有库</li>
+        <li>把编译后二进制库目录添加到PATH<pre><code>   我把库放在C:\app\vc140\bin</code></pre></li>
+
+    </ol>
+    
+    <hr>
+
+    <h3>编译Examples例子</h3>
+    <p>Examples例子不需要Qt5或者libQGLViewer</p>
+    <ol>
+        <li>打开CMake-GUI</li>
+        <li>选择CGAL安装目录下的examples目录"Convex_hull_2"<pre><code>    我的是C:\dev\CGAL-4.11\example\Convex_hull_2</code></pre></li>
+        <li>选择输出目录<pre><code>    我的是 D:\Develop\build\vc140\CGAL-4.11\example\Convex_hull_2</code></pre></li>
+        <li>点击 Configure 然后 Generate</li>
+        <li>在编译目录下会生成解决方案,打开并运行它<pre><code>    我的是 D:\Develop\build\vc140\CGAL-4.11\example\Convex_hull_2\Convex_hull_2_Examples.sln</code></pre></li>
+        <li>一旦编译完成, 你可以直接在VS中运行它们或者运行Debug或Release目录下的.exe文件</li>
+    </ol>
+
+    
+    <hr>
+
+    <h3>编译Demo示例</h3>
+    <p>示例需要Qt5</p>
+    <ol>
+        <li>打开CMake-GUI</li>
+        <li>选择CGAL安装目录下的demo目录"demo/Triangulation_3"<pre><code>    我的是C:/dev/CGAL-4.11/demo/Triangulation_3</code></pre></li>
+        <li>选择输出目录<pre><code>    我的是 D:/Develop/build/vc140/CGAL-4.11/demo/Triangulation_3</code></pre></li>
+        <li>点击 Configure 然后 Generate</li>
+        <li>在编译目录下会生成解决方案,打开并运行它<pre><code>    我的是 D:\Develop\build\vc140\CGAL-4.11\example\Convex_hull_2\Convex_hull_2_Examples.sln</code></pre></li>
+        <li>一旦编译完成, 你可以直接在VS中运行它们或者运行Debug或Release目录下的.exe文件</li>
+    </ol>
+
+
+
+    <h3>历史:</h3>
+    <ol>
+        <li>2017-12-11: 创建文档</li>
+    </ol>
+
+</div>
+</body>
+</html>

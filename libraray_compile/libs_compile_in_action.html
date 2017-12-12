@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>C++库编译实践</title>
+	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <link href="https://cdn.bootcss.com/highlight.js/9.12.0/styles/vs2015.min.css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.bootcss.com/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+
+    <script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+<div class="container">
+	<h2 id="boost_compile">boost1.65.1+VC2015 64位库编译记录</h2>
+	<ol>
+		<li>下载源代码 <a href="https://dl.bintray.com/boostorg/release/1.65.1/source/">https://dl.bintray.com/boostorg/release/1.65.1/source/boost_1_65_1.zip</a></li>
+		<li>解压缩到 D:\Develop\Libs\boost_1_65_1</li>
+		<li>打开命令行窗口</li>
+	</ol>
+	<p>运行下列命令</p>
+	<div class="container">
+		<pre><code class="bat">"C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\vcvarsall.bat" amd64
+cd /d D:\Develop\Libs\boost_1_65_1
+bootstrap.bat
+b2 -j%NUMBER_OF_PROCESSORS% --without-mpi --build-type=complete toolset=msvc-14.0 address-model=64 architecture=x86 --prefix=.\ --libdir=lib64-msvc-14.0 --includedir=garbage_headers install</code></pre>
+	</div>
+	<p>编译成果:</p>
+	<div class="container">
+		<pre><code>    头文件在 D:\Develop\Libs\boost_1_65_1\garbage_headers\boost-1_65_1
+	    库文件和二进制文件在 D:\Develop\Libs\boost_1_65_1\lib64-msvc-14.0</code></pre>
+	</div>
+
+	<h2 id="cgal-swig-bindings">cgal-swig-bindings安装</h2>
+	<p>需要先安装下列包:</p>
+	<ul>
+		<li>CGAL >= 4.0</li>
+		<li>SWIG >= 2.0</li>
+		<li>CMake >= 2.8</li>
+		<li>Python 3.6开发包</li>
+		<li>CGAL在一些包中使用的Eigen3</li>
+	</ul>
+	<p>注意事项:</p>
+	<ul>
+		<li>使用CMake进行配置</li>
+		<li>输出Python <mark>BUILD_PYTHON=[ON/OFF]</mark></li>
+		<li>输出Java <mark>BUILD_JAVA=[ON/OFF]</mark></li>
+		<li>指定Java包输出目录 <mark>JAVA_OUTDIR_PREFIX</mark></li>
+		<li>指定Python包输出目录 <mark>PYTHON_OUTDIR_PREFIX</mark>, 默认为 <mark>CURRENT_PATH/build-python</mark></li>
+		<li>公共库目录 <mark>COMMON_LIBRARIES_PATH</mark>, 默认为 <mark>CURRENT_PATH/lib</mark></li>
+	</ul>
+</div>
+</body>
+</html>

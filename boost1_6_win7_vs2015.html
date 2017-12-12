@@ -21,6 +21,9 @@
             line-height: 150%;
             text-indent:2em;
         }
+        .yynote{
+            font-size: 8pt;
+        }
     </style>
     <script>hljs.initHighlightingOnLoad();</script>
 </head>
@@ -35,6 +38,12 @@
         <li>或者在boost代码下载站下载源代码或可执行代码<a href="https://dl.bintray.com/boostorg/release">https://dl.bintray.com/boostorg/release</a></li>
     </ol>
 
+    <h4>编译命令参考</h4>
+    <p>到boost二进制文件下载目录, 下载日志文件 <a href="https://dl.bintray.com/boostorg/release/1.65.1/binaries">boost_1_65_1-64bitlog.txt</a>. 它是b2命令很好的参考<span class="yynote"><a href="#note_boost_log">(注:5)</a></span></p>
+    <pre><code class="bat">b2 -j%NUMBER_OF_PROCESSORS% --without-mpi --build-type=complete toolset=msvc-14.0 address-model=64 architecture=x86 --prefix=.\ --libdir=lib64-msvc-14.0 --includedir=garbage_headers install
+b2 -j%NUMBER_OF_PROCESSORS% --without-mpi --build-type=complete toolset=msvc-14.1 address-model=64 architecture=x86 --prefix=.\ --libdir=lib64-msvc-14.1 --includedir=garbage_headers install
+</code></pre>
+
     <h3>可选包</h3>
     <p><a href="http://www.zlib.net/">Zlib library</a>, 环境变量: ZLIB_SOURCE</p>
     <p><a href="http://www.bzip.org/downloads.html">bzip2</a>, 环境变量: BZIP2_SOURCE</p>
@@ -44,7 +53,7 @@
     <hr>
     <h2>在Windows上编译Boost</h2>
     <p>下载完Boost源文件压缩包后, 创建boost-src目录, 并把源文件解压到此目录. 假设你想把Boost安装到boost-dir目录, boost-build目录是中间临时文件. 在命令行执行下面的步骤:</p>
-    <h3>编译器的选择（x86_amd64, amd64等的区别）<span style="font-size: 8pt;">(注:2)</span></h3>
+    <h3>编译器的选择（x86_amd64, amd64等的区别）<span class="yynote"><a href="#note_compiler_select">(注:2)</a></span></h3>
     <ul>
         <li>32/64 位系统编译在32位系统上运行 =&gt; x86</li>
         <li>32 系统上编译64位系统上运行 =&gt; x86_amd64</li>
@@ -107,8 +116,14 @@
     <pre><code class="bat">b2 install --prefix=F:\Develop\bin\x64\boost-1_63 --build-dir=F:\Develop\build\VC14\boost-1_63-build64 address-model=64 architecture=x86 --with-thread <br>&nbsp;默认值：<br>　　--build-type=minimal 　　在Windows上, 生成基于共享运行库的debug和release静态多线程库<br>　　--layout=versioned　　　 在Windows上默认，Boost二进制文件名称包括Boost版本号、编译器名称和版本和编码生成属性。<br>　　　　　　　　　　　　　　　　　　Boost头文件安装在&lt;HDRDIR&gt;子目录 &lt;HDRDIR&gt;的名字包含Boost版本号。 <br>
 </code></pre>
 
-    <h4>5. 编译和安装64位库(boost.python)(<span style="font-size: 10px;">2017-3-18 1.63)</span></h4>
+    <h4>5. 编译和安装64位库(boost.python)<span style="font-size: 10px;">(2017-3-18 1.63)</span></h4>
     <pre><code class="bat">b2 install --prefix=D:\Develop\bin\vc14\x64\boost-1_63 --build-dir=D:\Develop\build\vc14\boost-1_63-build64 address-model=64 architecture=x86 toolset=msvc-14.0 --with-python link=shared
+</code></pre>
+
+    <hr>
+    <h3>下面是boost自带编译参数的例子</h3>
+    <pre><code class="bat">b2 -j%NUMBER_OF_PROCESSORS% --without-mpi --build-type=complete toolset=msvc-14.1 address-model=64 architecture=x86 --prefix=.\ --libdir=lib64-msvc-14.1 --includedir=garbage_headers install
+b2 -j%NUMBER_OF_PROCESSORS% --without-mpi --build-type=complete toolset=msvc-14.0 address-model=64 architecture=x86 --prefix=.\ --libdir=lib64-msvc-14.0 --includedir=garbage_headers install
 </code></pre>
 
     <hr>
@@ -119,9 +134,10 @@
     <h3>修订:</h3>
     <ol>
         <li>2016-11-09: 64位编译需要加入CPU架构参数: architecture=x86</li>
-        <li>2016-11-23: 编译器的选择（x86_amd64, amd64等的区别）, 内容进行了整理, boost更新到1.62.0</li>
+        <li id="note_compiler_select">2016-11-23: 编译器的选择（x86_amd64, amd64等的区别）, 内容进行了整理, boost更新到1.62.0</li>
         <li>2017-03-02: 使用默认参数编译, boost更新到1.63.0</li>
         <li>2017-04-15: 建议关闭boost自动链接功能</li>
+        <li id="note_boost_log">2017-12-12: 加入对boost_1_65_1-64bitlog.txt参考</li>
     </ol>
 
 
