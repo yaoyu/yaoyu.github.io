@@ -15,7 +15,7 @@
 </head>
 <body>
 <div class="container">
-	<h2 id="boost_compile">boost1.65.1+VC2015 64位库编译记录</h2>
+	<h2 id="boost_compile">▲ boost1.65.1+VC2015 64位库编译记录</h2>
 	<ol>
 		<li>下载源代码 <a href="https://dl.bintray.com/boostorg/release/1.65.1/source/">https://dl.bintray.com/boostorg/release/1.65.1/source/boost_1_65_1.zip</a></li>
 		<li>解压缩到 D:\Develop\Libs\boost_1_65_1</li>
@@ -34,7 +34,29 @@ b2 -j%NUMBER_OF_PROCESSORS% --without-mpi --build-type=complete toolset=msvc-14.
 	    库文件和二进制文件在 D:\Develop\Libs\boost_1_65_1\lib64-msvc-14.0</code></pre>
 	</div>
 
-	<h2 id="cgal-swig-bindings">cgal-swig-bindings安装</h2>
+	<hr>
+
+	<h2 id="cgal-4.11">▲ CGAL 4.11安装</h2>
+	<p>需要先安装下列包:</p>
+	<ul>
+		<li>下载CGAL-setup.exe, 安装CGAL源文件和GMP和MPFR.</li>
+		<li>STL, 编译器自带</li>
+		<li>Boost >= 1.48, </li>
+		<li>GMP和MPFR, 会在CGAL-setup.exe运行中下载, 不需要单独安装</li>
+		<li>zlib, 在libCGAL_ImageIO中使用</li>
+		<li>OpenGL, 系统自带, libCGAL_Qt5,libCGAL_ImageIO需要</li>
+		<li>Qt5, libCGAL_Qt5需要</li>
+		<li>CMake >= 2.8</li>
+		<li>CGAL在一些包中使用的Eigen3</li>
+	</ul>
+	<p>注意事项:</p>
+	<ul>
+		<li>使用CMake进行配置</li>
+	</ul>
+
+	<hr>
+
+	<h2 id="cgal-swig-bindings">▲ cgal-swig-bindings安装</h2>
 	<p>需要先安装下列包:</p>
 	<ul>
 		<li>CGAL >= 4.0</li>
