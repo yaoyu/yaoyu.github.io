@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Math 基于空间直角坐标系的基向量应用研究</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <link href="https://cdn.bootcss.com/highlight.js/9.12.0/styles/vs2015.min.css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.bootcss.com/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+
+    <style>
+        .mynote{
+            font-size:50%;
+            font-weight: normal;
+        }
+    </style>
+    <script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+<div class="container">
+    <h1>基于笛卡尔直角坐标系的基向量应用研究</h1>
+    <p><small>2017年12月15日 姚彧</small></p>
+    <hr>
+    <h2>1. 定义</h2>
+    <h3>1.1 空间直角坐标系 <small><a class="mynote" target="_blank" href="https://baike.baidu.com/item/%E7%AC%9B%E5%8D%A1%E5%B0%94%E5%9D%90%E6%A0%87%E7%B3%BB/4522878?fr=aladdin">[百度百科]</a> </small></h3>
+    <p>过定点O，作三条互相垂直的数轴，它们都以O为原点且一般具有相同的长度单位. 这三条轴分别叫做x轴(横轴）、y轴(纵轴)、z轴(竖轴)；它们的正方向要符合右手规则，即以右手握住z轴，当右手的四指从正向x轴以π/2角度转向正向y轴时，大拇指的指向就是z轴的正向，这样的三条坐标轴就组成了一个空间直角坐标系，点O叫做坐标原点。这样就构成了一个笛卡尔坐标。</p>
+
+    <h3>1.2 基向量 <small><a class="mynote" target="_blank" href="https://baike.baidu.com/item/%E5%9F%BA%E5%90%91%E9%87%8F/2090179?fr=aladdin">[百度百科]</a> </small></h3>
+    <p>在线性代数中，<mark>基</mark>(basis)（也称为<mark>基底</mark>）是描述、刻画向量空间的基本工具。向量空间的基是它的一个特殊的子集，基的元素称为基向量。</p>
+    <p>给定一个向量空间 <i>V</i>。<i>V</i>的一组基<i>B</i>是指<i>V</i>里面的可线性生成<i>V</i>的一个<mark>线性无关子集</mark>。<i>B</i>的元素称为<mark>基向量</mark>。</p>
+    <p>更详细来说，设 <i>B</i>={e<sub>1</sub>,e<sub>2</sub>,..., e<sub>n</sub>} 是在系数域F（比如实数域R或复数域C）上的向量空间V的有限子集。如果满足下列条件：<p>
+    <p>    对任意 ( λ<sub>1</sub>, λ<sub>2</sub>, ..., λ<sub>n</sub>) ∈F<sup>n</sup>，
+        如果 λ<sub>1</sub>e<sub>1</sub> + λ<sub>2</sub>e<sub>2</sub> + ... + λ<sub>n</sub>e<sub>n</sub> = 0 ，
+        则必然 λ<sub>1</sub>= λ<sub>2</sub> = ... = λ<sub>n</sub> = 0 ；<p>
+    <p>对任意 <i>v</i> ∈ <i>V</i> ，可以选择 ( λ<sub>1</sub>, λ<sub>2</sub>, ..., λ<sub>n</sub>) ∈F<sup>n</sup> ，使得 <i>v</i> = λ<sub>1</sub>e<sub>1</sub> + λ<sub>2</sub>e<sub>2</sub> + ... + λ<sub>n</sub>)e<sub>n</sub> 。</p>
+    <p>就是<i>B</i>是向量空间<i>V</i>的一组<mark>基</mark>. 第二个条件中，将一个向量  <i>v</i> ∈ <i>V</i> 表示成 λ<sub>1</sub>e<sub>1</sub> + λ<sub>2</sub>e<sub>2</sub> + ... + λ<sub>n</sub>e<sub>n</sub> 的形式，
+        称为向量 v在基底 <i>B</i> 下的分解。  ( λ<sub>1</sub>, λ<sub>2</sub>, ..., λ<sub>n</sub>) 称为向量<i>v</i>在基底<i>B</i>下的分量表示。</p>
+
+    <hr>
+    <h2>2. 应用</h2>
+
+</div>
+</body>
+</html>

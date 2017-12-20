@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue.js 04.05 结果过滤</title>
+    <link href="https://cdn.bootcss.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.slim.min.js"></script>
+    <script src="https://cdn.bootcss.com/popper.js/1.12.3/umd/popper.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.11/vue.min.js"></script>
+</head>
+<body>
+<div id="app" class="container">
+    <h1>让我们听些诗</h1>
+    <div>
+        <h3>李白的诗</h3>
+        <ul class="list-group">
+            <li v-for="(story, index) in stories | filterByWriter('唐·李白')" class="list-group-item">
+                {{index}}. {{ story.writer }} 说 "{{ story.plot }}"
+            </li>
+        </ul>
+        <!--
+        <h3>岳飞的诗</h3>
+        <ul class="list-group">
+            <li v-for="(story, index) in stories |filterBy  '岳飞' in 'writer'" class="list-group-item">
+                {{index}}. {{ story.writer }} 说 "{{ story.plot }}"
+            </li>
+        </ul>
+        -->
+    </div>
+    <pre>{{ $data | json }}
+    </pre>
+</div>
+<script>
+    Vue.filter('filterByWriter', function(value, writer){
+        return value.indexOf(writer)>=0;
+    })
+    var app = new Vue({
+        el: '#app',
+        data: {
+            stories: [
+                {plot:'《破阵子·为陈同甫赋壮词以寄之》', writer: '宋·辛弃疾 '},
+                {plot:'《将进酒·君不见》', writer: '唐·李白'},
+                {plot:'《满江红·写怀》', writer: '宋·岳飞 '}
+            ]
+        }
+    })
+</script>
+</body>
+</html>
