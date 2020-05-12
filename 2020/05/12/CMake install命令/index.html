@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yao_yu.gitee.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="CMake installinstall命令用于指定安装时规则 语法123456install(TARGETS &lt;target&gt;... [...])install(&amp;#123;FILES | PROGRAMS&amp;#125; &lt;file&gt;... [...])install(DIRECTORY &lt;dir&gt;... [...])install(SCRIPT &lt;fil">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CMake install命令">
+<meta property="og:url" content="https://yao_yu.gitee.io/2020/05/12/CMake%20install%E5%91%BD%E4%BB%A4/index.html">
+<meta property="og:site_name" content="大师之路">
+<meta property="og:description" content="CMake installinstall命令用于指定安装时规则 语法123456install(TARGETS &lt;target&gt;... [...])install(&amp;#123;FILES | PROGRAMS&amp;#125; &lt;file&gt;... [...])install(DIRECTORY &lt;dir&gt;... [...])install(SCRIPT &lt;fil">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-05-12T04:06:24.445Z">
+<meta property="article:modified_time" content="2020-05-12T04:05:42.756Z">
+<meta property="article:author" content="老树">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://yao_yu.gitee.io/2020/05/12/CMake%20install%E5%91%BD%E4%BB%A4/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>CMake install命令 | 大师之路</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">大师之路</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://yao_yu.gitee.io/2020/05/12/CMake%20install%E5%91%BD%E4%BB%A4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="老树">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="大师之路">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          CMake install命令
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-05-12 12:06:24 / 修改时间：12:05:42" itemprop="dateCreated datePublished" datetime="2020-05-12T12:06:24+08:00">2020-05-12</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="CMake-install"><a href="#CMake-install" class="headerlink" title="CMake install"></a>CMake install</h1><p><code>install</code>命令用于指定安装时规则</p>
+<h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">install</span>(TARGETS &lt;<span class="keyword">target</span>&gt;... [...])</span><br><span class="line"><span class="keyword">install</span>(&#123;FILES | PROGRAMS&#125; &lt;<span class="keyword">file</span>&gt;... [...])</span><br><span class="line"><span class="keyword">install</span>(DIRECTORY &lt;dir&gt;... [...])</span><br><span class="line"><span class="keyword">install</span>(SCRIPT &lt;<span class="keyword">file</span>&gt; [...])</span><br><span class="line"><span class="keyword">install</span>(CODE &lt;code&gt; [...])</span><br><span class="line"><span class="keyword">install</span>(<span class="keyword">EXPORT</span> &lt;<span class="keyword">export</span>-name&gt; [...])</span><br></pre></td></tr></table></figure>
+
+<h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>本命令为项目生成安装规则。在同一个源目录内的规则按顺序执行，跨目录没有定义安装顺序。</p>
+<h2 id="安装目标"><a href="#安装目标" class="headerlink" title="安装目标"></a>安装目标</h2><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">install</span>(TARGETS targets... [<span class="keyword">EXPORT</span> &lt;<span class="keyword">export</span>-name&gt;]</span><br><span class="line">        [[ARCHIVE|LIBRARY|RUNTIME|OBJECTS|FRAMEWORK|BUNDLE|</span><br><span class="line">          PRIVATE_HEADER|PUBLIC_HEADER|RESOURCE]</span><br><span class="line">         [DESTINATION &lt;dir&gt;]</span><br><span class="line">         [PERMISSIONS permissions...]</span><br><span class="line">         [CONFIGURATIONS [Debug|Release|...]]</span><br><span class="line">         [COMPONENT &lt;component&gt;]</span><br><span class="line">         [NAMELINK_COMPONENT &lt;component&gt;]</span><br><span class="line">         [OPTIONAL] [EXCLUDE_FROM_ALL]</span><br><span class="line">         [NAMELINK_ONLY|NAMELINK_SKIP]</span><br><span class="line">        ] [...]</span><br><span class="line">        [INCLUDES DESTINATION [&lt;dir&gt; ...]]</span><br><span class="line">        )</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th><strong>Target Type</strong></th>
+<th><strong>GNUInstallDirs Variable</strong></th>
+<th><strong>Built-In Default</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>RUNTIME</td>
+<td>${CMAKE_INSTALL_BINDIR}</td>
+<td>bin</td>
+</tr>
+<tr>
+<td>LIBRARY</td>
+<td>${CMAKE_INSTALL_LIBDIR}</td>
+<td>lib</td>
+</tr>
+<tr>
+<td>ARCHIVE</td>
+<td>${CMAKE_INSTALL_LIBDIR}</td>
+<td>lib</td>
+</tr>
+<tr>
+<td>PRIVATE_HEADER</td>
+<td>${CMAKE_INSTALL_INCLUDEDIR}</td>
+<td>include</td>
+</tr>
+<tr>
+<td>PUBLIC_HEADER</td>
+<td>${CMAKE_INSTALL_INCLUDEDIR}</td>
+<td>include</td>
+</tr>
+</tbody></table>
+<h2 id="安装文件"><a href="#安装文件" class="headerlink" title="安装文件"></a>安装文件</h2><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">install</span>(&lt;FILES|PROGRAMS&gt; files...</span><br><span class="line">        TYPE &lt;type&gt; | DESTINATION &lt;dir&gt;</span><br><span class="line">        [PERMISSIONS permissions...]</span><br><span class="line">        [CONFIGURATIONS [Debug|Release|...]]</span><br><span class="line">        [COMPONENT &lt;component&gt;]</span><br><span class="line">        [RENAME &lt;name&gt;] [OPTIONAL] [EXCLUDE_FROM_ALL])</span><br></pre></td></tr></table></figure>
+
+<p><code>FILE</code>参数为项目中文件安装指定了规则。相对路径是指相对于当前源目录。如果不指定<code>PERMISSIONS</code>参数，则安装文件的默认权限为<code>OWNER_WRITE</code>、<code>OWNER_READ</code>、<code>GROUP_READ</code>和<code>WORLD_READ</code>。</p>
+<p><code>PROGRAM</code>参数除了包括<code>FILE</code>参数功能与权限外，还有<code>OWNER_EXECUTE</code>, <code>GROUP_EXECUTE</code>和<code>WORLD_EXECUTE</code>权限。它用于安装没有目标的执行程序，比如脚本。</p>
+<p>必须提供<code>TYPE</code>或<code>DESTINATION</code>，但不能同时提供。</p>
+<table>
+<thead>
+<tr>
+<th><strong>Type Argument</strong></th>
+<th><strong>GNUInstallDirs Variable</strong></th>
+<th><strong>Built-In Default</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>RUNTIME</td>
+<td>${CMAKE_INSTALL_BINDIR}</td>
+<td>bin</td>
+</tr>
+<tr>
+<td>SBIN</td>
+<td>${CMAKE_INSTALL_SBINDIR}</td>
+<td>sbin</td>
+</tr>
+<tr>
+<td>LIB</td>
+<td>${CMAKE_INSTALL_LIBDIR}</td>
+<td>lib</td>
+</tr>
+<tr>
+<td>INCLUDE</td>
+<td>${CMAKE_INSTALL_INCLUDEDIR}</td>
+<td>include</td>
+</tr>
+<tr>
+<td>SYSCONF</td>
+<td>${CMAKE_INSTALL_SYSCONFDIR}</td>
+<td>etc</td>
+</tr>
+<tr>
+<td>SHAREDSTATE</td>
+<td>${CMAKE_INSTALL_SHARESTATEDIR}</td>
+<td>com</td>
+</tr>
+<tr>
+<td>LOCALSTATE</td>
+<td>${CMAKE_INSTALL_LOCALSTATEDIR}</td>
+<td>var</td>
+</tr>
+<tr>
+<td>RUNSTATE</td>
+<td>${CMAKE_INSTALL_RUNSTATEDIR}</td>
+<td><code>&lt;LOCALSTATE dir&gt;/run</code></td>
+</tr>
+<tr>
+<td>DATA</td>
+<td>${CMAKE_INSTALL_DATADIR}</td>
+<td><code>&lt;DATAROOT dir&gt;</code></td>
+</tr>
+<tr>
+<td>INFO</td>
+<td>${CMAKE_INSTALL_INFODIR}</td>
+<td><code>&lt;DATAROOT dir&gt;/info</code></td>
+</tr>
+<tr>
+<td>LOCALE</td>
+<td>${CMAKE_INSTALL_LOCALEDIR}</td>
+<td><code>&lt;DATAROOT dir&gt;/locale</code></td>
+</tr>
+<tr>
+<td>MAN</td>
+<td>${CMAKE_INSTALL_MANDIR}</td>
+<td><code>&lt;DATAROOT dir&gt;/man</code></td>
+</tr>
+<tr>
+<td>DOC</td>
+<td>${CMAKE_INSTALL_DOCDIR}</td>
+<td><code>&lt;DATAROOT dir&gt;/doc</code></td>
+</tr>
+</tbody></table>
+<p>示例：</p>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">include</span>(GNUInstallDirs)</span><br><span class="line"><span class="keyword">install</span>(FILES mylib.h</span><br><span class="line">        DESTINATION <span class="variable">$&#123;CMAKE_INSTALL_INCLUDEDIR&#125;</span>/myproj</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="安装目录"><a href="#安装目录" class="headerlink" title="安装目录"></a>安装目录</h2><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">install</span>(DIRECTORY dirs...</span><br><span class="line">        TYPE &lt;type&gt; | DESTINATION &lt;dir&gt;</span><br><span class="line">        [FILE_PERMISSIONS permissions...]</span><br><span class="line">        [DIRECTORY_PERMISSIONS permissions...]</span><br><span class="line">        [USE_SOURCE_PERMISSIONS] [OPTIONAL] [MESSAGE_NEVER]</span><br><span class="line">        [CONFIGURATIONS [Debug|Release|...]]</span><br><span class="line">        [COMPONENT &lt;component&gt;] [EXCLUDE_FROM_ALL]</span><br><span class="line">        [FILES_MATCHING]</span><br><span class="line">        [[PATTERN &lt;pattern&gt; | REGEX &lt;regex&gt;]</span><br><span class="line">         [EXCLUDE] [PERMISSIONS permissions...]] [...])</span><br></pre></td></tr></table></figure>
+
+<p><code>DIRECTORY</code>参数用于将一个或多个目录安装到指定目录。目录结构会原样复制到目标目录。每个目录名的最后一个组件被追加到目标目录，但是可以使用一个尾部斜杠来避免这种情况，因为它会使最后一个组件为空。</p>
+<p>示例</p>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">install</span>(DIRECTORY src/ DESTINATION <span class="keyword">include</span>/myproj</span><br><span class="line">        FILES_MATCHING PATTERN <span class="string">"*.h"</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">install</span>(DIRECTORY icons scripts/ DESTINATION share/myproj</span><br><span class="line">        PATTERN <span class="string">"CVS"</span> EXCLUDE</span><br><span class="line">        PATTERN <span class="string">"scripts/*"</span></span><br><span class="line">        PERMISSIONS OWNER_EXECUTE OWNER_WRITE OWNER_READ</span><br><span class="line">                    GROUP_EXECUTE GROUP_READ)</span><br></pre></td></tr></table></figure>
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/05/11/CMake%20Tutorial(v2)/" rel="prev" title="CMake Tutorial(v2)">
+      <i class="fa fa-chevron-left"></i> CMake Tutorial(v2)
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/05/12/%E6%A0%87%E5%87%86%E5%8D%95%E4%BD%8D%E5%90%91%E9%87%8F%E4%B8%8E%E5%9F%BA%E7%A1%80%E7%9F%A9%E9%98%B5/" rel="next" title="标准单位向量与基础矩阵">
+      标准单位向量与基础矩阵 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#CMake-install"><span class="nav-number">1.</span> <span class="nav-text">CMake install</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#语法"><span class="nav-number">1.1.</span> <span class="nav-text">语法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#介绍"><span class="nav-number">1.2.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装目标"><span class="nav-number">1.3.</span> <span class="nav-text">安装目标</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装文件"><span class="nav-number">1.4.</span> <span class="nav-text">安装文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装目录"><span class="nav-number">1.5.</span> <span class="nav-text">安装目录</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">老树</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">5</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">老树</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>
